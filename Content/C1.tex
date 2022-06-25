@@ -33,6 +33,9 @@
         \hspace{0.5cm}
         $||x||$ = $|x|$ = $\sqrt{x_1^2 + x_2^2 + ... + x_n^2}$
         = $(\sum_{i=1}^n x_i^2)^{\frac{1}{2}}$
+        $\in$ $\mathbb{R}$
+
+        A {\color{lblue} unit vector} is a vector with length 1.
     \end{definition}
 
     \vspace{0.5cm}
@@ -111,7 +114,6 @@
             x + (-x) = $0_v$
 
             Moreover, $-x$ = $(-1)x$.
-            This only holds for $\mathbb{R}^n$ and not all vector spaces.
 
             \begin{proof}[15cm]
                 Suppose there are $(-x)_a,(-x)_b$ where
@@ -159,7 +161,7 @@
         \item {\color{lgreen} Multiplicative Associativity}
         
             \hspace{0.5cm}
-            $c_1(c_2)x$ = $(c_1c_2)x$
+            $c_1(c_2x)$ = $(c_1c_2)x$
 
             \begin{proof}[15cm]
                 $c_1(c_2)x$
@@ -180,6 +182,24 @@
             \end{proof}
     \end{enumerate}
 
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Rescaling to a Unit Vector}{16cm}
+        Let x $\in$ $\mathbb{R}^n$. Then, $\frac{x}{|x|}$ is a unit vector.
+    \end{wtheorem}
+
+    \begin{proof}
+        $|\frac{x}{|x|}|$
+        = $\sqrt{(\frac{x_1}{|x|})^2 + ... + (\frac{x_n}{|x|})^2}$
+        = $\frac{1}{|x|} \sqrt{x_1^2 + ... + x_n^2}$
+        = $\frac{1}{|x|} |x|$
+        = 1
+    \end{proof}
+
+    \vspace{0.5cm}
+
     
 
 
@@ -190,12 +210,14 @@
         A $m \times n$ {\color{lblue} matrix} A $\in$ $M_{m \times n}(\mathbb{R})$:
 
         \hspace{0.5cm}
+        \footnotesize
         $\begin{bmatrix}
             a_{11} & a_{12} & \hdots & a_{1n} \\
             a_{21} & a_{22} & \hdots & a_{2n} \\
             \vdots & \vdots & \ddots & \vdots \\
             a_{m1} & a_{m2} & \hdots & a_{mn}
         \end{bmatrix}$
+        \normalsize
         \hspace{0.5cm}
         where each $a_{ij}$ $\in$ $\mathbb{R}$
 
@@ -206,22 +228,25 @@
         and scalar c $\in$ $\mathbb{R}$, define:
 
         \hspace{0.5cm}
-        A + B =
+        A+B =
+        \footnotesize
         $\begin{bmatrix}
             a_{11}+b_{11} & a_{12}+b_{12} & \hdots & a_{1n}+b_{1n} \\
             a_{21}+b_{21} & a_{22}+b_{22} & \hdots & a_{2n}+b_{2n} \\
             \vdots & \vdots & \ddots & \vdots \\
             a_{m1}+b_{m1} & a_{m2}+b_{m2} & \hdots & a_{mn}+b_{mn}
         \end{bmatrix}$
-
-        \hspace{0.5cm}
+        \normalsize
+        \hspace{1cm}
         cA =
+        \footnotesize
         $\begin{bmatrix}
             ca_{11} & ca_{12} & \hdots & ca_{1n} \\
             ca_{21} & ca_{22} & \hdots & ca_{2n} \\
             \vdots & \vdots & \ddots & \vdots \\
             ca_{m1} & ca_{m2} & \hdots & ca_{mn}
         \end{bmatrix}$
+        \normalsize
     \end{definition}
 
     \vspace{0.5cm}
@@ -318,8 +343,6 @@
             A + (-A) = $0_M$
 
             Moreover, $-A$ = $(-1)A$.
-            This only holds for $M_{m \times n}(\mathbb{R})$
-            and not all vector spaces.
 
             \begin{proof}[15cm]
                 Suppose there are $(-A)_a,(-A)_b$ where
@@ -373,7 +396,7 @@
         \item {\color{lgreen} Multiplicative Associativity}
         
             \hspace{0.5cm}
-            $c_1(c_2)A$ = $(c_1c_2)A$
+            $c_1(c_2A)$ = $(c_1c_2)A$
 
             \begin{proof}[15cm]
                 $c_1(c_2)A$ =
@@ -420,14 +443,14 @@
         There are three types of {\color{lblue} elementary row operations}:
 
         \begin{enumerate}[label=(\alph*), leftmargin=1cm, itemsep=0.1cm]
-            \item {\color{lgreen} Row Swapping}:
-                Swapping two rows
-    
             \item {\color{lgreen} Row Multiplication}:
                 Multiplying a row by a nonzero scalar
     
             \item {\color{lgreen} Row Addition}:
                 Add a multiple of a row to another row
+
+            \item {\color{lgreen} Row Swapping}:
+                Swapping two rows
         \end{enumerate}
 
         Note that for any elementary row operation, an entry in the i-th column
@@ -484,7 +507,7 @@
         $\begin{matrix*}[l]
             a_{11}x_1 + a_{12}x_2 + \hdots + a_{1n}x_n = b_1 \\
             a_{21}x_1 + a_{22}x_2 + \hdots + a_{2n}x_n = b_2 \\
-            \hdots \\
+            \vdots \\
             a_{m1}x_1 + a_{m2}x_2 + \hdots + a_{mn}x_n = b_m
         \end{matrix*}$
         \hspace{0.5cm}
@@ -500,7 +523,10 @@
 
         If the i-th column of the rref(A) has a leading 1, then $x_i$ is called
         a {\color{lblue} pivot variable} else it is called a
-        {\color{lblue} free variable}. For example:
+        {\color{lblue} free variable}. The {\color{lblue} rank}
+        of a matrix is equal to the number of pivot variables.
+        
+        For example:
 
         \hspace{0.5cm}
         $\begin{bmatrix}
@@ -1090,8 +1116,9 @@
 
         \normalsize
         The pivot variables are $x_1,x_2,x_4$
-        and the free variable is $x_3$.
-        The solutions are:
+        and the free variable is $x_3$ so the rank is 3.
+
+        The solutions to the system of equations are:
 
         \hspace{0.5cm}
         \small
@@ -1136,6 +1163,1024 @@
         \normalsize
         Thus, $x_3(-2,3,1,0)$
         are the solutions when the equations equal to 0.
+    \end{tbox}
+
+    \vspace{0.5cm}
+
+
+
+
+
+\subsection{ Linear Transformations }
+
+    \begin{definition}{Linear Transformation}{16cm}
+        Function T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^m$
+        is a {\color{lblue} linear transformation}
+        if for any x,y $\in$ $\mathbb{R}^n$ and c $\in$ $\mathbb{R}$:
+
+        \begin{enumerate}[label=(\alph*), leftmargin=1cm, itemsep=0.1cm]
+            \item {\color{lgreen} Closed under Addition}:
+                T(x+y) = T(x) + T(y)
+
+            \item {\color{lgreen} Closed under Scalar Multiplication}:
+                T(cx) = cT(x)
+        \end{enumerate}
+
+        Note for any $x_1,...,x_k$ $\in$ $\mathbb{R}^n$
+        and $c_1,...,c_k$ $\in$ $\mathbb{R}$:
+
+        \hspace{0.5cm}
+        T($c_1x_1 + ... + c_kx_k$)
+        = T($c_1x_1$) + T($c_2x_2 + ... + c_kx_k$)
+
+        \hspace{4.15cm}
+        = $c_1$T($x_1$) + T($c_2x_2$) + T($c_3x_3 + ... + c_kx_k$)
+
+        \hspace{4.15cm}
+        = $c_1$T($x_1$) + $c_2$T($x_2$) + T($c_3x_3$) + T($c_4x_4 + ... + c_kx_k$)
+
+        \hspace{4.15cm}
+        = ... = $c_1$T($x_1$) + ... + $c_k$T($x_k$)
+
+        The {\color{lblue} standard vectors} of $\mathbb{R}^n$
+        are $e_1,...,e_n$ $\in$ $\mathbb{R}^n$ where:
+
+        \hspace{0.5cm}
+        $e_i$ = $(\underset{\scriptscriptstyle 1}{0},...,
+                \underset{\scriptscriptstyle i-1}{0},
+                \underset{\scriptscriptstyle i}{1},
+                \underset{\scriptscriptstyle i+1}{0},...,
+                \underset{\scriptscriptstyle n}{0})$
+    \end{definition}
+
+    \newpage
+
+
+
+    \begin{wtheorem}{T(0) = 0}{16cm}
+        Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^m$
+        be a linear transformation. Then for 0 $\in$ $\mathbb{R}^n$:
+
+        \hspace{0.5cm}
+        T(0) = 0 $\in$ $\mathbb{R}^m$
+    \end{wtheorem}
+
+    \begin{proof}
+        Let $0_n$ be the zero vector in $\mathbb{R}^n$
+        and $0_m$ be the zero vector in $\mathbb{R}^m$.
+        Since 0($0_n$) = $0_n$, then:
+
+        \hspace{0.5cm}
+        T($0_n$) = T(0($0_n$)) = 0T($0_n$) = $0_m$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Every Linear Transformation is a Matrix Transformation}{16cm}
+        Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^m$
+        be a linear transformation. Then for any x $\in$ $\mathbb{R}^n$:
+
+        \hspace{0.5cm}
+        T(x) = Ax
+
+        with A $\in$ $M_{m \times n}(\mathbb{R})$ where
+        A =
+        $\begin{bmatrix}
+            T(e_1) & T(e_2) & \hdots & T(e_n)
+        \end{bmatrix}$
+        is called the {\color{lblue} standard matrix}
+    \end{wtheorem}
+
+    \begin{proof}
+        Since any x $\in$ $\mathbb{R}^n$ is
+        x = $(x_1,...,x_n)$
+        = $x_1e_1 + ... + x_ne_n$, then:
+
+        \hspace{0.5cm}
+        T(x)
+        = T($x_1e_1 + ... + x_ne_n$)
+        = $x_1$T($e_1$) + ... + $x_n$T($e_n$)
+
+        \hspace{1.5cm}
+        $\Leftrightarrow$
+        $\begin{bmatrix}
+            T(e_1) & T(e_2) & \hdots & T(e_n)
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1 \\
+            \vdots \\
+            x_n
+        \end{bmatrix}$
+        = Ax
+
+        Since T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^m$ and
+        each $e_i$ $\in$ $\mathbb{R}^n$, then each T($e_i$) $\in$ $\mathbb{R}^m$.
+        Thus, A $\in$ $M_{m \times n}(\mathbb{R})$.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{Linear Transformation: Scaling}{16cm}
+        Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^n$
+        be a linear transformation where for any x $\in$ $\mathbb{R}^n$,
+        the T(x) = cx for some c $\in$ $\mathbb{R}$. Then:
+
+        \hspace{0.5cm}
+        T(x) =
+        $\begin{bmatrix}
+            c & 0 & \hdots & 0 \\
+            0 & c & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \hdots & c
+        \end{bmatrix}$x
+    \end{corollary}
+
+    \begin{proof}
+        By {\color{red} theorem 1.4.3},
+        T(x) =
+        $\begin{bmatrix}
+            T(e_1) & T(e_2) & \hdots & T(e_n)
+        \end{bmatrix}$x.
+        Since T($e_1$) = $ce_1$, then:
+
+        \hspace{0.5cm}
+        $\begin{bmatrix}
+            T(e_1) & T(e_2) & \hdots & T(e_n)
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            ce_1 & ce_2 & \hdots & ce_n
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            c & 0 & \hdots & 0 \\
+            0 & c & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \hdots & c
+        \end{bmatrix}$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{example}
+        Let T: $\mathbb{R}^4$ $\rightarrow$ $\mathbb{R}^4$
+        scales all x $\in$ $\mathbb{R}^4$ by 2. Find T.
+        Verify T((-1,2,1,3)) = (-2,4,2,6)       
+    \end{example}
+
+    \begin{tbox}
+        T(x) =
+        $\begin{bmatrix}
+            2 & 0 & 0 & 0 \\
+            0 & 2 & 0 & 0 \\
+            0 & 0 & 2 & 0 \\
+            0 & 0 & 0 & 2 
+        \end{bmatrix}$x
+        \hspace{1cm}
+        T($\begin{bmatrix}
+                -1 \\
+                2 \\
+                1 \\
+                3
+            \end{bmatrix}$)
+        = $\begin{bmatrix}
+                2*(-1)+0*2+0*1+0*3 \\
+                0*(-1)+2*2+0*1+0*3 \\
+                0*(-1)+0*2+2*1+0*3 \\
+                0*(-1)+0*2+0*1+2*3
+            \end{bmatrix}$
+        = $\begin{bmatrix}
+                -2 \\
+                4 \\
+                2 \\
+                6
+            \end{bmatrix}$
+    \end{tbox}
+
+    \newpage
+
+
+
+    \begin{corollary}{Linear Transformation: 2D Rotation}{16cm}
+        Let T: $\mathbb{R}^2$ $\rightarrow$ $\mathbb{R}^2$
+        be a linear transformation. Suppose for any x $\in$ $\mathbb{R}^n$,
+        the T rotates x counterclockwise by an angle of $\theta$. Then:
+
+        \hspace{0.5cm}
+        T(x) =
+        $\begin{bmatrix}
+            \cos(\theta) & -\sin(\theta) \\
+            \sin(\theta) & \cos(\theta)
+        \end{bmatrix}$x
+    \end{corollary}
+
+    \begin{proof}
+        By {\color{red} theorem 1.4.3},
+        T(x) =
+        $\begin{bmatrix}
+            T(e_1) & T(e_2)
+        \end{bmatrix}$x.
+        Since T rotates any x $\mathbb{R}^2$ counterclockwise
+        by an angle of $\theta$, then:
+
+        \hspace{0.5cm}
+        $T(e_1)$ =
+        $\begin{bmatrix}
+            \cos(\theta) \\
+            \sin(\theta)
+        \end{bmatrix}$
+        \hspace{1cm}
+        $T(e_2)$ =
+        $\begin{bmatrix}
+            -\sin(\theta) \\
+            \cos(\theta)
+        \end{bmatrix}$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{example}
+        Let T: $\mathbb{R}^2$ $\rightarrow$ $\mathbb{R}^2$
+        rotate all x $\in$ $\mathbb{R}^2$ by $\frac{\pi}{6}$ radians
+        = 30$^{\circ}$ degree
+        counterclockwise. Find T.
+
+        Find cos(75$^{\circ}$) and sin(75$^{\circ}$).
+    \end{example}
+
+    \begin{tbox}
+        T(x) =
+        $\begin{bmatrix}
+            \cos(\frac{\pi}{6}) & -\sin(\frac{\pi}{6}) \\
+            \sin(\frac{\pi}{6}) & \cos(\frac{\pi}{6})
+        \end{bmatrix}$x =
+        $\begin{bmatrix}
+            \frac{\sqrt{3}}{2} & -\frac{1}{2} \\
+            \frac{1}{2} & \frac{\sqrt{3}}{2}
+        \end{bmatrix}$x
+
+        Note 75$^{\circ}$ = 45$^{\circ}$ + 30$^{\circ}$
+        so apply T on the unit vector at 45$^{\circ}$
+        which is $(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2})$
+
+        \hspace{0.5cm}
+        T($\begin{bmatrix}
+                \frac{\sqrt{2}}{2} \\
+                \frac{\sqrt{2}}{2} \\
+            \end{bmatrix}$)
+        = $\begin{bmatrix}
+            \frac{\sqrt{3}}{2}\frac{\sqrt{2}}{2} + -\frac{1}{2}\frac{\sqrt{2}}{2} \\
+            \frac{1}{2}\frac{\sqrt{2}}{2} + \frac{\sqrt{3}}{2}\frac{\sqrt{2}}{2}
+            \end{bmatrix}$
+        = $\begin{bmatrix}
+                \frac{\sqrt{6} - \sqrt{2}}{4} \\
+                \frac{\sqrt{6} + \sqrt{2}}{4}
+            \end{bmatrix}$
+        = $\begin{bmatrix}
+            \cos(75^{\circ}) \\
+            \sin(75^{\circ})
+        \end{bmatrix}$
+    \end{tbox}
+
+    \vspace{0.5cm}
+
+
+
+
+
+\subsection{ Invertibility }
+
+    \begin{definition}{Product of Linear Transformations}{16cm}
+        Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^m$
+        and S: $\mathbb{R}^m$ $\rightarrow$ $\mathbb{R}^t$
+        be linear transformations. Then for any x $\in$ $\mathbb{R}^n$:
+
+        \hspace{0.5cm}
+        (ST)x = S(Tx)
+
+        is a linear transformation where
+        ST: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^t$
+
+        \begin{boxedminipage}{16cm}
+            Let $x_1,x_2$ $\in$ $\mathbb{R}^n$ and $c_1,c_2$ $\in$ $\mathbb{R}$.
+
+            \hspace{0.5cm}
+            (ST)($c_1x_1+c_2x_2$) = S(T($c_1x_1+c_2x_2$))
+            = S($c_1$T($x_1$) + $c_2$T($x_2$))
+
+            \hspace{3.8cm}
+            = $c_1$S(T($x_1$)) + $c_2$S(T($x_2$))
+            = $c_1$(ST)($x_1$) + $c_2$(ST)($x_2$)
+        \end{boxedminipage}
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Product of Linear Transformations are
+    Matrix Transformations}{16cm}
+        Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^m$ with T(x) = Ax
+        and S: $\mathbb{R}^m$ $\rightarrow$ $\mathbb{R}^t$ with S(y) = By
+        be linear transformations where
+        A = $\begin{bmatrix}
+                A_1 & A_2 & \hdots & A_n
+            \end{bmatrix}$ for $A_i$ $\mathbb{R}^m$.
+        Then for any x $\in$ $\mathbb{R}^n$:
+
+        \hspace{0.5cm}
+        (ST)x = (BA)x
+
+        where BA =
+        $\begin{bmatrix}
+            BA_1 & BA_2 & \hdots & BA_n
+        \end{bmatrix}$
+    \end{wtheorem}
+
+    \begin{proof}
+        (ST)x
+        = B(Tx)
+        = B(Ax)
+        = B($\begin{bmatrix}
+                A_1 & \hdots & A_n
+            \end{bmatrix}
+            \begin{bmatrix}
+                x_1 \\
+                \vdots \\
+                x_n
+            \end{bmatrix}$)
+
+        \hspace{1cm}
+        = B($x_1A_1 + ... + x_nA_n$)
+        = $x_1$B$A_1$ + ... + $x_n$B$A_n$
+        = $\begin{bmatrix}
+            BA_1 & \hdots & BA_n
+            \end{bmatrix}
+            \begin{bmatrix}
+                x_1 \\
+                \vdots \\
+                x_n
+            \end{bmatrix}$
+    \end{proof}
+
+    \newpage
+
+
+    \begin{example}
+        Let T: $\mathbb{R}^2$ $\rightarrow$ $\mathbb{R}^2$
+        rotate all x $\in$ $\mathbb{R}^2$ by $\frac{\pi}{6}$ radians
+        = 30$^{\circ}$ degree
+        counterclockwise, then scale by 2. Find T.
+    \end{example}
+
+    \begin{tbox}
+        The 30$^{\circ}$ degree counterclockwise rotation is
+        $\begin{bmatrix}
+            \frac{\sqrt{3}}{2} & -\frac{1}{2} \\
+            \frac{1}{2} & \frac{\sqrt{3}}{2}
+        \end{bmatrix}$
+        and the scale by 2 transformation is
+        $\begin{bmatrix}
+            2 & 0 \\
+            0 & 2
+        \end{bmatrix}$
+        as noted by examples under {\color{orange} corollary 1.4.4 and 1.4.5}.
+
+        \hspace{0.5cm}
+        T(x) =
+        $\begin{bmatrix}
+            2 & 0 \\
+            0 & 2
+        \end{bmatrix}
+        \begin{bmatrix}
+            \frac{\sqrt{3}}{2} & -\frac{1}{2} \\
+            \frac{1}{2} & \frac{\sqrt{3}}{2}
+        \end{bmatrix}$x =
+        $\begin{bmatrix}
+            2\frac{\sqrt{3}}{2}+0\frac{1}{2}
+                & 2(-\frac{1}{2})+0\frac{\sqrt{3}}{2} \\
+            0\frac{\sqrt{3}}{2}+2\frac{1}{2}
+                & 0(-\frac{1}{2})+2\frac{\sqrt{3}}{2}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            \sqrt{3} & -1 \\
+            1 & \sqrt{3}
+        \end{bmatrix}$
+    \end{tbox}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{ltheorem}{Properties of Matrix Products}{1.5cm}
+        \item {\color{lgreen} Associativity}:
+            For A $\in$ $M_{m \times n}(\mathbb{R})$,
+            B $\in$ $M_{t \times m}(\mathbb{R})$,
+            C $\in$ $M_{s \times t}(\mathbb{R})$:
+
+            \hspace{0.5cm}
+            (CB)A = C(BA)
+
+            \begin{proof}[15.5cm]
+                Let x $\in$ $\mathbb{R}^n$:
+
+                \hspace{0.5cm}
+                (CB)Ax
+                = (CB)($A_1x_1 + ... + A_nx_n$)
+                = $CBA_1x_1 + ... + CBA_nx_n$
+                = CBAx
+                = C(BA)x
+            \end{proof}
+
+        \item {\color{lgreen} Distributivity}:
+            For A $\in$ $M_{m \times n}(\mathbb{R})$,
+            B $\in$ $M_{m \times n}(\mathbb{R})$,
+            C $\in$ $M_{t \times m}(\mathbb{R})$:
+
+            \hspace{0.5cm}
+            C(A+B) = CA + CB
+
+            \begin{proof}[15.5cm]
+                Let x $\in$ $\mathbb{R}^n$:
+
+                \hspace{0.5cm}
+                C(A+B)x
+                = C($(A_1+B_1)x_1 + ... + (A_n+B_n)x_n$)
+                
+                \hspace{2.4cm}
+                = C$((A_1x_1 + ... + A_nx_n) + (B_1x_1 + ... + B_nx_n))$
+
+                \hspace{2.4cm}
+                = $(CA_1x_1 + ... + CA_nx_n) + (CB_1x_1 + ... + CB_nx_n)$
+
+                \hspace{2.4cm}
+                = CAx + CBx
+                = (CA+CB)x
+            \end{proof}
+
+        \item {\color{lgreen} Distributivity}:
+            For A $\in$ $M_{t \times m}(\mathbb{R})$,
+            B $\in$ $M_{t \times m}(\mathbb{R})$,
+            C $\in$ $M_{m \times n}(\mathbb{R})$:
+
+            \hspace{0.5cm}
+            (A+B)C = AC + BC
+
+            \begin{proof}[15.5cm]
+                Let x $\in$ $\mathbb{R}^n$:
+
+                \hspace{0.5cm}
+                (A+B)Cx
+                = (A+B)($C_1x_1 + ... + C_nx_n$)
+                
+                \hspace{2.4cm}
+                = $(A+B)C_1x_1 + ... + (A+B)C_nx_n$
+
+                \hspace{2.4cm}
+                = $(AC_1x_1 + ... + AC_nx_n) + (BC_1x_1 + ... + BC_nx_n)$
+
+                \hspace{2.4cm}
+                = ACx + BCx
+                = (AC+BC)x
+            \end{proof}
+
+        \item {\color{lgreen} Scalar Multiplication}:
+            For A $\in$ $M_{m \times n}(\mathbb{R})$,
+            B $\in$ $M_{t \times m}(\mathbb{R})$ and
+            c $\in$ $\mathbb{R}$:
+
+            \hspace{0.5cm}
+            (cB)A = c(BA) = B(cA)
+
+            \begin{proof}[15.5cm]
+                Let x $\in$ $\mathbb{R}^n$:
+
+                \hspace{0.5cm}
+                (cB)Ax
+                = (cB)($A_1x_1 + ... + A_nx_n$)
+                = $cBA_1x_1 + ... + cBA_nx_n$
+                = c(BA)x
+
+                \hspace{6.9cm}
+                = $BcA_1x_1 + ... + BcA_nx_n$
+                = B(cA)x
+            \end{proof}
+    \end{ltheorem}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{definition}{Identity Matrix}{16cm}
+        The n $\times$ n {\color{lblue} identity matrix} $I_n$
+        $\in$ $M_{n \times n}(\mathbb{R})$:
+
+        \hspace{0.5cm}
+        $\begin{bmatrix}
+            1 & 0 & \hdots & 0 \\
+            0 & 1 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \hdots & 1
+        \end{bmatrix}$
+    \end{definition}
+
+    \newpage
+
+
+
+    \begin{definition}{Elementary Row Operations are Matrix Transformations}{16cm}
+        Elementary Row Operations as matrix
+        are called {\color{lblue} elementary matrices}.
+
+        Let A $\in$ $M_{m \times n}(\mathbb{R})$.
+        Then each elementary matrix B $\in$ $M_{m \times m}(\mathbb{R})$ where:
+ 
+        \hspace{0.5cm}
+        {\color{lgreen} Row Multiplication}:
+        Multiplying the i-th row by k
+
+        \hspace{1cm}
+        B =
+        $\begin{bmatrix}
+            \text{\color{red} 1 } \overset{{\color{red} 1}}{1}
+                & \overset{{\color{red} 2}}{0} & \hdots
+                & \overset{{\color{red} i}}{0} & \hdots
+                & \overset{{\color{red} m}}{0} \\
+            \text{\color{red} 2 } 0 & 1 & \hdots & 0 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} i } 0 & 0 & \hdots & k & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} m } 0 & 0 & \hdots & 0 & \hdots & 1
+        \end{bmatrix}$
+
+        \hspace{0.5cm}
+        {\color{lgreen} Row Addition}:
+        Adding the k times the j-th row to the i-th row
+
+        \hspace{1cm}
+        B =
+        $\begin{bmatrix}
+            \text{\color{red} 1 } \overset{{\color{red} 1}}{1}
+                & \overset{{\color{red} 2}}{0} & \hdots
+                & \overset{{\color{red} i}}{0} & \hdots
+                & \overset{{\color{red} j}}{0} & \hdots
+                & \overset{{\color{red} m}}{0} \\
+            \text{\color{red} 2 } 0 & 1 & \hdots & 0 & \hdots & 0 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} i } 0 & 0 & \hdots & 1 & \hdots & k & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} j } 0 & 0 & \hdots & 0 & \hdots & 1 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} m } 0 & 0 & \hdots & 0 & \hdots & 0 & \hdots & 1
+        \end{bmatrix}$
+        or
+        $\begin{bmatrix}
+            \text{\color{red} 1 } \overset{{\color{red} 1}}{1}
+                & \overset{{\color{red} 2}}{0} & \hdots
+                & \overset{{\color{red} j}}{0} & \hdots
+                & \overset{{\color{red} i}}{0} & \hdots
+                & \overset{{\color{red} m}}{0} \\
+            \text{\color{red} 2 } 0 & 1 & \hdots & 0 & \hdots & 0 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} j } 0 & 0 & \hdots & 1 & \hdots & 0 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} i } 0 & 0 & \hdots & k & \hdots & 1 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} m } 0 & 0 & \hdots & 0 & \hdots & 0 & \hdots & 1
+        \end{bmatrix}$
+
+        \hspace{0.5cm}
+        {\color{lgreen} Row Swapping}:
+        Swapping the i-th and j-th row
+
+        \hspace{1cm}
+        B =
+        $\begin{bmatrix}
+            \text{\color{red} 1 } \overset{{\color{red} 1}}{1}
+                & \overset{{\color{red} 2}}{0} & \hdots
+                & \overset{{\color{red} i}}{0} & \hdots
+                & \overset{{\color{red} j}}{0} & \hdots
+                & \overset{{\color{red} m}}{0} \\
+            \text{\color{red} 2 } 0 & 1 & \hdots & 0 & \hdots & 0 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} i } 0 & 0 & \hdots & 0 & \hdots & 1 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} j } 0 & 0 & \hdots & 1 & \hdots & 0 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} m } 0 & 0 & \hdots & 0 & \hdots & 0 & \hdots & 1
+        \end{bmatrix}$
+        or
+        $\begin{bmatrix}
+            \text{\color{red} 1 } \overset{{\color{red} 1}}{1}
+                & \overset{{\color{red} 2}}{0} & \hdots
+                & \overset{{\color{red} j}}{0} & \hdots
+                & \overset{{\color{red} i}}{0} & \hdots
+                & \overset{{\color{red} m}}{0} \\
+            \text{\color{red} 2 } 0 & 1 & \hdots & 0 & \hdots & 0 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} j } 0 & 0 & \hdots & 0 & \hdots & 1 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} i } 0 & 0 & \hdots & 1 & \hdots & 0 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            \text{\color{red} m } 0 & 0 & \hdots & 0 & \hdots & 0 & \hdots & 1
+        \end{bmatrix}$
+
+        Then, BA is the matrix after the elementary row operation is applied to A.
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{definition}{Invertibility}{16cm}
+        Linear Transformation T: $\mathbb{R}^n$
+        $\rightarrow$ $\mathbb{R}^m$
+        is {\color{lblue} invertible} if there exist
+        a linear transformation
+        
+        S: $\mathbb{R}^m$
+        $\rightarrow$ $\mathbb{R}^n$ such that
+        for all x $\in$ $\mathbb{R}^n$ and y $\in$ $\mathbb{R}^m$:
+
+        \hspace{0.5cm}
+        (ST)x = x
+        \hspace{1cm}
+        (TS)y = y
+
+        Suppose T(x) = Ax where A $\in$ $M_{m \times n}(\mathbb{R})$
+        and S(y) = By where B $\in$ $M_{n \times m}(\mathbb{R})$.
+        
+        Then if the property above holds true:
+
+        \hspace{0.5cm}
+        BAx = (ST)x = x = $I_{n \times n}$x
+        \hspace{1cm}
+        ABy = (TS)y = y = $I_{m \times m}$x
+
+        \hspace{0.5cm}
+        BA = $I_{n \times n}$
+        \hspace{1cm}
+        AB = $I_{m \times m}$
+
+        If A is invertible, then B = $A^{-1}$ is the
+        {\color{lblue} inverse transformation} of A.
+
+        Note if A is invertible, then $A^{-1}$ is invertible
+        since there is a A where $AA^{-1}$ = $I_{m \times m}$
+        and $A^{-1}A$ = $I_{n \times n}$ by the invertibility of A.
+
+        If A $\in$ $M_{n \times n}(\mathbb{R})$, then
+        A is called a {\color{lblue} square matrix}.
+    \end{definition}
+
+    \newpage
+
+
+
+    \begin{wtheorem}{Only Square Matrices can be Invertible}{16cm}
+        Let A $\in$ $M_{m \times n}(\mathbb{R})$
+        and B $\in$ $M_{n \times m}(\mathbb{R})$
+        such that n $\not =$ m.
+        
+        Then, either AB $\not =$ $I_{m \times m}$
+        or BA $\not =$ $I_{n \times n}$.
+    \end{wtheorem}
+
+    \begin{proof}
+        Suppose n $<$ m.
+        Then for any x $\in$ $\mathbb{R}^n$,
+        by {\color{orange} corollary 1.3.8}, By = x
+        does not have a unique y $\in$ $\mathbb{R}^m$
+        so either y does not exist or there are infinitely many y.
+
+        If y does not exist, then for ABy = Ax, the y does not exist
+        so AB $\not =$ $I_{m \times m}$ else y = Ax.
+        If By = x has infinitely many y,
+        then there are $y_1,y_2$ where $y_1$ $\not =$ $y_2$
+        such that B$y_1$ = x = B$y_2$ so AB $\not =$ $I_{m \times m}$ else
+        $y_1$ = AB$y_1$ = AB$y_2$ = $y_2$
+        contradicting $y_1$ $\not =$ $y_2$.
+        Thus, AB $\not =$ $I_{m \times m}$.
+
+        \vspace{0.2cm}
+
+        Suppose n $>$ m.
+        Then for any y $\in$ $\mathbb{R}^m$,
+        by {\color{orange} corollary 1.3.8}, Ax = y
+        does not have a unique x $\in$ $\mathbb{R}^n$
+        so either x does not exist or there are infinitely many x.
+        
+        If x does not exist, then for BAx = By, the x does not exist
+        so BA $\not =$ $I_{n \times n}$ else x = By.
+        If Ax = y has infinitely many x,
+        then there are $x_1,x_2$ where $x_1$ $\not =$ $x_2$
+        such that A$x_1$ = y = A$x_2$ so BA $\not =$ $I_{n \times n}$ else
+        $x_1$ = BA$x_1$ = BA$x_2$ = $x_2$
+        contradicting $x_1$ $\not =$ $x_2$.
+        Thus, BA $\not =$ $I_{n \times n}$.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Determining Invertibility}{16cm}
+        A $\in$ $M_{n \times n}(\mathbb{R})$ is invertible if and only if
+        rref(A) = $I_{n \times n}$
+    \end{wtheorem}
+
+    \begin{proof}
+        Let A be invertible. Suppose rref(A) $\not =$ $I_{n \times n}$.
+        Then there is at least one free variable.
+
+        Then for any y $\in$ $\mathbb{R}^n$,
+        by {\color{red} theorem 1.3.7}, Ax = y
+        has infinitely many x $\in$ $\mathbb{R}^n$
+        since x = $I_{n \times n}$x = $A^{-1}A$x = $A^{-1}y$
+        must exist due to the existence of $A^{-1}$ by the invertibility of A.
+        But then, there are $x_1,x_2$ where $x_1$ $\not =$ $x_2$
+        such that $Ax_1$ = y = $Ax_2$ so $AA^{-1}$ $\not =$ $I_{n \times n}$
+        else $x_1$ = $A^{-1}Ax_1$ = $A^{-1}Ax_2$ = $x_2$
+        contradicting the invertibility of A.
+        Thus, rref(A) = $I_{n \times n}$.
+
+        \vspace{0.2cm}
+
+        Let rref(A) = $I_{n \times n}$.    
+        Take the augmented matrix $[A \ | \ I_{n \times n}]$.
+
+        Since rref(A) = $I_{n \times n}$,
+        then there is a sequence of elementary row operations
+        that transforms A into $I_{n \times n}$ and thus,
+        transform $[A \ | \ I_{n \times n}]$ = $[I_{n \times n} \ | \ B]$
+        for some B $\in$ $M_{n \times n}(\mathbb{R})$. Note
+
+        \hspace{0.5cm}
+        $[A \ | \ I_{n \times n}]$
+        \hspace{0.5cm}
+        $\Leftrightarrow$
+        \hspace{0.5cm}
+        Ax = $I_{n \times n}$y
+        \hspace{1cm}
+        $[I_{n \times n} \ | \ B]$
+        \hspace{0.5cm}
+        $\Leftrightarrow$
+        \hspace{0.5cm}
+        $I_{n \times n}$x = By
+
+        \hspace{0.5cm}
+        (BA)x = B(Ax)
+        = By = x
+        \hspace{1cm}
+        (AB)y = A(By)
+        = Ax = y
+        \hspace{0.5cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        $A^{-1}$ = B
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{Invertible n $\times$ n matrices have Rank n}{16cm}
+        A $\in$ $M_{n \times n}(\mathbb{R})$ is invertible if and only if
+        rank(A) = n
+    \end{corollary}
+
+    \begin{proof}
+        By {\color{red} theorem 1.5.8}, A
+        is invertible $\Leftrightarrow$ rref(A) = $I_{n \times n}$
+        $\Leftrightarrow$ A has n pivots (i.e. rank(A) = n).
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{Invertible Matrices have unique solutions}{16cm}
+        A $\in$ $M_{n \times n}(\mathbb{R})$ is invertible if and only if
+        for any y $\in$ $\mathbb{R}^n$, there is a unique
+        x $\in$ $\mathbb{R}^n$ where:
+        
+        \hspace{0.5cm}
+        Ax = y
+
+        Thus, A is invertible if and only if Ax = 0 has the trivial
+        solution, x = 0.
+    \end{corollary}
+
+    \begin{proof}
+        Suppose A is invertible.
+        Then by {\color{orange} corollary 1.5.9},
+        rank(A) = n so A has n pivots. Then for augmented matrix, $[A \ | \ y]$,
+        by {\color{red} theorem 1.3.7}, there is one unique solution.
+
+        \vspace{0.2cm}
+
+        Suppose for any y $\in$ $\mathbb{R}^n$, there is a unique
+        x $\in$ $\mathbb{R}^n$ where Ax = y.
+        Then by {\color{red} theorem 1.3.7}, A has n pivots so rank(A) = n.
+        Then by {\color{orange} corollary 1.5.9}, A is invertible.
+
+        \rule[0.1cm]{16.7cm}{0.01cm}
+
+        Suppose A is invertible.
+        Since A0 = 0, then the only solution to Ax = 0 is x = 0.
+
+        \vspace{0.2cm}
+
+        Suppose Ax = 0 has only x = 0.
+        Then, rref(A) has n pivots so rank(A) = n.
+        Thus, by {\color{orange} corollary 1.5.9}, A is invertible.
+    \end{proof}
+
+    \newpage
+
+
+
+    \begin{wtheorem}{AB = $I_{n \times n}$ implies BA = $I_{n \times n}$}{16cm}
+        For A,B $\in$ $M_{n \times n}(\mathbb{R})$,
+        let AB = $I_{n \times n}$. Then A,B are invertible where:
+        
+        \hspace{0.5cm}
+        $A^{-1}$ = B
+        \hspace{1cm}
+        $B^{-1}$ = A
+    \end{wtheorem}
+
+    \begin{proof}
+        Let x $\in$ $\mathbb{R}^n$ be such that Bx = 0. Then,
+        x = $I_{n \times n}$x
+        = ABx
+        = B0
+        = 0.
+
+        Then by {\color{orange} corollary 1.5.10}, B is invertible
+        so $B^{-1}$ exist
+        where $B^{-1}B$ = $I_{n \times n}$ and $BB^{-1}$ = $I_{n \times n}$.
+
+        \hspace{0.5cm}
+        A = $AI_{n \times n}$
+        = A$I_{n \times n}$
+        = A$BB^{-1}$
+        = $I_{n \times n}B^{-1}$
+        = $B^{-1}$
+
+        Since B is invertible, then A = $B^{-1}$ is invertible
+        so $A^{-1}A$ = $I_{n \times n}$ and $AA^{-1}$ = $I_{n \times n}$.
+
+        \hspace{0.5cm}
+        $A^{-1}$ = $A^{-1}I_{n \times n}$
+        = $A^{-1}$AB
+        = $I_{n \times n}$B
+        = B
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Invertibility Equivalences}{16cm}
+        Let A $\in$ $M_{n \times n}(\mathbb{R})$.
+        Then the following are equivalent:
+
+        \begin{enumerate}[label=(\alph*), leftmargin=1cm, itemsep=0.1cm]
+            \item A is invertible
+            
+            \item rref(A) = $I_{n \times n}$
+            
+            \item rank(A) = n
+            
+            \item For any y $\in$ $\mathbb{R}^n$, then Ax = y
+                has a unique solution x
+
+            \item Ax = 0 has only the trivial soluton x = 0
+        \end{enumerate}
+    \end{wtheorem}
+
+    \begin{proof}
+        (a) $\Leftrightarrow$
+        $\begin{cases}
+            (b) & {\color{red} \text{theorem 1.5.8}} \\
+            (c) & {\color{orange} \text{corollary 1.5.9}} \\
+            (d) & {\color{orange} \text{corollary 1.5.10}} \\
+            (e) & {\color{orange} \text{corollary 1.5.10}}
+        \end{cases}$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Product of Invertible Matrices is Invertible}{16cm}
+        Let A,B $\in$ $M_{n \times n}(\mathbb{R})$ be invertible.
+        Then, AB is invertible where:
+
+        \hspace{0.5cm}
+        $(AB)^{-1}$ = $B^{-1}A^{-1}$
+    \end{wtheorem}
+
+    \begin{proof}
+        Since A and B are invertible, then there are
+        $A^{-1},B^{-1}$ $\in$ $M_{n \times n}(\mathbb{R})$ such that:
+
+        \hspace{0.5cm}
+        $A^{-1}A$ = $I_{n \times n}$
+        \hspace{1cm}
+        $AA^{-1}$ = $I_{n \times n}$
+        \hspace{2cm}
+        $B^{-1}B$ = $I_{n \times n}$
+        \hspace{1cm}
+        $BB^{-1}$ = $I_{n \times n}$
+
+        Then AB is invertible since $(AB)^{-1}$ exist
+        as $(AB)^{-1}$ = $B^{-1}A^{-1}$:
+
+        \hspace{0.5cm}
+        $(B^{-1}A^{-1})(AB)$
+        = $B^{-1}(A^{-1}A)B$
+        = $B^{-1}I_{n \times n}B$
+        = $B^{-1}B$
+        = $I_{n \times n}$
+
+        \hspace{0.5cm}
+        $(AB)(B^{-1}A^{-1})$
+        = $A(BB^{-1})A^{-1}$
+        = $AI_{n \times n}A^{-1}$
+        = $AA^{-1}$
+        = $I_{n \times n}$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{example}
+        Let T: $\mathbb{R}^4$ $\rightarrow$ $\mathbb{R}^4$ be T(x) = Ax
+        where A =
+        \footnotesize
+        $\begin{bmatrix}
+            1 & 2 & 3 & 4 \\
+            2 & 4 & 7 & 11 \\
+            3 & 7 & 14 & 25 \\
+            4 & 11 & 25 & 50
+        \end{bmatrix}$.
+        \normalsize
+        Find $T^{-1}(1,1,-1,-6)$.
+    \end{example}
+
+    \begin{tbox}
+        \scriptsize
+        $\begin{bmatrix}
+            1 & 2 & 3 & 4 & | & 1 & 0 & 0 & 0 \\
+            2 & 4 & 7 & 11 & | & 0 & 1 & 0 & 0 \\
+            3 & 7 & 14 & 25 & | & 0 & 0 & 1 & 0 \\
+            4 & 11 & 25 & 50 & | & 0 & 0 & 0 & 1
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 2 & 3 & 4 & | & 1 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 3 & | & -2 & 1 & 0 & 0 \\
+            0 & 1 & 5 & 13 & | & -3 & 0 & 1 & 0 \\
+            0 & 3 & 13 & 34 & | & -4 & 0 & 0 & 1
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 0 & -7 & -22 & | & 7 & 0 & -2 & 0 \\
+            0 & 0 & 1 & 3 & | & -2 & 1 & 0 & 0 \\
+            0 & 1 & 5 & 13 & | & -3 & 0 & 1 & 0 \\
+            0 & 0 & -2 & -5 & | & 5 & 0 & -3 & 1
+        \end{bmatrix}$
+
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 0 & 0 & -1 & | & -7 & 7 & -2 & 0 \\
+            0 & 0 & 1 & 3 & | & -2 & 1 & 0 & 0 \\
+            0 & 1 & 0 & -2 & | & 7 & -5 & 1 & 0 \\
+            0 & 0 & 0 & 1 & | & 1 & 2 & -3 & 1
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 0 & 0 & 0 & | & -6 & 9 & -5 & 1 \\
+            0 & 1 & 0 & 0 & | & 9 & -1 & -5 & 2 \\
+            0 & 0 & 1 & 0 & | & -5 & -5 & 9 & -3 \\
+            0 & 0 & 0 & 1 & | & 1 & 2 & -3 & 1
+        \end{bmatrix}$
+        \normalsize
+        = $A^{-1}$
+        $\Rightarrow$ A is invertible
+
+        $T^{-1}(1,1,-1,-6)$
+        = $A^{-1}(1,1,-1,-6)$
+        = (2,1,-1,0)
     \end{tbox}
 
 
