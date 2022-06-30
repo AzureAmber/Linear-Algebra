@@ -1,16 +1,1023 @@
 \newpage
 
-\section[Day 4: Eigenvectors]{ Eigenvectors }
+\section[Day 4: Determinants]{ Determinants }
+
+\subsection{ Determinant Function }
+
+    \begin{definition}{Determinant Function}{16cm}
+        Function D: $M_{n \times n}(\mathbb{R})$ $\rightarrow$ $\mathbb{R}$
+        is a {\color{lblue} determinant function} if
+        for any A $\in$ $M_{n \times n}(\mathbb{R})$
+        such that A =
+        $\begin{bmatrix}
+            A_1 & ... & A_n
+        \end{bmatrix}$, then:
+
+        \begin{enumerate}[label=(\alph*), leftmargin=1cm, itemsep=0.1cm]
+            \item {\color{lgreen} Multilinearity}:
+                For any j $\in$ \{1,...,n\}, then
+                T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}$:
+                
+                \hspace{0.5cm}
+                T(x) = D($A_1,...,A_{i-1},x,A_{i+1},...,A_n$)
+
+                is linear. So, for x,y $\in$ $\mathbb{R}^n$
+                and c $\in$ $\mathbb{R}$:
+
+                \begin{itemize}
+                    \item T(x+y) = T(x) + T(y)
+                    
+                    \item T(cx) = cT(x)
+                \end{itemize}
+
+            \item {\color{lgreen} Alternating}:
+                If B $\in$ $M_{n \times n}(\mathbb{R})$ is obtained by
+                swapping two columns of A, then:
+
+                \hspace{0.5cm}
+                D(B) = -D(A)
+
+                Thus, if two columns are equal, then
+                by swapping those columns, B = A.
+
+                \hspace{0.5cm}
+                D(A) = D(B) = -D(A)
+                \hspace{0.5cm}
+                $\Rightarrow$
+                \hspace{0.5cm}
+                D(A) = 0
+
+            \item {\color{lgreen} Identity}
+            
+                \hspace{0.5cm}
+                D($I_{n \times n}$) = 1
+        \end{enumerate}
+
+        Since each $A_i$ = $A_{i1}e_1 + ... + A_{in}e_n$, then
+        by multilinearity:
+
+        \hspace{0.5cm}
+        D(A)
+        = D($A_1,A_2,...,A_n$)
+
+        \hspace{1.6cm}
+        = $\sum_{i_1=1}^n$
+            $A_{1{i_1}}$D($e_{i_1},A_2,...,A_n$)
+
+        \hspace{1.6cm}
+        = $\sum_{i_1=1}^n \sum_{i_2=1}^n$
+            $A_{1{i_1}}A_{2{i_2}}$D($e_{i_1},e_{i_2},...,A_n$)
+
+        \hspace{1.6cm}
+        $\vdots$
+
+        \hspace{1.6cm}
+        = $\sum_{i_1=1}^n ... \sum_{i_n=1}^n$
+            $A_{1{i_1}}...A_{n{i_n}}$D($e_{i_1},e_{i_2},...,e_{i_n}$)
+
+        By alternating, if $i_{k_1}$ = $i_{k_2}$ for $k_1,k_3$ $\in$ \{1,...,n\},
+        then D($e_{i_1},e_{i_2},...,e_{i_n}$) = 0. Thus:
+
+        \hspace{0.5cm}
+        D(A) = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+                $A_{1{i_1}}...A_{n{i_n}}$D($e_{i_1},e_{i_2},...,e_{i_n}$)
+
+        where each $i_k$ is unique from \{1,...,n\}.
+        Since each $A_{k{i_k}}$ for k $\in$ \{1,...,n\} are different columns
+        and each $i_k$ is unique, then each $A_{k{i_k}}$ is from a unique
+        row and column from A:
+
+        \hspace{0.5cm}
+        A =
+        $\begin{bmatrix}
+            A_1 & ... & A_n
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            a_{11} & a_{12} & \hdots & a_{1n} \\
+            a_{21} & a_{22} & \hdots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{n1} & a_{n2} & \hdots & a_{nn}
+        \end{bmatrix}$
+        \hspace{1cm}
+        $\Rightarrow$
+        \hspace{1cm}
+        $A_{k{i_k}}$ = $a_{ij}$
+
+        Since $(e_{i_1},e_{i_2},...,e_{i_n})$
+        is a rearrangement of $(e_1,...,e_n)$, then by alternating:
+
+        \hspace{0.5cm}
+        D($e_{i_1},e_{i_2},...,e_{i_n}$)
+        = $(-1)^S$D($e_1,...,e_n$)
+        = $(-1)^S$D($I_{n \times n}$)
+        = $(-1)^S$
+
+        where S is the number of swaps to turn
+        $(e_{i_1},e_{i_2},...,e_{i_n})$ into $(e_1,...,e_n)$.
+        So, D(A) is unique:
+
+        \hspace{0.5cm}
+        D(A) = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+                $a_{1i_1}...a_{ni_n}(-1)^S$
+    \end{definition}
+
+    \newpage
+
+
+
+    \begin{definition}{Inversions}{16cm}
+        A $n \times n$ {\color{lblue} pattern} P = \{$(i_1,j_1),...,(i_n,j_n)$\}
+        where \{$i_1,...,i_n$\},\{$j_1,...,j_n$\} are rearrangements of
+        \{1,...,n\}.
+        Then, $(i_{k_1},j_{k_1})$ and $(i_{k_2},j_{k_2})$ where
+        $j_{k_1}$ $<$ $j_{k_2}$ is an {\color{lblue} inversion}
+        if $i_{k_1}$ $>$ $i_{k_2}$.
+
+        Then, the {\color{lblue} signature} of P:
+
+        \hspace{0.5cm}
+        sgn(P) = $(-1)^I$
+        \hspace{1cm}
+        where I is the total number of inversions
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{D($e_{i_1},e_{i_2},...,e_{i_n}$)
+    = sgn($e_{i_1},e_{i_2},...,e_{i_n}$)}{16cm}
+        Let $e_{i_1},e_{i_2},...,e_{i_n}$ $\in$ $\mathbb{R}^n$
+        be a rearrangement of $e_1,...,e_n$ $\in$ $\mathbb{R}^n$.
+        Let S be the number of swaps to turn $e_{i_1},e_{i_2},...,e_{i_n}$
+        into $e_1,...,e_n$ and I be the number of inversions
+        in $(1,i_1),...,(n,i_n)$.
+
+        \hspace{0.5cm}
+        S = I
+
+        Thus:
+
+        \hspace{0.5cm}
+        D($e_{i_1},e_{i_2},...,e_{i_n}$)
+        = $(-1)^S$
+        = $(-1)^I$
+        = sgn($e_{i_1},e_{i_2},...,e_{i_n}$)
+    \end{wtheorem}
+
+    \begin{proof}
+        Note D($e_{i_1},e_{i_2},...,e_{i_n}$) = $(-1)^S$
+        and sgn($e_{i_1},e_{i_2},...,e_{i_n}$) = $(-1)^I$.
+        Suppose n = 2. Then, either:
+
+        \hspace{0.5cm}
+        D($\begin{bmatrix}
+                1 \\
+                0
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 \\
+                1
+            \end{bmatrix}$):
+        \hspace{1cm}
+        0 swaps , 0 inversions
+
+        \hspace{0.5cm}
+        D($\begin{bmatrix}
+                0 \\
+                1
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 \\
+                1
+            \end{bmatrix}$):
+        \hspace{1cm}
+        1 swap , 1 inversion
+
+        Thus, when n = 2, then S = I so
+        D($e_{i_1},e_{i_2},...,e_{i_n}$) = $(-1)^S$
+        = $(-1)^I$ = sgn($e_{i_1},e_{i_2},...,e_{i_n}$).
+
+        For k $\leq$ n, let $e_{i_1},e_{i_2},...,e_{i_{k-1}}$
+        have the same number of swaps as for inversions.
+
+        Then, for $e_{i_1},e_{i_2},...,e_{i_{k-1}},e_{i_k}$,
+        the only possible new inversions compared to
+        $e_{i_1},e_{i_2},...,e_{i_{k-1}}$ are $e_{i_k}$
+        with each of $e_{i_1},e_{i_2},...,e_{i_{k-1}}$.
+        Also, note the only new swaps are also $e_{i_k}$
+        with each of $e_{i_1},e_{i_2},...,e_{i_{k-1}}$
+        since if $e_{i_1},e_{i_2},...,e_{i_{k-1}}$ is swapped into
+        $e_{i_1^*},e_{i_2^*},...,e_{i_{k-1^*}}$ which has no inversions,
+        then $e_{i_k}$ can swap with $e_{i_{k-1^*}}$ first if needed,
+        then $e_{i_{k-2^*}}$ second if needed, and etc. Thus, each
+        $e_{i_1},e_{i_2},...,e_{i_{k-1}}$ does not have to swap with one another,
+        the only swaps are $e_{i_k}$ with $e_{i_1},e_{i_2},...,e_{i_{k-1}}$,
+        and $e_{i_1^*},e_{i_2^*},...,e_{i_{k-1^*}},e_{i_{k^*}}$
+        can be reached with no inversions.
+
+        But, since D($e_{i_k},e_{i_j}$) = sgn($e_{i_k},e_{i_j}$)
+        for j = \{1,...,k-1\}, then the total new inversions
+        is the same as the total new swaps.
+        Thus, by proof by induction, S = I so:
+        
+        \hspace{0.5cm}
+        D($e_{i_1},e_{i_2},...,e_{i_n}$)
+        = $(-1)^S$
+        = $(-1)^I$
+        = sgn($e_{i_1},e_{i_2},...,e_{i_n}$)
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{Determinant Function Redefined}{16cm}
+        For determinant function D: $M_{n \times n}(\mathbb{R})$
+        $\rightarrow$ $\mathbb{R}$, then for any
+        A $\in$ $M_{n \times n}(\mathbb{R})$:
+
+        \hspace{0.5cm}
+        D(A) = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+                $a_{1i_1}...a_{ni_n}(-1)^I$
+
+        where I is the number of inversions
+        in $(1,i_1),...,(n,i_n)$
+    \end{corollary}
+
+    \begin{proof}
+        D(A) =
+        $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{ni_n}(-1)^S$
+        where S is the number of swaps to turn 
+
+        $(e_{i_1},e_{i_2},...,e_{i_n})$ into $(e_1,...,e_n)$.
+        Since D($e_{i_1},e_{i_2},...,e_{i_n}$) = $(-1)^S$,
+        then by {\color{red} theorem 4.1.3},
+        $(-1)^S$ = sgn($e_{i_1},e_{i_2},...,e_{i_n}$) = $(-1)^I$
+        where I is the number of inversions
+        in $(1,i_1),...,(n,i_n)$. Thus:
+
+        \hspace{0.5cm}
+        D(A)
+        = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{ni_n}(-1)^S$
+        = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{ni_n}(-1)^I$
+    \end{proof}
+
+    \newpage
+
+
+
+    \begin{wtheorem}{det() function}{16cm}
+        Function det: $M_{n \times n}(\mathbb{R})$ $\rightarrow$ $\mathbb{R}$
+        is a determinant function
+
+        \hspace{0.5cm}
+        det(A) = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+                    $a_{1i_1}...a_{ni_n}(-1)^I$
+        
+        where I is the number of inversions
+        in $(1,i_1),...,(n,i_n)$
+    \end{wtheorem}
+
+    \begin{proof}
+        For j $\in$ \{1,...,n\},
+        let x,y $\in$ $\mathbb{R}^n$ and $c_1,c_2$ $\in$ $\mathbb{R}$:
+
+        \hspace{0.5cm}
+        T($c_1x+c_2y$)
+        = det($A_1,...,A_{j-1},c_1x+c_2y,A_{j+1},...,A_n$)
+
+        \hspace{2.9cm}
+        = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{(j-1)i_{j-1}}
+            (c_1x+c_2y)_{ji_j}a_{(j+1)i_{j+1}}...a_{ni_n}(-1)^I$
+
+        \hspace{2.9cm}
+        = $c_1\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{(j-1)i_{j-1}}x_{ji_j}a_{(j+1)i_{j+1}}...a_{ni_n}(-1)^I$
+
+        \hspace{3.4cm}
+        + $c_2\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{(j-1)i_{j-1}}y_{ji_j}a_{(j+1)i_{j+1}}...a_{ni_n}(-1)^I$
+
+        \hspace{2.9cm}
+        = $c_1$det($A_1,...,A_{j-1},x,A_{j+1},...,A_n$)
+            + $c_2$det($A_1,...,A_{j-1},y,A_{j+1},...,A_n$)
+
+        \hspace{2.9cm}
+        = $c_1T(x) + c_2T(y)$
+
+        \vspace{0.3cm}
+
+        For A =
+        $\begin{bmatrix}
+            A_1 & ... & A_j & ... & A_k & ... & A_n
+        \end{bmatrix}$,
+        let B =
+        $\begin{bmatrix}
+            A_1 & ... & A_k & ... & A_j & ... & A_n
+        \end{bmatrix}$.
+
+        By {\color{red} theorem 4.1.3}, the $I_B$, number of inversions in B, is
+        equal to $S_B$, the number of swaps in B to turn
+        $e_{i_1},...e_{i_k},...e_{i_j},...,e_{i_n}$
+        into $e_1,...,e_n$. Thus:
+
+        \hspace{0.5cm}
+        det(B)
+        = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{ki_k}...a_{ji_j}...a_{ni_n}(-1)^{I_B}$
+
+        \hspace{1.85cm}
+        = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{ji_j}...a_{ki_k}...a_{ni_n}(-1)^{S_B}$
+
+        Note $e_{i_1},...e_{i_k},...e_{i_j},...,e_{i_n}$
+        can first swap into $e_{i_1},...e_{i_j},...e_{i_k},...,e_{i_n}$
+        and then perform swaps to turn into $e_1,...,e_n$.
+        Since the number of swaps to turn
+        $e_{i_1},...e_{i_j},...e_{i_k},...,e_{i_n}$ into $e_1,...,e_n$
+        is $S_A$, the number of swaps in A, then $S_B$ = $S_A + 1$. Thus:
+
+        \hspace{0.5cm}
+        det(B)
+        = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{ji_j}...a_{ki_k}...a_{ni_n}(-1)^{S_A+1}$
+
+        \hspace{1.85cm}
+        = $-\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{ji_j}...a_{ki_k}...a_{ni_n}(-1)^{S_A}$
+        = -det(A)
+
+        \vspace{0.3cm}
+
+        For det($I_{n \times n}$),
+        the only nonzero $a_{1i_1}...a_{ni_n}$
+        is when each $a_{ki_k}$ = 1 else $a_{ki_k}$ = 0.
+        Since there are no inversions from $e_1,...,e_n$ to $e_1,...,e_n$,
+        then det($I_{n \times n}$) = $a_{1i_1}...a_{ni_n}(-1)^I$
+        = $1...1(-1)^0$ = 1.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{det($A^T$) = det(A)}{16cm}
+        For A $\in$ $M_{n \times n}(\mathbb{R})$:
+
+        \hspace{0.5cm}
+        det($A^T$) = det(A)
+    \end{wtheorem}
+
+    \begin{proof}
+        Let det($A^T$) =
+        $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{ni_n}(-1)^{I_{A^T}}$.
+        
+        For $a_{k_1i_{k_1}}$,$a_{k_2i_{k_2}}$
+        where $i_{k_1}$ $<$ $i_{k_2}$, suppose $k_1$ $<$ $k_2$.
+        Then, there is no inversion for $a_{k_1i_{k_1}}$
+        and $a_{k_2i_{k_2}}$.
+        Then for $a_{i_{k_1}k_1}$,$a_{i_{k_2}k_2}$
+        where $k_1$ $<$ $k_2$ and $i_{k_1}$ $<$ $i_{k_2}$,
+        then there is no inversion.
+
+        For $a_{k_1i_{k_1}}$,$a_{k_2i_{k_2}}$
+        where $i_{k_1}$ $<$ $i_{k_2}$, suppose $k_1$ $>$ $k_2$.
+        Then, there is an inversion for $a_{k_1i_{k_1}}$
+        and $a_{k_2i_{k_2}}$.
+        Then for $a_{i_{k_2}k_2}$,$a_{i_{k_1}k_1}$
+        where $k_2$ $<$ $k_1$ and $i_{k_2}$ $>$ $i_{k_1}$,
+        then there is an inversion.
+
+        Thus, transpose perserves inversions
+        so $I_{A^T}$ = $I_A$.
+
+        Since each $a_{1i_1}...a_{ni_n}$ in $A^T$
+        can be arrange in order by $i_1,...,i_n$
+        into $a_{1^*i_1^*}...a_{n^*i_n^*}$
+        which when transposed is $a_{i_1^*1^*}...a_{i_n^*n^*}$
+        which is in A. Thus:
+
+        \hspace{0.5cm}
+        det($A^T$) =
+        $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{ni_n}(-1)^{I_{A^T}}$
+
+        \hspace{2.1cm}
+        = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{i_1^*1^*}...a_{i_n^*n^*}(-1)^{I_A}$
+        = det(A)
+    \end{proof}
+
+    \newpage
+
+
+
+    \begin{wtheorem}{Cofactor Expansion: Determing det(A) by parts}{16cm}
+        For A $\in$ $M_{n \times n}(\mathbb{R})$, let
+        let $A_{ij}$ be A, but the i-th row and j-th column removed.
+        
+        For any i-th row where i $\in$ \{1,...,n\}, then by fixing i:
+
+        \hspace{0.5cm}
+        det(A) = $\sum_{j=1}^n$ $(-1)^{i+j}a_{ij}$det($A_{ij}$)
+
+        Or for any j-th column where j $\in$ \{1,...,n\}, then by fixing j:
+
+        \hspace{0.5cm}
+        det(A) = $\sum_{i=1}^n$ $(-1)^{i+j}a_{ij}$det($A_{ij}$)
+    \end{wtheorem}
+
+    \begin{proof}
+        There are n possibles $a_{ij}$ choices in the first column and by choosing
+        any such one, then that row is eliminated for choice in the following
+        columns. Thus, there are n-1 possible $a_{ij}$ choices in the second column
+        and by choosing any such one, then that row is also eliminated for choice
+        in the following columns. Repeating the pattern, then
+        there are n*(n-1)*(n-2)*...*1 = n! total unique
+        $a_{1i_1},...,a_{ni_n}$ combinations.
+        In the cofactor expansion, choose a fixed i. The case for a fixed j
+        is analogous.
+        For a fixed i, the cofactor expansion iterates through each of the n
+        columns in row i so there are n unique $a_{ij}$.
+        For each $a_{ij}$, the $A_{ij}$ has the i-th row and j-th column
+        removed so $A_{ij}$ is a (n-1) by (n-1) matrix and thus, there
+        are (n-1)! unique $a_{1i_1},...,a_{ni_n}$ combinations as proved earlier.
+        Since each $A_{ij}$ removes a different j-th column, then each
+        $a_{1i_1},...,a_{ni_n}$ from different columns are unique.
+        Thus, the n unique $a_{ij}$ has (n-1)! unique $a_{1i_1},...,a_{ni_n}$
+        so there are n*(n-1)! = n! unique $a_{1i_1},...,a_{ni_n}$.
+        Thus, the $a_{1i_1},...,a_{ni_n}$ in the cofactor expansion must be
+        equivalent to the $a_{1i_1},...,a_{ni_n}$ in the original determinant.
+
+        For the fixed i, lets fixed j $\in$ \{1,...,n\}:
+
+        \hspace{0.5cm}
+        $
+        \begin{bmatrix}
+            a_{1,1} & a_{1,2} & a_{1,3} & \hdots
+                    & a_{1,j-1} & {\color{lblue} a_{1,j}}
+                    & a_{1,j+1} & \hdots & a_{1,n} \\
+            \vdots & \vdots & \vdots & \ddots
+                    & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            a_{i-1,1} & a_{i-1,2} & a_{i-1,3} & \hdots
+                    & a_{i-1,j-1} & {\color{lblue} a_{i-1,j}}
+                    & a_{i-1,j+1} & \hdots & a_{i-1,n} \\
+            {\color{red} a_{i,1}} & {\color{red} a_{i,2}} & {\color{red} a_{i,3}}
+                & \hdots & {\color{red} a_{i,j-1}} & {\color{purple} a_{i,j}}
+                & {\color{red} a_{i,j+1}} & \hdots & {\color{red} a_{i,n}} \\
+            a_{i+1,1} & a_{i+1,2} & a_{i+1,3} & \hdots
+                    & a_{i+1,j-1} & {\color{lblue} a_{i+1,j}}
+                    & a_{i+1,j+1} & \hdots & a_{i+1,n} \\
+            \vdots & \vdots & \vdots & \ddots
+                    & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            a_{n,1} & a_{n,2} & a_{n,3} & \hdots
+                    & a_{n,j-1} & {\color{lblue} a_{n,j}}
+                    & a_{n,j+1} & \hdots & a_{n,n} \\
+        \end{bmatrix}
+        $
+
+        In the original determinant, each $a_{1i_1},...,a_{ni_n}$ associates
+        $(-1)^{\text{\tiny \# inversions $a_{1i_1},...,a_{ni_n}$}}$.
+        As proven earlier, each $a_{1i_1},...,a_{ni_n}$ is expressed
+        in the coefactor expansion.
+        So for any $a_{1i_1},...,a_{ni_n}$ that contains $a_{ij}$ with the
+        fixed i,j, then from the $a_{ij}\text{det}(A_{ij})$ in the
+        cofactor expansion, the det($A_{ij}$)
+        consists of the other $a_{ij}$ in the $a_{1i_1},...,a_{ni_n}$
+        since none of the other $a_{ij}$ can exist in row i or column j
+        by definition of the determinant and thus, det($A_{ij}$) must account
+        for all the inversions exclusively between the other $a_{ij}$.
+        To account for the inversions between the other $a_{ij}$
+        and the fixed $a_{ij}$, refer to the matrix above.
+        The only $a_{ij}$ which contributes an inversion with the fixed $a_{ij}$
+        must be in the lower left and upper right of the matrix
+        by defintion of the determinant.
+        Let A = \#$a_{ij}$ in upper left, B = \#$a_{ij}$ in upper right,
+        C = \#$a_{ij}$ in lower left, and D = \#$a_{ij}$ in lower right.
+        Since each $a_{1i_1},...,a_{ni_n}$
+        must have a $a_{ij}$ in each row and column, then:
+
+        \hspace{0.5cm}
+        A+B = i - 1
+        \hspace{1cm}
+        A+C = j - 1
+        \hspace{1cm}
+        $\Rightarrow$
+        \hspace{1cm}
+        B+C = i + j - 2 - 2A
+
+        \hspace{0.5cm}
+        $(-1)^{I_A}$ = $(-1)^{B+C}$ = $(-1)^{i+j-2-2A}$
+        = $(-1)^{i+j}(-1)^{-2}(-1)^{-2A}$
+        = $(-1)^{i+j}$
+
+        Thus:
+
+        \hspace{0.5cm}
+        det(A)
+        = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
+            $a_{1i_1}...a_{ni_n}(-1)^{I_A}$
+
+        \hspace{1.8cm}
+        = $\sum_{j=1}^n$ $a_{ij}$det($A_{ij}$)$(-1)^{I_A}$
+        = $\sum_{j=1}^n$ $a_{ij}$det($A_{ij}$)$(-1)^{i+j}$
+    \end{proof}
+
+    \newpage
 
 
 
 
 
+\subsection{ Properties of the Determinant }
+
+    \begin{wtheorem}{Relationship between Determinant and Elementary
+    row operations}{16cm}
+        Let A,B $\in$ $M_{n \times n}(\mathbb{R})$.
+    \end{wtheorem}
+
+    \begin{enumerate}[label=(\alph*), leftmargin=2cm, itemsep=0.1cm]
+        \item {\color{lgreen} Row or Column Multiplication}
+
+            Let B be obtained by multiplying the i-th row or j-th column
+            of A by c $\in$ $\mathbb{R}$. Then:
+
+            \hspace{0.5cm}
+            det(B) = c det(A)
+
+            \begin{proof}[15cm]
+                Let B be A with the i-th column multiplied by c. Then:
+                
+                \hspace{0.5cm}
+                det(B)
+                = det($B_1,...,B_i,...B_n$)
+                = det($A_1,...,cA_i,...A_n$)
+
+                \hspace{1.8cm}
+                = c det($A_1,...,A_i,...A_n$)
+                = c det(A)
+
+                Let B be A with the j-th column multiplied by c. Then:
+
+                \hspace{0.5cm}
+                det(B)
+                = det($B^T$)
+                = c det($A^T$)
+                = c det(A)
+            \end{proof}
+
+        \item {\color{lgreen} Row or Column Addition}
+        
+            Let B be obtained by adding to the i-th row by c $\in$ $\mathbb{R}$
+            times the j-th row of A or by adding to the i-th column by
+            c $\in$ $\mathbb{R}$ times the j-th column of A. Then:
+
+            \hspace{0.5cm}
+            det(B) = det(A)
+            
+            \begin{proof}[15cm]
+                Let B be A with the i-th column added by c times the j-th column.
+                Then:
+                
+                \hspace{0.5cm}
+                det(B)
+                = det($B_1,...,B_i,...,B_j,...,B_n$)
+                = det($A_1,...,A_i+cA_j,...,A_j,...,A_n$)
+
+                \hspace{1.8cm}
+                = det($A_1,...,A_i,...,A_j,...,A_n$)
+                    + c det($A_1,...,A_j,...,A_j,...,A_n$)
+
+                \hspace{1.8cm}
+                = det(A) + c0
+                = det(A)
+
+                Let B be A with the i-th row added by c times the j-th row.
+                Then:
+
+                \hspace{0.5cm}
+                det(B)
+                = det($B^T$)
+                = det($A^T$)
+                = det(A)
+            \end{proof}
+        
+        \item {\color{lgreen} Row or Column Swapping}
+        
+            Let B be obtained swapping the i-th and j-th rows of A or
+            by swapping the i-th and j-th columns of A. Then:
+
+            \hspace{0.5cm}
+            det(B) = -det(A)
+
+            \begin{proof}[15cm]
+                Let B be A with the i-th and j-th columns swapped. Then:
+
+                \hspace{0.5cm}
+                det(B)
+                = det($B_1,...,B_i,...,B_j,...,B_n$)
+                = det($A_1,...,A_j,...,A_i,...,A_n$)
+
+                \hspace{1.8cm}
+                = -det($A_1,...,A_i,...,A_j,...,A_n$)
+                = -det(A)
+
+                Let B be A with the i-th and j-th rows swapped. Then:
+
+                \hspace{0.5cm}
+                det(B)
+                = det($B^T$)
+                = -det($A^T$)
+                = -det(A)
+            \end{proof}
+    \end{enumerate}
+
+    \vspace{0.5cm}
 
 
 
+    \begin{wtheorem}{Invertible A $\Leftrightarrow$ det(A) $\not =$ 0}{16cm}
+        Let A $\in$ $M_{n \times n}(\mathbb{R})$.
+        Then, A is invertible if and only if det(A) $\not =$ 0.
+    \end{wtheorem}
+
+    \begin{proof}
+        By {\color{red} theorem 2.4.5}, A is invertible if and only if
+        rref(A) = $I_{n \times n}$.
+        Then, there is a sequence of elementary row operations that
+        transformation A into $I_{n \times n}$.
+        By {\color{red} theorem 4.2.1}, then:
+
+        \hspace{0.5cm}
+        det(A) = $(-1)^S$det($I_{n \times n}$) = $(-1)^S$ $\not =$ 0
+
+        where S is the number of row swaps in the sequence.
+        Then if det(A) = 0, then A cannot be invertible.
+        Thus, A is invertible if and only if det(A) $\not =$ 0.
+    \end{proof}
+
+    \newpage
 
 
+
+    \begin{wtheorem}{det(AB) = det(A)det(B)}{16cm}
+        Let A,B $\in$ $M_{n \times n}(\mathbb{R})$. Then,
+        det(AB) = det(A)det(B).
+    \end{wtheorem}
+
+    \begin{proof}
+        Suppose at least one of A,B is not invertible.
+        Let A be not invertible.
+
+        Then by {\color{red} theorem 4.2.2}, det(A) = 0.
+        Since A is not invertible, then AB is not invertible.
+
+        \hspace{0.5cm}
+        det(AB) = 0 = 0det(B) = det(A)det(B)
+
+        Suppose A,B are invertible. By {\color{red} theorem 2.4.5},
+        rref(A) = rref(B) = $I_{n \times n}$.
+        Thus, there is a sequence $S_1$ of elementary row operations
+        that transforms A into $I_{n \times n}$.
+        Thus, sequence $S_1$ will transform AB into $I_{n \times n}$B = B.
+        And then there is another sequence $S_2$
+        of elementary row operations that transforms B into $I_{n \times}$.
+    
+        \hspace{0.5cm}
+        det(A) = $(-1)^{S_A}$
+        \hspace{1cm}
+        det(A) = $(-1)^{S_B}$
+
+        where $S_A$ are the number of row swaps in $S_1$
+        and $S_B$ are the number of row swaps in $S_2$.
+
+        \hspace{0.5cm}
+        det(AB) = $(-1)^{S_A}$det(B) = $(-1)^{S_A} (-1)^{S_B}$
+
+        Thus, det(AB) = det(A)det(B).
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{det($A^k$) = (det(A))$^k$}{16cm}
+        For A $\in$ $M_{n \times n}(\mathbb{R})$,
+        then det($A^k$) = (det(A))$^k$.
+    \end{corollary}
+
+    \begin{proof}
+        By {\color{red} theorem 4.2.3}:
+
+        \hspace{0.5cm}
+        det($A^k$)
+        = det(A)det($A^{k-1}$)
+        = det(A)det(A)det($A^{k-2}$)
+        = ...
+        = (det(A))$^k$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{det($A^{-1}$) = (det(A))$^{-1}$}{16cm}
+        For invertible A $\in$ $M_{n \times n}(\mathbb{R})$,
+        then det($A^{-1}$) = (det(A))$^{-1}$.
+    \end{corollary}
+
+    \begin{proof}
+        Since A is invertible, then $A^{-1}A$ = $I_{n \times n}$.
+        By {\color{red} theorem 4.2.3}:
+
+        \hspace{0.5cm}
+        1 = det($I_{n \times n}$)
+        = det($A^{-1}A$)
+        = det($A^{-1}$)det(A)
+
+        Thus, det($A^{-1}$) = (det(A))$^{-1}$.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{Similar matrices have the same Determinant}{16cm}
+        For similar A,B $\in$ $M_{n \times n}(\mathbb{R})$,
+        then det(A) = det(B)
+    \end{corollary}
+
+    \begin{proof}
+        Since A,B are similar, then there is a
+        invertible X $\in$ $M_{n \times n}(\mathbb{R})$ such that:
+
+        \hspace{0.5cm}
+        AX = XB
+
+        By {\color{red} theorem 4.2.3}:
+
+        \hspace{0.5cm}
+        det(A)det(X)
+        = det(AX)
+        = det(XB)
+        = det(X)det(B)
+
+        Since X is invertible, then det(X) $\not =$ 0 so det(A) = det(B).
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{det($A^{-1}$) = (det(A))$^{-1}$}{16cm}
+        For orthogonal A $\in$ $M_{n \times n}(\mathbb{R})$,
+        then det(A) = $\pm 1$.
+    \end{corollary}
+
+    \begin{proof}
+        Since A is orthogonal, then by {\color{red} theorem 3.3.2},
+        $A^TA$ = $I_{n \times n}$.
+        
+        Since det($A^T$) = det(A), then by {\color{red} theorem 4.2.3}:
+
+        \hspace{0.5cm}
+        1 = det($I_{n \times n}$)
+        = det($A^TA$)
+        = det($A^T$)det(A)
+        = (det(A))$^2$
+
+        Thus, det(A) = $\pm 1$.
+    \end{proof}
+
+    \newpage
+
+
+
+\subsection{ Volume }
+
+    \begin{definition}{Volume of Parallelotope}{16cm}
+        Let $v_1,...,v_n$ $\in$ $\mathbb{R}^n$.
+
+        Then a {\color{lblue} parallelotope}, P($v_1,...,v_n$),
+        is a parallelogram in higher dimensions.
+
+        For i = \{2,...,n\}, let
+        $v_i^{\perp}$ = $v_i$ - $\text{proj}_{\text{span}(v_1,...,v_{i-1})}v_i$.
+        The volume of a parallelotope:
+
+        \hspace{0.5cm}
+        $\text{Vol}_n(P(v_1,...,v_n))$
+        = $|v_1| \ |v_2^{\perp}| \ |v_3^{\perp}| \ ... \ |v_n^{\perp}|$
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{$|$det($v_1,...,v_n$)$|$ = $\text{Vol}_n(P(v_1,...,v_n))$}{16cm}
+        For $v_1,...,v_n$ $\in$ $\mathbb{R}^n$,
+        let A =
+        $\begin{bmatrix}
+            v_1 & ... & v_n 
+        \end{bmatrix}$
+        $\in$ $M_{n \times n}(\mathbb{R})$. Then:
+
+        \hspace{0.5cm}
+        $\text{Vol}_n(P(v_1,...,v_n))$
+        = $|\text{det}(A)|$
+    \end{wtheorem}
+
+    \begin{proof}
+        By {\color{red} theorem 3.2.9},
+        $v_1,v_2^{\perp},...,v_n^{\perp}$ $\in$ $\mathbb{R}^n$
+        is orthogonal. Thus:
+
+        \hspace{0.5cm}
+        \footnotesize
+        $\begin{bmatrix}
+            v_1^T \\
+            (v_2^{\perp})^T \\
+            \vdots \\
+            (v_n^{\perp})^T
+        \end{bmatrix}
+        \begin{bmatrix}
+            v_1 & v_2^{\perp} & \hdots & v_n^{\perp}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            v_1^Tv_1 & v_1^Tv_2^{\perp} & \hdots & v_1^Tv_n^{\perp} \\
+            (v_2^{\perp})^Tv_1 & (v_2^{\perp})^Tv_2^{\perp}
+                & \hdots & (v_2^{\perp})^Tv_n^{\perp} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            (v_n^{\perp})^Tv_1 & (v_n^{\perp})^Tv_2^{\perp}
+                & \hdots & (v_n^{\perp})^Tv_n^{\perp}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            |v_1|^2 & 0 & \hdots & 0 \\
+            0 & |v_2^{\perp}|^2 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \hdots & |v_n^{\perp}|^2
+        \end{bmatrix}$
+        \normalsize
+
+        Since each $v_i^{\perp}$ = $v_i - (c_{i1}v_1 + .... + c_{i(i-1)}v_{i-1})$
+        for $c_{i1},...,c_{i(i-1)}$ $\in$ $\mathbb{R}$, then
+        by {\color{red} theorem 4.2.1}:
+
+        \hspace{0.5cm}
+        det($v_1,v_2^{\perp},v_3^{\perp},...,v_n^{\perp}$)
+        = det($v_1,v_2,v_3^{\perp},...,v_n^{\perp}$)
+        = ...
+        = det($v_1,v_2,v_3^{\perp},...,v_n$)
+        = det(A)
+
+        Thus:
+
+        \hspace{0.5cm}
+        $|\text{det}(A)|$
+        = $\sqrt{\text{det}(A)\text{det}(A)}$
+        = $\sqrt{\text{det}(A^T)\text{det}(A)}$
+
+        \hspace{2.1cm}
+        = $\sqrt{\text{det}(A^TA)}$
+        = $\sqrt{|v_1|^2 |v_2^{\perp}|^2 ... |v_n^{\perp}|^2}$
+        = $|v_1| |v_2^{\perp}| ... |v_n^{\perp}|$
+        = $\text{Vol}_n(P(v_1,...,v_n))$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{Expansion Factor:
+    Linear transformation of a Parallelotope}{16cm}
+        Let linear transformation T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^n$
+        be T(x) = Ax. Then for $v_1,...,v_n$ $\in$ $\mathbb{R}^n$,
+        T(P($v_1,...,v_n$)) is a parallelotope where:
+
+        \hspace{0.5cm}
+        $\text{Vol}_n(T(P(v_1,...,v_n)))$
+        = $|\text{det}(A)| \text{Vol}_n(P(v_1,...,v_n))$
+
+        So, for T(x) = Ax, $|\text{det}(A)|$ is called the
+        {\color{lblue} expansion factor} of T.
+    \end{corollary}
+
+    \begin{proof}
+        For any v $\in$ $P(v_1,...,v_n)$, then
+        v = $c_1v_1 + ... + c_nv_n$ for $c_1,...,c_n$ $\in$ [0,1].
+        Thus:
+
+        \hspace{0.5cm}
+        $T(P(v_1,...,v_n))$
+        = \{ $A(c_1v_1 + ... + c_nv_n)$ \}
+        = \{ $c_1Av_1 + ... + c_nAv_n$ \}
+
+        Thus, T(P($v_1,...,v_n$)) is the parallelotope,
+        P($Av_1,...,Av_n$).
+        By {\color{red} theorem 4.3.2}:
+
+        \hspace{0.5cm}
+        $\text{Vol}_n(T(P(v_1,...,v_n)))$
+        = $|\text{det}([Av_1 \ ... \ Av_n])|$
+
+        \hspace{4.5cm}
+        = $|\text{det}(A)\text{det}([v_1 \ ... \ v_n])|$
+        = $|\text{det}(A)| \text{Vol}_n(P(v_1,...,v_n))$
+    \end{proof}
+
+    \newpage
+
+
+
+    \begin{wtheorem}{Cauchy-Binet Formula}{16cm}
+        For k $\leq$ n, let $v_1,...,v_k$ $\in$ $\mathbb{R}^n$.
+        Let A =
+        $\begin{bmatrix}
+            v_1 & ... & v_k
+        \end{bmatrix}$
+        $\in$ $M_{n \times k}(\mathbb{R})$. Then:
+
+        \hspace{0.5cm}
+        $\text{Vol}_k(P(v_1,...,v_k))$
+        = $\sqrt{\text{det}(A^TA)}$
+    \end{wtheorem}
+
+    \begin{proof}
+        Since each $v_i^{\perp}$ = $v_i - (c_{i1}v_1 + .... + c_{i(i-1)}v_{i-1})$
+        for $c_{i1},...,c_{i(i-1)}$ $\in$ $\mathbb{R}$, then:
+
+        \footnotesize
+        \hspace{0.5cm}
+        B =
+        $\begin{bmatrix}
+            v_1 & v_2^{\perp} & ... & v_k^{\perp}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            v_1 & v_2 & ... & v_k
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & -c_{21} & -c_{31} & \hdots & -c_{k1} \\
+            0 & 1 & -c_{32} & \hdots & -c_{k2} \\
+            0 & 0 & 1 & \hdots & -c_{k3} \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & 0 & \hdots & 1
+        \end{bmatrix}$
+        = AX
+        \normalsize
+
+        Since det(X) = 1, then by {\color{red} theorem 4.2.2}, X is invertible
+        so $BX^{-1}$ = $AXX^{-1}$ = A.
+        By {\color{red} theorem 3.2.9},
+        $v_1,v_2^{\perp},...,v_n^{\perp}$ $\in$ $\mathbb{R}^n$
+        is orthogonal. Thus:
+
+        \footnotesize
+        $B^TB$ =
+        $\begin{bmatrix}
+            v_1^T \\
+            (v_2^{\perp})^T \\
+            \vdots \\
+            (v_k^{\perp})^T
+        \end{bmatrix}
+        \begin{bmatrix}
+            v_1 & v_2^{\perp} & \hdots & v_k^{\perp}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            v_1^Tv_1 & v_1^Tv_2^{\perp} & \hdots & v_1^Tv_k^{\perp} \\
+            (v_2^{\perp})^Tv_1 & (v_2^{\perp})^Tv_2^{\perp}
+                & \hdots & (v_2^{\perp})^Tv_k^{\perp} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            (v_k^{\perp})^Tv_1 & (v_k^{\perp})^Tv_2^{\perp}
+                & \hdots & (v_k^{\perp})^Tv_k^{\perp}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            |v_1|^2 & 0 & \hdots & 0 \\
+            0 & |v_2^{\perp}|^2 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \hdots & |v_k^{\perp}|^2
+        \end{bmatrix}$
+        \normalsize
+
+        \hspace{0.5cm}
+        $\sqrt{\text{det}(A^TA)}$
+        = $\sqrt{\text{det}((BX^{-1})^T(BX^{-1}))}$
+        = $\sqrt{\text{det}((X^{-1})^T) \text{det}(B^TB) \text{det}(X^{-1})}$
+
+        \hspace{2.8cm}
+        = $\sqrt{\text{det}((X^{-1})) \text{det}(B^TB) \text{det}(X)^{-1}}$
+        = $\sqrt{\text{det}(B^TB)}$
+        
+        \hspace{2.8cm}
+        = $\sqrt{|v_1|^2 |v_2^{\perp}|^2 ... |v_k^{\perp}|^2}$
+        = $|v_1| |v_2^{\perp}| ... |v_k^{\perp}|$
+        = $\text{Vol}_k(P(v_1,...,v_k))$
+    \end{proof}
 
 
 

@@ -187,13 +187,19 @@
 
 
     \begin{wtheorem}{Rescaling to a Unit Vector}{16cm}
-        Let x $\in$ $\mathbb{R}^n$. Then, $\frac{x}{|x|}$ is a unit vector.
+        Let x $\in$ $\mathbb{R}^n$ and c $\in$ $\mathbb{R}$.
+        Then, $|cx|$ = $|c| |x|$.
+
+        Thus, $\frac{x}{|x|}$ is a unit vector.
     \end{wtheorem}
 
     \begin{proof}
+        $|cx|$ = $\sqrt{(cx_1)^2 + ... + (cx_n)^2}$
+        = $\sqrt{c^2(x_1^2 + ... + x_n^2)}$
+        = $|c| \sqrt{x_1^2 + ... + x_n^2}$
+        = $|c| |x|$
+
         $|\frac{x}{|x|}|$
-        = $\sqrt{(\frac{x_1}{|x|})^2 + ... + (\frac{x_n}{|x|})^2}$
-        = $\frac{1}{|x|} \sqrt{x_1^2 + ... + x_n^2}$
         = $\frac{1}{|x|} |x|$
         = 1
     \end{proof}
@@ -565,7 +571,7 @@
 
 
     \begin{wtheorem}{Gauss-Jordan Elimination:
-    Elementary Row Operations don't change solutions}{16cm}
+    Elementary row operations don't change solutions}{16cm}
         Let m $\times$ n system of equations be the
         augmented matrix A $\in$ $M_{m \times (n+1)}(\mathbb{R})$.
         By performing elementary row operations on A to get to rref(A),
@@ -823,7 +829,7 @@
 
 
 
-    \begin{wtheorem}{Number of Solutions in a System of Equations}{16cm}
+    \begin{wtheorem}{Number of solutions in a System of Equations}{16cm}
         Let m $\times$ n system of equations be the
         augmented matrix A $\in$ $M_{m \times (n+1)}(\mathbb{R})$.
         The system is called {\color{lblue} consistent} if there
@@ -1238,7 +1244,7 @@
 
 
 
-    \begin{wtheorem}{Every Linear Transformation is a Matrix Transformation}{16cm}
+    \begin{wtheorem}{Every Linear transformation is a Matrix transformation}{16cm}
         Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^m$
         be a linear transformation. Then for any x $\in$ $\mathbb{R}^n$:
 
@@ -1456,7 +1462,7 @@
 
 \subsection{ Invertibility }
 
-    \begin{definition}{Product of Linear Transformations}{16cm}
+    \begin{definition}{Product of Linear transformations}{16cm}
         Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^m$
         and S: $\mathbb{R}^m$ $\rightarrow$ $\mathbb{R}^t$
         be linear transformations. Then for any x $\in$ $\mathbb{R}^n$:
@@ -1484,8 +1490,8 @@
 
 
 
-    \begin{wtheorem}{Product of Linear Transformations are
-    Matrix Transformations}{16cm}
+    \begin{wtheorem}{Product of Linear transformations are
+    Matrix transformations}{16cm}
         Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^m$ with T(x) = Ax
         and S: $\mathbb{R}^m$ $\rightarrow$ $\mathbb{R}^t$ with S(y) = By
         be linear transformations where
@@ -1694,7 +1700,7 @@
 
 
 
-    \begin{definition}{Elementary Row Operations are Matrix Transformations}{16cm}
+    \begin{definition}{Elementary row operations are Matrix transformations}{16cm}
         Elementary Row Operations as matrix
         are called {\color{lblue} elementary matrices}.
 
@@ -1843,7 +1849,7 @@
 
 
 
-    \begin{wtheorem}{Only Square Matrices can be Invertible}{16cm}
+    \begin{wtheorem}{Only Square matrices can be Invertible}{16cm}
         Let A $\in$ $M_{m \times n}(\mathbb{R})$
         and B $\in$ $M_{n \times m}(\mathbb{R})$
         such that n $\not =$ m.
@@ -2080,7 +2086,7 @@
 
 
 
-    \begin{wtheorem}{Product of Invertible Matrices is Invertible}{16cm}
+    \begin{wtheorem}{Product of Invertible matrices is Invertible}{16cm}
         Let A,B $\in$ $M_{n \times n}(\mathbb{R})$ be invertible.
         Then, AB is invertible where:
 

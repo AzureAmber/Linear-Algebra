@@ -123,7 +123,7 @@
 
 
     \begin{wtheorem}{Remove Linearly dependent vectors to get
-    Linearly independence}{16cm}
+    Linear independence}{16cm}
         Let u $\in$ $\mathbb{R}^n$ be a linear combination of
         $v_1,...,v_k$ $\in$ $\mathbb{R}^n$. Then:
 
@@ -172,7 +172,7 @@
 
 
 
-    \begin{wtheorem}{Condition for Linear Independence}{16cm}
+    \begin{wtheorem}{Condition for Linear independence}{16cm}
         $v_1,...,v_k$ $\in$ $\mathbb{R}^n$ are linearly independent
         if and only if the only solution $(c_1,...,c_k)$:
 
@@ -300,7 +300,7 @@
 
 
 
-    \begin{wtheorem}{Union of Subspaces's Condition for Subspace}{16cm}
+    \begin{wtheorem}{Union of Subspaces's condition for Subspace}{16cm}
         Let U,V $\subset$ $\mathbb{R}^n$ be subspaces.
         Then, U $\cup$ V is a subspace if and only if
         U $\subset$ V or V $\subset$ U.
@@ -418,7 +418,7 @@
 
 
 
-    \begin{wtheorem}{Relationship between the Kernel and Linear Independence}{16cm}
+    \begin{wtheorem}{Relationship between the Kernel and Linear independence}{16cm}
         Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^m$
         be the linear transformation T(x) = Ax where A =
         $\begin{bmatrix}
@@ -462,7 +462,7 @@
 
 
 
-\subsection{ Dimension }
+\subsection{ Basis \& Dimension }
 
     \begin{definition}{Basis \& Dimension}{16cm}
         Let set V $\subset$ $\mathbb{R}^n$ be subspace of $\mathbb{R}^n$.
@@ -483,7 +483,7 @@
 
 
 
-    \begin{wtheorem}{\# linearly independent vectors in V $\leq$
+    \begin{wtheorem}{\# Linearly independent vectors in V $\leq$
     \# vectors that span V}{16cm}
         Let $v_1,...,v_m$ $\in$ V be linearly independent
         and $u_1,...,u_k$ $\in$ V span V, then m $\leq$ k
@@ -527,7 +527,7 @@
 
 
 
-    \begin{corollary}{The dimension is unique}{16cm}
+    \begin{corollary}{The Dimension is unique}{16cm}
         Suppose $v_1,...,v_m$ $\in$ V and
         $u_1,...,u_k$ $\in$ V are bases for V, then dim(V) = m = k
     \end{corollary}
@@ -578,7 +578,7 @@
 
 
 
-    \begin{wtheorem}{Connection between Span, Linear Independence, and Basis}{16cm}
+    \begin{wtheorem}{Connection between Span, Linear independence, and Basis}{16cm}
         Let V $\subset$ $\mathbb{R}^n$ where dim(V) = m. Then, m $\leq$ n and:
     \end{wtheorem}
 
@@ -806,7 +806,7 @@
 
 
     \begin{wtheorem}{Connection between Invertibility, Span, and
-    Linear Independence}{16cm}
+    Linear independence}{16cm}
         Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^n$
         be a linear transformation T(x) = Ax where A =
         $\begin{bmatrix}
@@ -983,6 +983,7 @@
             0 & 0 & 0 & 0 & | & -3 & -4 & 1 & 0 \\
             0 & 0 & 0 & 0 & | & 0 & 1 & 0 & 1
         \end{bmatrix}$
+        \normalsize
         $\Rightarrow$
         rref(A) $\not =$ $I_{4 \times 4}$
         $\Rightarrow$
@@ -1003,10 +1004,11 @@
 
         \vspace{0.3cm}
 
-        To find ker(T), (aka solving Ax = 0 for x),
+        To find ker(T), (i.e. solving Ax = 0),
         replace the right matrix by a column with all 0 entries:
 
         \hspace{0.5cm}
+        \footnotesize
         $\begin{bmatrix}
             1 & 0 & 2 & 4 & | & 0 \\
             0 & 1 & -3 & -1 & | & 0 \\
@@ -1048,6 +1050,7 @@
                 1    
             \end{bmatrix}$
         
+        \normalsize
         \hspace{0.5cm}
         ker(T) =
         = $x_3(-2,3,1,0) + x_4(-4,1,0,1)$
@@ -1066,9 +1069,390 @@
 
 \subsection{ Coordinates }
 
+    \begin{definition}{Coordinates}{16cm}
+        For V $\subset$ $\mathbb{R}^n$, let $v_1,...,v_k$ $\in$ V be
+        a basis for V.
+        Then the {\color{lblue} coordinates} of v $\in$ V relative to basis 
+        $\mathcal{B}$ = $v_1,...,v_k$ are $c_1,...,c_k$ $\in$ $\mathbb{R}$
+        such that:
+
+        \hspace{0.5cm}
+        v = $c_1v_1 + ... + c_kv_k$
+
+        Then the {\color{lblue} coordinate vector}
+        $[v]_{\mathcal{B}}$ = $(c_1,...,c_k)$ $\in$ $\mathbb{R}^k$.
+        Let B =
+        $\begin{bmatrix}
+            v_1 & ... & v_k
+        \end{bmatrix}$ $\in$ $M_{n \times k}(\mathbb{R})$.
+
+        \hspace{0.5cm}
+        v = $c_1v_1 + ... + c_kv_k$
+        = B$[v]_{\mathcal{B}}$
+    \end{definition}
+
+    \vspace{0.5cm}
 
 
 
+    \begin{wtheorem}{Properties of Coordinates}{16cm}
+        For V $\subset$ $\mathbb{R}^n$, let $\mathcal{B}$ = $v_1,...,v_k$ $\in$ V
+        be a basis for V. For x,y $\in$ V and c $\in$ $\mathbb{R}$:
+
+        \begin{enumerate}[label=(\alph*), leftmargin=1cm, itemsep=0.1cm]
+            \item $[x+y]_{\mathcal{B}}$ = $[x]_{\mathcal{B}} + [y]_{\mathcal{B}}$
+            
+            \item $[cx]_{\mathcal{B}}$ = $c[x]_{\mathcal{B}}$
+        \end{enumerate}
+    \end{wtheorem}
+
+    \begin{proof}
+        Let x = $a_1v_1 + ... + a_kv_k$
+        and y = $b_1v_1 + ... + b_kv_k$
+        for $a_1,...,a_k,b_1,...,b_k$ $\in$ $\mathbb{R}$.
+        Let $c_1,c_2$ $\in$ $\mathbb{R}$.
+
+        \hspace{0.5cm}
+        $[c_1x+c_2y]_{\mathcal{B}}$
+        = $(c_1a_1+c_2b_1,...,c_1a_k+c_2b_k)$
+        = $c_1(a_1,...,c_1a_k) + c_2(b_1,...,b_k)$
+        = $c_1[x]_{\mathcal{B}} + c_2[y]_{\mathcal{B}}$
+    \end{proof}
+
+    \newpage
+
+
+
+    \begin{wtheorem}{Linear transformation by Coordinates}{16cm}
+        Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^n$
+        be a linear transformation and $\mathcal{B}$ = $v_1,...,v_n$
+        be a basis for $\mathbb{R}^n$.
+        
+        Then for any x $\in$ $\mathbb{R}^n$:
+
+        \hspace{0.5cm}
+        $[T(x)]_{\mathcal{B}}$
+        = $A_{\mathcal{B}}[x]_{\mathcal{B}}$
+
+        where the {\color{lblue} $\mathcal{B}$-matrix of T}, $A_{\mathcal{B}}$ =
+        $\begin{bmatrix}
+            [T(v_1)]_{\mathcal{B}} & ... & [T(v_n)_{\mathcal{B}}]
+        \end{bmatrix}$ $\in$ $M_{n \times n}(\mathbb{R})$
+    \end{wtheorem}
+
+    \begin{proof}
+        Let x = $c_1v_1 + ... + c_nv_n$ for $c_1,...,c_n$ $\in$ $\mathbb{R}$.
+        Then $[x]_{\mathcal{B}}$ = $(c_1,...,c_n)$:
+
+        \hspace{0.5cm}
+        $[T(x)]_{\mathcal{B}}$
+        = $[c_1T(v_1) + ... + c_nT(v_n)]_{\mathcal{B}}$
+        = $c_1[T(v_1)]_{\mathcal{B}} + ... + c_n[T(v_n)]_{\mathcal{B}}$
+        
+        \hspace{1.9cm}
+        =
+        $\begin{bmatrix}
+            [T(v_1)]_{\mathcal{B}} & ... & [T(v_n)_{\mathcal{B}}]
+        \end{bmatrix}
+        \begin{bmatrix}
+            c_1 \\
+            \vdots \\
+            c_n
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            [T(v_1)]_{\mathcal{B}} & ... & [T(v_n)_{\mathcal{B}}]
+        \end{bmatrix}
+        [x]_{\mathcal{B}}$  
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Relationship between Ax and
+    $A_{\mathcal{B}}x_{\mathcal{B}}$}{16cm}
+        Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^n$
+        be a linear transformation where T(x) = Ax.
+        Let $\mathcal{B}$ = $v_1,...,v_n$ be a basis for $\mathbb{R}^n$
+        where $[T(x)]_{\mathcal{B}}$ = $A_{\mathcal{B}}[x]_{\mathcal{B}}$.
+        Then:
+
+        \hspace{0.5cm}
+        AB = B$A_{\mathcal{B}}$
+        \hspace{1cm}
+        $A_{\mathcal{B}}$ = $B^{-1}$AB
+
+        where B =
+        $\begin{bmatrix}
+            v_1 & ... & v_n
+        \end{bmatrix}$ $\in$ $M_{n \times n}(\mathbb{R})$
+        is invertible
+        and $[x]_{\mathcal{B}}$ = $B^{-1}$x
+    \end{wtheorem}
+
+    \begin{proof}
+        Let B =
+        $\begin{bmatrix}
+            v_1 & ... & v_n
+        \end{bmatrix}$.
+        Since x = B$[x]_{\mathcal{B}}$ and T(x) = B$[T(x)]_{\mathcal{B}}$, then:
+
+        \hspace{0.5cm}
+        T(x) = Ax
+        = AB$[x]_{\mathcal{B}}$
+        \hspace{1cm}
+        T(x) = B$[T(x)]_{\mathcal{B}}$
+        = B$A_{\mathcal{B}}[x]_{\mathcal{B}}$
+
+        Thus, AB = B$A_{\mathcal{B}}$.
+        Since $v_1,...,v_n$ is a basis, then
+        by {\color{red} theorem 2.4.5}, B is invertible.
+
+        Since x = B$[x]_{\mathcal{B}}$, then $[x]_{\mathcal{B}}$ = $B^{-1}$x
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{Change of Bases}{16cm}
+        Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^n$
+        be a linear transformation.
+        Let $\mathcal{B}$ = $v_1,...,v_n$ be a basis for $\mathbb{R}^n$
+        where $[T(x)]_{\mathcal{B}}$ = $A_{\mathcal{B}}[x]_{\mathcal{B}}$
+        and $\mathcal{B}'$ = $v_1',...,v_n'$ also be a basis for $\mathbb{R}^n$
+        where $[T(x)]_{\mathcal{B}'}$ = $A_{\mathcal{B}'}[x]_{\mathcal{B}'}$.
+
+        \hspace{0.5cm}
+        $A_{\mathcal{B}'}$
+        = $S^{-1} A_{\mathcal{B}}S$
+
+        where S =
+        $\begin{bmatrix}
+            v_1 & ... & v_n
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+            v_1' & ... & v_n'
+        \end{bmatrix}$
+        is invertible
+        and $[x]_{\mathcal{B}'}$ = $S^{-1}[x]_{\mathcal{B}}$ 
+    \end{corollary}
+
+    \begin{proof}
+        Let T(x) = Ax. By {\color{red} theorem 2.5.4}, for
+        invertible B =
+        $\begin{bmatrix}
+            v_1 & ... & v_n
+        \end{bmatrix}$ and B' =
+        $\begin{bmatrix}
+            v_1' & ... & v_n'
+        \end{bmatrix}$:
+
+        \hspace{0.5cm}
+        A = B$A_{\mathcal{B}}B^{-1}$
+        \hspace{1cm}
+        A = B'$A_{\mathcal{B}'}(B')^{-1}$
+
+        \hspace{0.5cm}
+        B$A_{\mathcal{B}}B^{-1}$
+        = B'$A_{\mathcal{B}'}(B')^{-1}$
+        \hspace{0.5cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        $A_{\mathcal{B}'}$
+        = $(B')^{-1}$B$A_{\mathcal{B}}B^{-1}B'$
+        = $(B^{-1}B')^{-1} A_{\mathcal{B}} (B^{-1}B')$
+
+        Since $v_1,...,v_n$ and $u_1,...,u_n$ are bases, then
+        by {\color{red} theorem 1.5.13}, $B^{-1}B'$ is invertible.
+
+        Since x = B$[x]_{\mathcal{B}}$ and x = B'$[x]_{\mathcal{B}'}$, then:
+        
+        \hspace{0.5cm}
+        $[x]_{\mathcal{B}'}$
+        = $(B')^{-1}$x
+        = $(B')^{-1}$B$[x]_{\mathcal{B}}$
+        = $(B^{-1}B')^{-1} [x]_{\mathcal{B}}$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{definition}{Matrix Similarity}{16cm}
+        Let A,B $\in$ $M_{n \times n}(\mathbb{R})$.
+        Then A is {\color{lblue} similar} to B if there is an invertible
+        X $\in$ $M_{n \times n}(\mathbb{R})$ where:
+
+        \hspace{0.5cm}
+        AX = XB
+    \end{definition}
+
+    \newpage
+
+
+
+    \begin{wtheorem}{Properties of Matrix Similarity}{16cm}
+        Let A,B,C $\in$ $M_{n \times n}(\mathbb{R})$.
+    \end{wtheorem}
+
+    \begin{enumerate}[label=(\alph*), leftmargin=2cm, itemsep=0.1cm]
+        \item {\color{lgreen} Reflexivity}
+        
+            \hspace{0.5cm}
+            A is similar to A
+
+            \begin{proof}[15cm]
+                A$I_{n \times n}$ = A = $I_{n \times n}$A
+            \end{proof}
+
+        \item {\color{lgreen} Symmetry}
+        
+            \hspace{0.5cm}
+            If A is similar to B, then B is similar to A
+
+            \begin{proof}[15cm]
+                Since A is similar to B, there is an invertible
+                X $\in$ $M_{n \times n}(\mathbb{R})$ where AX = XB.
+
+                \hspace{0.5cm}
+                B$X^{-1}$
+                = $X^{-1}$XB$X^{-1}$
+                = $X^{-1}$AX$X^{-1}$
+                = $X^{-1}$A
+            \end{proof}
+
+        \item {\color{lgreen} Transitvity}
+        
+            \hspace{0.5cm}
+            If A is similar to B and B is similar to C, then
+            A is similar to C
+
+            \begin{proof}[15cm]
+                Since A is similar to B, there is an invertible
+                $X_1$ $\in$ $M_{n \times n}(\mathbb{R})$ where A$X_1$ = $X_1$B.
+
+                Since B is similar to C, there is an invertible
+                $X_2$ $\in$ $M_{n \times n}(\mathbb{R})$ where B$X_2$ = $X_2$C.
+
+                \hspace{0.5cm}
+                A$X_1X_2$
+                = $X_1$B$X_2$
+                = $X_1X_2$C
+
+                Since $X_1,X_2$ are invertible,
+                then by {\color{red} theorem 1.5.13}, $X_1X_2$
+                is invertible.
+            \end{proof}
+    \end{enumerate}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{example}
+        Let T: $\mathbb{R}^3$ $\rightarrow$ $\mathbb{R}^3$
+        be be T(x) = Ax =
+        $\begin{bmatrix}
+            -1 & 1 & 0 \\
+            0 & -2 & 2 \\
+            3 & -9 & 6
+        \end{bmatrix}$x
+        where $\mathcal{B}$ = (1,1,1), (1,2,3), and (1,3,6)
+        is a basis for $\mathbb{R}^3$.
+        Find $A_{\mathcal{B}}$.
+        Find and verify $[T(-1,0,1)]_{\mathcal{B}}$.
+    \end{example}
+
+    \begin{tbox}
+        $A_{\mathcal{B}}$ =
+        $\begin{bmatrix}
+            1 & 1 & 1 \\
+            1 & 2 & 3 \\
+            1 & 3 & 6
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+            -1 & 1 & 0 \\
+            0 & -2 & 2 \\
+            3 & -9 & 6
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & 1 & 1 \\
+            1 & 2 & 3 \\
+            1 & 3 & 6
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            0 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 2
+        \end{bmatrix}$
+
+        $[(-1,0,1)]_{\mathcal{B}}$
+        = $\begin{bmatrix}
+            1 & 1 & 1 \\
+            1 & 2 & 3 \\
+            1 & 3 & 6
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+            -1 \\
+            0 \\
+            1
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            -2 \\
+            1 \\
+            0
+        \end{bmatrix}$
+
+        $[T(-1,0,1)]_{\mathcal{B}}$
+        = $A_{\mathcal{B}} [(-1,0,1)]_{\mathcal{B}}$ =
+        $\begin{bmatrix}
+            0 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 2
+        \end{bmatrix}
+        \begin{bmatrix}
+            -2 \\
+            1 \\
+            0
+        \end{bmatrix}$
+        = (0,1,0)
+
+        Since
+        \footnotesize
+        $0\begin{bmatrix}
+            1 \\
+            1 \\
+            1
+        \end{bmatrix} +
+        1\begin{bmatrix}
+            1 \\
+            2 \\
+            3
+        \end{bmatrix} +
+        0\begin{bmatrix}
+            1 \\
+            3 \\
+            6
+        \end{bmatrix}$
+        \normalsize
+        = (1,2,3)
+        and T(-1,0,1) =
+        \footnotesize
+        $\begin{bmatrix}
+            -1 & 1 & 0 \\
+            0 & -2 & 2 \\
+            3 & -9 & 6
+        \end{bmatrix}
+        \begin{bmatrix}
+            -1 \\
+            0 \\
+            1
+        \end{bmatrix}$
+        \normalsize
+        = (1,2,3), then it is true that
+        $[T(-1,0,1)]_{\mathcal{B}}$ = (0,1,0).
+    \end{tbox}
 
 
 

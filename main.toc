@@ -8,8 +8,15 @@
 \contentsline {section}{\numberline {2}Day 2: Vector Space}{17}{section.2}%
 \contentsline {subsection}{\numberline {2.1} Span \& Independence }{17}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2} Subspaces: Image \& Kernel }{19}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3} Dimension }{20}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3} Basis \& Dimension }{20}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4} Injectivity \& Surjectivity }{22}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5} Coordinates }{24}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Day 3: Orthogonality}{25}{section.3}%
-\contentsline {section}{\numberline {4}Day 4: Eigenvectors}{26}{section.4}%
+\contentsline {section}{\numberline {3}Day 3: Orthogonality}{27}{section.3}%
+\contentsline {subsection}{\numberline {3.1} Orthogonality }{27}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2} Orthogonal Basis }{30}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3} Orthogonal Transformations }{33}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Day 4: Determinants}{35}{section.4}%
+\contentsline {subsection}{\numberline {4.1} Determinant Function }{35}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2} Properties of the Determinant }{39}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3} Volume }{41}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Day 5: Eigenvectors}{43}{section.5}%
