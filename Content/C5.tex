@@ -780,6 +780,51 @@
 
 
 
+
+    \begin{wtheorem}{Diagonalizable $M_{n \times n}(\mathbb{R})$
+    with one Eigenvalue}{16cm}
+        Let diagonalizable A $\in$ $M_{n \times n}(\mathbb{R})$ have
+        only eigenvalue $\lambda$. Then:
+        
+        \hspace{0.5cm}
+        A = $\lambda I_{n \times n}$
+    \end{wtheorem}
+    
+    \begin{proof}
+        Since A is diagonalizable, by {\color{orange} corollary 5.3.6},
+        then gemu($\lambda$) = n.
+        Thus, there are n linearly independent eigenvectors $v_1,...,v_n$.
+        with eigenvalue $\lambda$. By {\color{red} theorem 2.3.5},
+        $v_1,...,v_n$ span $\mathbb{R}^n$.
+        Then for any v $\in$ $\mathbb{R}^n$, then
+        v = $c_1v_1 + ... + c_nv_n$ for some $c_1,...,c_n$ $\in$ $\mathbb{R}$:
+
+        \hspace{0.5cm}
+        Av
+        = A($c_1v_1 + ... + c_nv_n$)
+        = $c_1\lambda v_1 + ... + c_n\lambda v_n$
+        = $\lambda(c_1v_1 + ... + c_nv_n)$
+        = $\lambda$v
+
+        Thus, any v $\in$ $\mathbb{R}^n$ is an eigenvector with
+        eigenvalue $\lambda$.
+
+        \hspace{0.5cm}
+        Av = $\lambda$v
+        \hspace{1cm}
+        $\Rightarrow$
+        \hspace{1cm}
+        $(A - \lambda I_{n \times n})$v = 0
+
+        Then for v $\not =$ 0, then
+        $A - \lambda I_{n \times n}$ = $0_{n \times n}$
+        so A = $\lambda I_{n \times n}$.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
     
 
 \subsection{ Symmetry }
@@ -834,7 +879,7 @@
         but $\lambda_1$ $\not =$ $\lambda_2$, then $x_1 \cdot x_2$ = 0.
     \end{proof}
 
-    \vspace{0.5cm}
+    \newpage
 
 
 
@@ -902,7 +947,7 @@
         so A has n real eigenvalues when including their algebraic multiplicity.
     \end{proof}
 
-    \newpage
+    \vspace{0.5cm}
 
 
 
@@ -1019,13 +1064,153 @@
         is orthogonally diagonalizable.
     \end{proof}
 
-    \vspace{0.5cm}
+    \newpage
 
 
 
 
 
 \subsection{ Quadratic Forms }
+
+    \begin{definition}{Quadratic Form}{16cm}
+        f: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}$
+        is a {\color{lblue} quadratic form} if there are
+        $a_{ij}$ $\in$ $\mathbb{R}$ such that:
+
+        \hspace{0.5cm}
+        f(x) = $\sum_{i=1}^n \sum_{j=1}^n$ $a_{ij}x_ix_j$
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Matrix Form of the Quadratic Form}{16cm}
+        Let f: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}$
+        be a quadratic form. Then, there is a unique symmetric
+        A $\in$ $M_{n \times n}(\mathbb{R})$:
+
+        \hspace{0.5cm}
+        f(x) = x $\cdot$ Ax
+
+        If B $\in$ $M_{n \times n}(\mathbb{R})$ satisfies
+        f(x) = x $\cdot$ Bx, then A = $\frac{1}{2}(B^T + B)$.
+    \end{wtheorem}
+
+    \begin{proof}
+        Let A =
+        $\begin{bmatrix}
+            a_{11} & \hdots & a_{1n} \\
+            \vdots & \ddots & \vdots \\
+            a_{n1} & \hdots & a_{nn}
+        \end{bmatrix}$. Since each x = $\sum_{k=1}^n x_ke_k$, then:
+
+        \hspace{0.5cm}
+        f(x)
+        = $\sum_{i=1}^n \sum_{j=1}^n$ $a_{ij}x_ix_j$
+        = $\sum_{i=1}^n \sum_{j=1}^n$ $(e_i \cdot Ae_j)x_ix_j$
+        = $\sum_{i=1}^n \sum_{j=1}^n$ $(e_i \cdot A(x_je_j))x_i$
+
+        \hspace{1.3cm}
+        = $\sum_{i=1}^n$ $(e_i \cdot Ax)x_i$
+        = $\sum_{i=1}^n$ $x_ie_i \cdot Ax$
+        = $x \cdot Ax$
+
+        Let B $\in$ $M_{n \times n}(\mathbb{R})$ satisfy f(x) = x $\cdot$ Bx.
+
+        \hspace{0.5cm}
+        f(x)
+        = x $\cdot$ Bx
+        = $\frac{1}{2}(Bx \cdot x + x \cdot Bx)$
+        = $\frac{1}{2}(x \cdot B^Tx + x \cdot Bx)$
+        = $\frac{1}{2}(x \cdot (B^T + B)x)$
+        = $x \cdot \frac{1}{2}(B^T + B)x$
+
+        Thus, A = $\frac{1}{2}(B^T + B)$.
+        Since $(\frac{1}{2}(B^T + B))^T$
+        = $\frac{1}{2}((B^T)^T + B^T)$
+        = $\frac{1}{2}(B + B^T)$
+        = $\frac{1}{2}(B^T + B)$, then A is symmetric.
+        Let symmetric C $\in$ $M_{n \times n}(\mathbb{R})$
+        also satisfy f(x) = x $\cdot$ Cx.
+        Let symmetric D = A - C where for any x $\in$ $\mathbb{R}^n$:
+
+        \hspace{0.5cm}
+        $x \cdot Dx$
+        = $(x \cdot (A-C)x)$
+        = $(x \cdot Ax) - (x \cdot Cx)$
+        = f(x) - f(x)
+        = 0.
+        
+        By {\color{red} theorem 5.4.4}, then D has an orthonormal eigenbasis
+        $v_1,...,v_n$ with eigenvalues $\lambda_1,...,\lambda_n$.
+        Then for i = \{1,...,n\}
+
+        \hspace{0.5cm}
+        0 = $v_i \cdot Dv_i$
+        = $v_i \cdot \lambda_i v_i$
+        = $\lambda_i |v_i|^2$
+
+        Since eigenvector $v_i$ $\not =$ 0 so $|v_i|$ $>$ 0, then
+        all $\lambda_i$ = 0. By {\color{red} theorem 5.3.7},
+        D = $0 I_{n \times n}$ = $0_{n \times n}$ so A = C.
+        Thus, A is unique.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Eigenvalue Form of the Quadratic Form}{16cm}
+        For f: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}$,
+        let f(x) = x $\cdot$ Ax. Then, there is an orthonormal eigenbasis
+        $v_1,...,v_n$ of A with eigenvalues $\lambda_1,...,\lambda_n$ such that:
+
+        \hspace{0.5cm}
+        f(x) = $\lambda_1(x \cdot v_1)^2 + ... + \lambda_n(x \cdot v_n)^2$
+    \end{wtheorem}
+
+    \begin{proof}
+        By {\color{red} theorem 5.4.4}, A has an orthonormal eigenbasis
+        $v_1,...,v_n$ with eigenvalues $\lambda_1,...,\lambda_n$.
+        
+        For x $\in$ $\mathbb{R}^n$, by {\color{red} theorem 3.2.6},
+        then x = $(x \cdot v_1)v_1 + ... + (x \cdot v_n)v_n$.
+        Since $v_1,...,v_n$ is orthonormal, then $v_i \cdot v_i$ = 1
+        and $v_i \cdot v_j$ = 0 for i $\not =$ j. Thus:
+
+        \hspace{0.5cm}
+        f(x) = x $\cdot$ Ax
+        = ($(x \cdot v_1)v_1 + ... + (x \cdot v_n)v_n$)
+            $\cdot$ A($(x \cdot v_1)v_1 + ... + (x \cdot v_n)v_n$)
+
+        \hspace{1.3cm}
+        = ($(x \cdot v_1)v_1 + ... + (x \cdot v_n)v_n$)
+            $\cdot$ ($(x \cdot v_1)\lambda_1v_1 +...+ (x \cdot v_n)\lambda_nv_n$)
+
+        \hspace{1.3cm}
+        = $\lambda_1(x \cdot v_1)^2 + ... + \lambda_n(x \cdot v_n)^2$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{definition}{Definiteness}{16cm}
+        For f: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}$,
+        let f(x) = x $\cdot$ Ax. Then:
+
+        \begin{enumerate}[label=(\alph*), leftmargin=1cm, itemsep=0.1cm]
+            \item f is {\color{lgreen} positive definiteness} if all
+                eigenvalues of A are positive
+
+            \item f is {\color{lgreen} negative definiteness} if all
+                eigenvalues of A are negative
+
+            \item f is {\color{lgreen} indefinite} if there is at least one
+                positive and negative eigenvalue
+        \end{enumerate}
+    \end{definition}
 
 
 

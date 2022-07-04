@@ -24,4 +24,4 @@
 \contentsline {subsection}{\numberline {5.2} Characteristic Polynomial }{46}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3} Eigenspaces }{47}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4} Symmetry }{49}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5} Quadratic Forms }{50}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.5} Quadratic Forms }{51}{subsection.5.5}%
