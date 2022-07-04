@@ -1125,18 +1125,19 @@
 
     \begin{wtheorem}{Linear transformation by Coordinates}{16cm}
         Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^n$
-        be a linear transformation and $\mathcal{B}$ = $v_1,...,v_n$
+        be a linear transformation where T(x) = Ax.
+        Let $\mathcal{B}$ = $v_1,...,v_n$
         be a basis for $\mathbb{R}^n$.
-        
         Then for any x $\in$ $\mathbb{R}^n$:
 
         \hspace{0.5cm}
         $[T(x)]_{\mathcal{B}}$
+        = $[Ax]_{\mathcal{B}}$
         = $A_{\mathcal{B}}[x]_{\mathcal{B}}$
 
         where the {\color{lblue} $\mathcal{B}$-matrix of T}, $A_{\mathcal{B}}$ =
         $\begin{bmatrix}
-            [T(v_1)]_{\mathcal{B}} & ... & [T(v_n)_{\mathcal{B}}]
+            [A(v_1)]_{\mathcal{B}} & ... & [A(v_n)_{\mathcal{B}}]
         \end{bmatrix}$ $\in$ $M_{n \times n}(\mathbb{R})$
     \end{wtheorem}
 
@@ -1146,13 +1147,13 @@
 
         \hspace{0.5cm}
         $[T(x)]_{\mathcal{B}}$
-        = $[c_1T(v_1) + ... + c_nT(v_n)]_{\mathcal{B}}$
-        = $c_1[T(v_1)]_{\mathcal{B}} + ... + c_n[T(v_n)]_{\mathcal{B}}$
+        = $[c_1A(v_1) + ... + c_nA(v_n)]_{\mathcal{B}}$
+        = $c_1[A(v_1)]_{\mathcal{B}} + ... + c_n[A(v_n)]_{\mathcal{B}}$
         
         \hspace{1.9cm}
         =
         $\begin{bmatrix}
-            [T(v_1)]_{\mathcal{B}} & ... & [T(v_n)_{\mathcal{B}}]
+            [A(v_1)]_{\mathcal{B}} & ... & [A(v_n)_{\mathcal{B}}]
         \end{bmatrix}
         \begin{bmatrix}
             c_1 \\
@@ -1160,7 +1161,7 @@
             c_n
         \end{bmatrix}$ =
         $\begin{bmatrix}
-            [T(v_1)]_{\mathcal{B}} & ... & [T(v_n)_{\mathcal{B}}]
+            [A(v_1)]_{\mathcal{B}} & ... & [A(v_n)_{\mathcal{B}}]
         \end{bmatrix}
         [x]_{\mathcal{B}}$  
     \end{proof}

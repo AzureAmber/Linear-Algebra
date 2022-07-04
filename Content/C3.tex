@@ -185,6 +185,53 @@
 
 
 
+    \begin{wtheorem}{Properties of Transpose}{16cm}
+        Let A,B $\in$ $M_{m \times n}(\mathbb{R})$ and c $\in$ $\mathbb{R}$.
+        Then:
+    \end{wtheorem}
+
+    \begin{enumerate}[label=(\alph*), leftmargin=2cm, itemsep=0.1cm]
+        \item {\color{lgreen} Addition}
+        
+            \hspace{0.5cm}
+            $(A+B)^T$ = $A^T + B^T$
+
+            \begin{proof}[15cm]
+                $(A+B)^T$ =
+                \footnotesize
+                $\begin{bmatrix}
+                    a_{11}+b_{11} & a_{21}+b_{21} & \hdots & a_{m1}+b_{m1} \\
+                    a_{12}+b_{12} & a_{22}+b_{22} & \hdots & a_{m2}+b_{m2} \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    a_{1n}+b_{1n} & a_{2n}+b_{2n} & \hdots & a_{mn}+b_{mn} 
+                \end{bmatrix}$
+                \normalsize
+                = $A^T + B^T$
+            \end{proof}
+        
+        \item {\color{lgreen} Scalar Multiplication}
+        
+            \hspace{0.5cm}
+            $(cA)^T$ = $cA^T$
+
+            \begin{proof}[15cm]
+                $(cA)^T$ =
+                \footnotesize
+                $\begin{bmatrix}
+                    ca_{11} & ca_{21} & \hdots & ca_{m1} \\
+                    ca_{12} & ca_{22} & \hdots & ca_{m2} \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    ca_{1n} & ca_{2n} & \hdots & ca_{mn} 
+                \end{bmatrix}$
+                \normalsize
+                = $cA^T$
+            \end{proof}
+    \end{enumerate}
+
+    \vspace{0.5cm}
+
+
+
     \begin{wtheorem}{Dot Product: Transpose Property}{16cm}
         Let x,y $\in$ $\mathbb{R}^n$. Then:
 
@@ -208,7 +255,7 @@
         $x \cdot y$ = $y \cdot x$ = $y^T x$
     \end{proof}
 
-    \vspace{0.5cm}
+    \newpage
 
 
 
@@ -290,7 +337,37 @@
         = $A^T B^T$
     \end{proof}
 
-    \newpage
+    \vspace{0.5cm}
+
+
+
+    \begin{corollary}{$(A^T)^{-1}$ = $(A^{-1})^T$}{16cm}
+        For invertible A $\in$ $M_{n \times n}(\mathbb{R})$, then
+        $A^T$ is invertible where:
+        
+        \hspace{0.5cm}
+        $(A^T)^{-1}$ = $(A^{-1})^T$
+    \end{corollary}
+
+    \begin{proof}
+        Since A is invertible, there exists a $A^{-1}$ such that
+        $A^{-1}A$ = $I_{n \times n}$ and $AA^{-1}$ = $I_{n \times n}$
+
+        \hspace{0.5cm}
+        $(A^{-1})^TA^T$
+        = $(AA^{-1})^T$
+        = $I_{n \times n}^T$
+        = $I_{n \times n}$
+        \hspace{1cm}
+        $A^T(A^{-1})^T$
+        = $(A^{-1}A)^T$
+        = $I_{n \times n}^T$
+        = $I_{n \times n}$
+
+        Thus, $(A^T)^{-1}$ = $(A^{-1})^T$ so $A^T$ is invertible.
+    \end{proof}
+
+    \vspace{0.5cm}
 
 
 
@@ -339,11 +416,11 @@
         if $x \cdot y$ = 0
     \end{definition}
 
-    \vspace{0.5cm}
+    \newpage
 
 
 
-    \begin{wtheorem}{Pythagorean Theorem in Higher Dimensions}{16cm}
+    \begin{wtheorem}{Pythagorean Theorem in digher dimensions}{16cm}
         Let x,y $\in$ $\mathbb{R}^n$. Then the following are equivalent:
 
         \begin{enumerate}[label=(\alph*), leftmargin=1cm, itemsep=0.1cm]
@@ -414,7 +491,7 @@
         then $x \cdot y$ = $|x| \ |y| \cos(\theta)$.
     \end{proof}
 
-    \newpage
+    \vspace{0.5cm}
 
 
 
@@ -491,7 +568,7 @@
         = (-2,1,8)
     \end{tbox}
 
-    \vspace{0.5cm}
+    \newpage
 
 
 
@@ -568,11 +645,11 @@
         for i $\in$ \{1,...,k\}
     \end{definition}
 
-    \newpage
+    \vspace{0.5cm}
 
 
 
-    \begin{wtheorem}{Orthogonal Sets are Linearly independent}{16cm}
+    \begin{wtheorem}{Orthogonal sets are Linearly independent}{16cm}
         Let $v_1,...,v_k$ $\in$ $\mathbb{R}^n$ be orthogonal.
         Then, $v_1,...,v_k$ is linearly independent.
     \end{wtheorem}
@@ -656,11 +733,11 @@
         = \{ w $\in$ $\mathbb{R}^n$ : w $\cdot$ v = 0 for v $\in$ V \}
     \end{definition}
 
-    \vspace{0.5cm}
+    \newpage
 
 
 
-    \begin{wtheorem}{Orthogonal Projection onto V $\subset$ $\mathbb{R}^n$}{16cm}
+    \begin{wtheorem}{Orthogonal projection onto V $\subset$ $\mathbb{R}^n$}{16cm}
         Let V $\subset$ $\mathbb{R}^n$. Then for any x $\in$ $\mathbb{R}^n$:
 
         \hspace{0.5cm}
@@ -728,7 +805,7 @@
         Thus, $x^{||},x^{\perp}$ are unique.
     \end{proof}
 
-    \newpage
+    \vspace{0.5cm}
 
 
 
@@ -800,11 +877,111 @@
         basis for V.
     \end{proof}
 
+    \newpage
+
+
+
+    \begin{wtheorem}{QR Factorization: Relationship between Basis and
+    Orthonormal Basis}{16cm}
+        Let $u_1,...,u_k$ $\in$ $\mathbb{R}^n$
+        be linearly independent such that A =
+        $\begin{bmatrix}
+            u_1 & ... & u_k
+        \end{bmatrix}$
+        $\in$ $M_{n \times k}(\mathbb{R})$.
+        Then, there is an orthogonal $v_1,...,v_k$ $\in$ $\mathbb{R}^n$
+        where Q =
+        $\begin{bmatrix}
+            \frac{v_1}{|v_1|} & ... & \frac{v_k}{|v_k|}
+        \end{bmatrix}$
+        $\in$ $M_{n \times k}(\mathbb{R})$ such that:
+
+        \hspace{0.5cm}
+        A = QR
+
+        where R $\in$ $M_{k \times k}(\mathbb{R})$ is invertible with
+        R =
+        \footnotesize
+        $\begin{bmatrix}
+            |v_1| & \frac{u_2 \cdot v_1}{|v_1|} & \frac{u_3 \cdot v_1}{|v_1|}
+                & \hdots & \frac{u_k \cdot v_1}{|v_1|} \\
+            0 & |v_2| & \frac{u_3 \cdot v_2}{|v_2|}
+                & \hdots & \frac{u_k \cdot v_2}{|v_2|} \\
+            0 & 0 & |v_3|
+                & \hdots & \frac{u_k \cdot v_3}{|v_3|} \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & 0 & \hdots & |v_k|
+        \end{bmatrix}$
+    \end{wtheorem}
+
+
+    \begin{proof}
+        Let V = span($u_1,...,u_k$). Then by {\color{red} theorem 2.3.5},
+        $u_1,...,u_k$ form a basis for V.
+        
+        Thus, by {\color{red} theorem 3.2.9}, there is an orthonormal basis
+        $\frac{v_1}{|v_1|},...,\frac{v_k}{|v_k|}$ for V where $v_1$ = $u_1$ and
+
+        $v_i$ = $u_i - \text{proj}_{\text{span}(v_1,...,v_{i-1})u_i}$
+        for i = \{2,...,k\}.
+
+        By {\color{red} theorem 3.2.6}, each
+        $\text{proj}_{\text{span}(v_1,...,v_{i-1})u_i}$
+        = $\frac{u_i \cdot v_1}{|v_1|^2}v_1
+            + ... + \frac{u_i \cdot v_{i-1}}{|v_{i-1}|^2}v_{i-1}$.
+        
+        Thus, $u_i$
+        = $\frac{u_i \cdot v_1}{|v_1|^2}v_1
+            + ... + \frac{u_i \cdot v_{i-1}}{|v_{i-1}|^2}v_{i-1}
+            + v_i$. Then:
+
+        \hspace{0.5cm}
+        \scriptsize
+        $\begin{bmatrix}
+            u_1 & ... & u_k
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            v_1 & ... & v_k
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & \frac{u_2 \cdot v_1}{|v_1|^2} & \frac{u_3 \cdot v_1}{|v_1|^2}
+                & \hdots & \frac{u_k \cdot v_1}{|v_1|^2} \\
+            0 & 1 & \frac{u_3 \cdot v_2}{|v_2|^2}
+                & \hdots & \frac{u_k \cdot v_2}{|v_2|^2} \\
+            0 & 0 & 1
+                & \hdots & \frac{u_k \cdot v_3}{|v_3|^2} \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & 0 & \hdots & 1
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            \frac{v_1}{|v_1|} & ... & \frac{v_k}{|v_k|}
+        \end{bmatrix}
+        \begin{bmatrix}
+            |v_1| & \frac{u_2 \cdot v_1}{|v_1|} & \frac{u_3 \cdot v_1}{|v_1|}
+                & \hdots & \frac{u_k \cdot v_1}{|v_1|} \\
+            0 & |v_2| & \frac{u_3 \cdot v_2}{|v_2|}
+                & \hdots & \frac{u_k \cdot v_2}{|v_2|} \\
+            0 & 0 & |v_3|
+                & \hdots & \frac{u_k \cdot v_3}{|v_3|} \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & 0 & \hdots & |v_k|
+        \end{bmatrix}$
+        \normalsize
+
+        \hspace{0.5cm}
+        A = QR
+
+        By {\color{red} theorem 3.2.5}, $v_1,...,v_k$
+        are linearly independent so $|v_i|$ $\not =$ 0
+        else if $|v_i|$ = 0, then $v_i$ = 0 which is linearly dependent.
+        Thus, rref(R) = $I_{n \times n}$ so R is invertible.
+    \end{proof}
+
     \vspace{0.5cm}
 
 
 
-    \begin{wtheorem}{Orthogonal Projection Matrix Transformation}{16cm}
+    \begin{wtheorem}{Orthogonal projection matrix transformation}{16cm}
         For V $\in$ $\mathbb{R}^n$, let $v_1,...,v_k$ $\in$ $\mathbb{R}^n$
         be an orthonormal basis for V. Then for any x $\in$ $\mathbb{R}^n$:
 
@@ -819,14 +996,12 @@
     \end{wtheorem}
 
     \begin{proof}
-        By {\color{red} theorem 2.3.6}:
+        By {\color{red} theorem 3.2.8}:
 
         \hspace{0.5cm}
         $\text{proj}_Vx$
-        = $(x \cdot v_1)v_1 + ... + (x \cdot v_k)v_k$
-        
-        \hspace{1.9cm}
-        =
+        = $(x \cdot v_1)v_1 + ... + (x \cdot v_k)v_k$ =
+        \footnotesize
         $\begin{bmatrix}
             v_1 & ... & v_k
         \end{bmatrix}
@@ -843,9 +1018,11 @@
             \vdots \\
             v_k^Tx
         \end{bmatrix}$
+        \normalsize
         
         \hspace{1.9cm}
         =
+        \footnotesize
         $\begin{bmatrix}
             v_1 & ... & v_k
         \end{bmatrix}
@@ -860,9 +1037,47 @@
         \begin{bmatrix}
             v_1 & ... & v_k
         \end{bmatrix}^Tx$
+        \normalsize
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Reflection matrix transformation}{16cm}
+        For V $\in$ $\mathbb{R}^n$, let $v_1,...,v_k$ $\in$ $\mathbb{R}^n$
+        be an orthonormal basis for V.
+        
+        Then for any x $\in$ $\mathbb{R}^n$,
+        the {\color{lblue} reflection} of x across V:
+
+        \hspace{0.5cm}
+        $\text{reflect}_Vx$ = $(2AA^T - I_{n \times n})$x  
+
+        where A =
+        $\begin{bmatrix}
+            v_1 & ... & v_k
+        \end{bmatrix}$
+        $\in$ $M_{n \times k}(\mathbb{R})$
+    \end{wtheorem}
+
+    \begin{proof}
+        Note for x = $x^{||} + x^{\perp}$ where $x^{||}$ is the component of x
+        parallel to V and $x^{||}$ is the component of x orthgonal to V, then
+        $\text{reflect}_Vx$ = $x^{||} - x^{\perp}$.
+        Thus, by {\color{red} theorem 3.2.11}:
+
+        \hspace{0.5cm}
+        $\text{reflect}_Vx$
+        = $x^{||} - x^{\perp}$
+        = $2x^{||} - x$
+        = $2AA^Tx - x$
+        = $(2AA^T - I_{n \times n})$x
     \end{proof}
 
     \newpage
+
+
 
 
 
@@ -880,7 +1095,7 @@
 
     
 
-    \begin{wtheorem}{Orthgonal Transformation Equivalences}{16cm}
+    \begin{wtheorem}{Orthogonal transformation Equivalences}{16cm}
         Let linear transformation T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^n$
         be T(x) = Ax for A $\in$ $M_{n \times n}(\mathbb{R})$.
 
@@ -1041,29 +1256,6 @@
         Then by {\color{red} theorem 1.5.13}, AB is invertible
         so AB is orthgonal.
     \end{proof}
-
-    \vspace{0.5cm}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

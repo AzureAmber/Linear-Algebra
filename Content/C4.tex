@@ -232,7 +232,7 @@
 
 
 
-    \begin{corollary}{Determinant Function Redefined}{16cm}
+    \begin{corollary}{Determinant function redefined}{16cm}
         For determinant function D: $M_{n \times n}(\mathbb{R})$
         $\rightarrow$ $\mathbb{R}$, then for any
         A $\in$ $M_{n \times n}(\mathbb{R})$:
@@ -667,8 +667,8 @@
 
 
     \begin{wtheorem}{det(AB) = det(A)det(B)}{16cm}
-        Let A,B $\in$ $M_{n \times n}(\mathbb{R})$. Then,
-        det(AB) = det(A)det(B).
+        For A,B $\in$ $M_{n \times n}(\mathbb{R})$, then
+        det(AB) = det(A)det(B)
     \end{wtheorem}
 
     \begin{proof}
@@ -709,13 +709,10 @@
 
     \begin{corollary}{det($A^k$) = (det(A))$^k$}{16cm}
         For A $\in$ $M_{n \times n}(\mathbb{R})$,
-        then det($A^k$) = (det(A))$^k$.
+        then det($A^k$) = (det(A))$^k$
     \end{corollary}
 
     \begin{proof}
-        By {\color{red} theorem 4.2.3}:
-
-        \hspace{0.5cm}
         det($A^k$)
         = det(A)det($A^{k-1}$)
         = det(A)det(A)det($A^{k-2}$)
@@ -729,12 +726,11 @@
 
     \begin{corollary}{det($A^{-1}$) = (det(A))$^{-1}$}{16cm}
         For invertible A $\in$ $M_{n \times n}(\mathbb{R})$,
-        then det($A^{-1}$) = (det(A))$^{-1}$.
+        then det($A^{-1}$) = (det(A))$^{-1}$
     \end{corollary}
 
     \begin{proof}
-        Since A is invertible, then $A^{-1}A$ = $I_{n \times n}$.
-        By {\color{red} theorem 4.2.3}:
+        Since A is invertible, then $A^{-1}A$ = $I_{n \times n}$. Then:
 
         \hspace{0.5cm}
         1 = det($I_{n \times n}$)
@@ -754,13 +750,8 @@
     \end{corollary}
 
     \begin{proof}
-        Since A,B are similar, then there is a
-        invertible X $\in$ $M_{n \times n}(\mathbb{R})$ such that:
-
-        \hspace{0.5cm}
-        AX = XB
-
-        By {\color{red} theorem 4.2.3}:
+        Since A,B are similar, then there is a invertible
+        X $\in$ $M_{n \times n}(\mathbb{R})$ such that AX = XB. Then:
 
         \hspace{0.5cm}
         det(A)det(X)
@@ -775,16 +766,14 @@
 
 
 
-    \begin{corollary}{det($A^{-1}$) = (det(A))$^{-1}$}{16cm}
+    \begin{corollary}{Determinant of Orthogonal matrices}{16cm}
         For orthogonal A $\in$ $M_{n \times n}(\mathbb{R})$,
         then det(A) = $\pm 1$.
     \end{corollary}
 
     \begin{proof}
         Since A is orthogonal, then by {\color{red} theorem 3.3.2},
-        $A^TA$ = $I_{n \times n}$.
-        
-        Since det($A^T$) = det(A), then by {\color{red} theorem 4.2.3}:
+        $A^TA$ = $I_{n \times n}$. Then:
 
         \hspace{0.5cm}
         1 = det($I_{n \times n}$)
@@ -799,13 +788,14 @@
 
 
 
+
+
 \subsection{ Volume }
 
     \begin{definition}{Volume of Parallelotope}{16cm}
         Let $v_1,...,v_n$ $\in$ $\mathbb{R}^n$.
-
         Then a {\color{lblue} parallelotope}, P($v_1,...,v_n$),
-        is a parallelogram in higher dimensions.
+        is a n-th order parallelogram.
 
         For i = \{2,...,n\}, let
         $v_i^{\perp}$ = $v_i$ - $\text{proj}_{\text{span}(v_1,...,v_{i-1})}v_i$.
@@ -836,10 +826,15 @@
     \begin{proof}
         By {\color{red} theorem 3.2.9},
         $v_1,v_2^{\perp},...,v_n^{\perp}$ $\in$ $\mathbb{R}^n$
-        is orthogonal. Thus:
+        is orthogonal.
+        Let B =
+        $\begin{bmatrix}
+            v_1 & v_2^{\perp} & ... & v_n^{\perp}
+        \end{bmatrix}$. Thus:
 
         \hspace{0.5cm}
-        \footnotesize
+        $B^TB$ =
+        \scriptsize
         $\begin{bmatrix}
             v_1^T \\
             (v_2^{\perp})^T \\
@@ -869,11 +864,12 @@
         for $c_{i1},...,c_{i(i-1)}$ $\in$ $\mathbb{R}$, then
         by {\color{red} theorem 4.2.1}:
 
-        \hspace{0.5cm}
-        det($v_1,v_2^{\perp},v_3^{\perp},...,v_n^{\perp}$)
+        \hspace{0.3cm}
+        det(B)
+        = det($v_1,v_2^{\perp},v_3^{\perp},...,v_n^{\perp}$)
         = det($v_1,v_2,v_3^{\perp},...,v_n^{\perp}$)
         = ...
-        = det($v_1,v_2,v_3^{\perp},...,v_n$)
+        = det($v_1,v_2,v_3,...,v_n$)
         = det(A)
 
         Thus:
@@ -882,9 +878,10 @@
         $|\text{det}(A)|$
         = $\sqrt{\text{det}(A)\text{det}(A)}$
         = $\sqrt{\text{det}(A^T)\text{det}(A)}$
+        = $\sqrt{\text{det}(A^TA)}$
+        = $\sqrt{\text{det}(B^TB)}$
 
         \hspace{2.1cm}
-        = $\sqrt{\text{det}(A^TA)}$
         = $\sqrt{|v_1|^2 |v_2^{\perp}|^2 ... |v_n^{\perp}|^2}$
         = $|v_1| |v_2^{\perp}| ... |v_n^{\perp}|$
         = $\text{Vol}_n(P(v_1,...,v_n))$
@@ -922,11 +919,10 @@
         P($Av_1,...,Av_n$).
         By {\color{red} theorem 4.3.2}:
 
-        \hspace{0.5cm}
+        \hspace{0.3cm}
+        \small
         $\text{Vol}_n(T(P(v_1,...,v_n)))$
         = $|\text{det}([Av_1 \ ... \ Av_n])|$
-
-        \hspace{4.5cm}
         = $|\text{det}(A)\text{det}([v_1 \ ... \ v_n])|$
         = $|\text{det}(A)| \text{Vol}_n(P(v_1,...,v_n))$
     \end{proof}
@@ -1018,22 +1014,6 @@
         = $|v_1| |v_2^{\perp}| ... |v_k^{\perp}|$
         = $\text{Vol}_k(P(v_1,...,v_k))$
     \end{proof}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,3 +1,1078 @@
 \newpage
 
 \section[Day 5: Eigenvectors]{ Eigenvectors }
+
+\subsection{ Diagonalization }
+
+    \begin{definition}{Diagonalizable Matrices}{16cm}
+        Matrix A $\in$ $M_{n \times n}(\mathbb{R})$
+        is {\color{lblue} diagonal} if:
+
+        \hspace{0.5cm}
+        A =
+        $\begin{bmatrix}
+            a_{11} & 0 & \hdots & 0 \\
+            0 & a_{22} & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \hdots & a_{nn}
+        \end{bmatrix}$
+        \hspace{1cm}
+        where $a_{11},...,a_{nn}$ $\in$ $\mathbb{R}$
+
+        Then A is {\color{lblue} diagonalizable} if
+        A is similar to a diagonal matrix $A_D$
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Diagonalizablility relationship between A
+    and $A_{\mathcal{B}}$}{16cm}
+        Let A $\in$ $M_{n \times n}(\mathbb{R})$.
+        Then, A is diagonalizable if and only if
+        for basis $\mathcal{B}$ = $v_1,...,v_n$ $\in$ $\mathbb{R}^n$, then
+        $A_{\mathcal{B}}$ is diagonalizable.
+    \end{wtheorem}
+
+    \begin{proof}
+        By {\color{red} theorem 2.5.4}, there is an invertible matrix B =
+        $\begin{bmatrix}
+            v_1 & ... & v_n
+        \end{bmatrix}$ $\in$ $M_{n \times n}(\mathbb{R})$
+        such that:
+        
+        \hspace{0.5cm}
+        AB = B$A_{\mathcal{B}}$
+
+        Thus, A is similar to $A_{\mathcal{B}}$
+
+        \vspace{0.3cm}
+
+        If A is diagonalizable, then A is similar to diagonal
+        $A_D$ $\in$ $M_{n \times n}(\mathbb{R})$.
+
+        Then by {\color{red} theorem 2.5.7},
+        $A_{\mathcal{B}}$ is similar to $A_D$ and thus, $A_{\mathcal{B}}$
+        is diagonalizable.
+
+        \vspace{0.3cm}
+
+        If $A_{\mathcal{B}}$ is diagonalizable, then $A_{\mathcal{B}}$
+        is similar to diagonal $A_D$.
+        
+        Then by {\color{red} theorem 2.5.7},
+        A is similar to $A_D$ and thus, A is diagonalizable.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Diagonalizable A $\Leftrightarrow$ Av = $\lambda$v
+    for some v}{16cm}
+        A $\in$ $M_{n \times n}(\mathbb{R})$ is diagonalizable if and only if
+        there is a basis $\mathcal{B}$ = $v_1,...,v_n$ $\in$ $\mathbb{R}^n$ where
+        $A_{\mathcal{B}}$ is diagonal.
+        Thus, for for some $\lambda_i$ $\in$ $\mathbb{R}$ where i = \{1,...,n\}:
+
+        \hspace{0.5cm}
+        $[Av_i]_{\mathcal{B}}$ = $[\lambda_i v_i]_{\mathcal{B}}$
+    \end{wtheorem}
+
+    \begin{proof}
+        Suppose A is diagonalizable.
+        Then there is an invertible B =
+        $\begin{bmatrix}
+            v_1 & ... & v_n
+        \end{bmatrix}$, diagonal $A_D$
+        $\in$ $M_{n \times n}(\mathbb{R})$
+        such that AB = B$A_D$.
+        By {\color{red} theorem 2.4.5}, the $\mathcal{B}$ = $v_1,...,v_n$ form a
+        basis for $\mathbb{R}^n$. 
+        By {\color{red} theorem 2.5.4}, then $A_D$ = $A_{\mathcal{B}}$
+        so $A_{\mathcal{B}}$ is a diagonal.
+
+        \vspace{0.3cm}
+
+        Suppose there is a basis $\mathcal{B}$ = $v_1,...,v_n$ $\in$ $\mathbb{R}^n$
+        where $A_{\mathcal{B}}$ is diagonal.
+
+        By {\color{red} theorem 2.5.4}, then AB = B$A_{\mathcal{B}}$
+        where B is invertible so A is diagonalizable.
+
+        \vspace{0.3cm}
+
+        By {\color{red} theorem 2.5.3}, then
+        $A_{\mathcal{B}}$ =
+        $\begin{bmatrix}
+            [A(v_1)]_{\mathcal{B}} & ... & [A(v_n)]_{\mathcal{B}}
+        \end{bmatrix}$.
+        Since $A_{\mathcal{B}}$ is a diagonal, then there are
+        $\lambda_i$ $\in$ $\mathbb{R}$ for i = \{1,...,n\} such that:
+
+        \hspace{0.5cm}
+        $[A(v_i)]_{\mathcal{B}}$ =
+        $\begin{bmatrix}
+            0 \\
+            \vdots \\
+            \lambda_i \\
+            \vdots \\
+            0
+        \end{bmatrix}$
+        = $\lambda_i e_i$
+        = $\lambda_i [v_i]_{\mathcal{B}}$
+        = $[\lambda_i v_i]_{\mathcal{B}}$
+    \end{proof}
+
+    \newpage
+
+
+
+    \begin{definition}{Eigenvalues and Eigenvectors}{16cm}
+        Let T: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}^n$
+        be a linear transformation.
+        Then, nonzero v $\in$ $\mathbb{R}^n$ is an
+        {\color{lblue} eigenvector} of T if T(v) = $\lambda$v
+        for some {\color{lblue} eigenvalue} $\lambda$ $\in$ $\mathbb{R}$ of T.
+
+        If eigenvectors $v_1,...,v_n$ $\in$ $\mathbb{R}^n$
+        with eigenvalues $\lambda_1,...,\lambda_n$ form a basis, then
+        $v_1,...,v_n$ is a {\color{lblue} eigenbasis} for T.
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Diagonalizable $\Leftrightarrow$ Existence of Eigenbasis}{16cm}
+        A $\in$ $M_{n \times n}(\mathbb{R})$ is diagonalizable if and only if
+        there is an eigenbasis $\mathcal{B}$ = $v_1,...,v_n$ with eigenvalues
+        $\lambda_1,....,\lambda_n$ for A.
+        Then for B =
+        $\begin{bmatrix}
+            v_1 & ... & v_n
+        \end{bmatrix}$,
+        $A_{\mathcal{B}}$ =
+        $\begin{bmatrix}
+            \lambda_1e_1 & ... & \lambda_ne_n
+        \end{bmatrix}$
+        $\in$ $M_{n \times n}(\mathbb{R})$:
+
+        \hspace{0.5cm}
+        AB = B$A_{\mathcal{B}}$
+    \end{wtheorem}
+
+    \begin{proof}
+        Suppose A is diagonalizable. Then, by {\color{red} theorem 5.1.3},
+        there is a basis $\mathcal{B}$ = $v_1,...,v_n$
+        such that $A_{\mathcal{B}}$ is diagonal where
+        $[Av_i]_{\mathcal{B}}$ = $[\lambda_i v_i]_{\mathcal{B}}$
+        for some $\lambda_i$.
+        Since $Av_i$ = $\lambda_i v_i$,
+        then $v_i$ is an eigenvector with eigenvalue $v_i$.
+        Thus, $\mathcal{B}$ = $v_1,...,v_n$ is an eigenbasis
+        with eigenvalues $\lambda_1,....,\lambda_n$ for A.
+
+        \vspace{0.3cm}
+
+        Suppose there is an eigenbasis $\mathcal{B}$ = $v_1,...,v_n$ with
+        eigenvalues $\lambda_1,....,\lambda_n$ for A.
+
+        Since A$v_i$ = $\lambda_i v_i$,
+        then $A_{\mathcal{B}}$ =
+        $\begin{bmatrix}
+            [Av_1]_{\mathcal{}} & ... & [Av_n]_{\mathcal{}}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            [\lambda_1v_1]_{\mathcal{}} & ... & [\lambda_nv_n]_{\mathcal{}}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            \lambda_1e_1 & ... & \lambda_ne_n
+        \end{bmatrix}$,
+        is diagonal.
+        Thus, by {\color{red} theorem 5.1.3}, then A is diagonalizable.
+
+        \vspace{0.3cm}
+
+        Since $v_1,...,v_n$ is a basis, by {\color{red} theorem 2.5.4}, then
+        AB = B$A_{\mathcal{B}}$.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Eigenvalues of an Orthogonal matrix}{16cm}
+        For orthogonal A $\in$ $M_{n \times n}(\mathbb{R})$,
+        the only possible eigenvalues are $\pm 1$
+    \end{wtheorem}
+
+    \begin{proof}
+        Since A is orthogonal, then $|Ax|$ = $|x|$.
+        If $Ax$ = $\lambda x$, then:
+        
+        \hspace{0.5cm}
+        $|x|$ = $|Ax|$ = $|\lambda x|$ = $|\lambda| |x|$
+
+        Thus, $|\lambda|$ = 1 so $\lambda$ = $\pm 1$.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Eigenvalues and Invertibility}{16cm}
+        A $\in$ $M_{n \times n}(\mathbb{R})$ is invertible if and only if
+        0 is not an eigenvalue of A
+    \end{wtheorem}
+
+    \begin{proof}
+        Suppose A is invertible.
+        Then by {\color{red} theorem 2.4.5}, the only solution to Ax = 0 is x = 0.
+        Thus, if $\lambda$ = 0, then Ax = $\lambda$x = 0 has only x = 0 $\not =$ 0
+        so $\lambda$ = 0 is not an eigenvalue.
+
+        \vspace{0.3cm}
+
+        Suppose $\lambda$ = 0 is not an eigenvalue of A.
+        Then there are no nonzero x $\in$ $\mathbb{R}^n$
+        such that Ax = $\lambda$x = 0 so only x = 0.
+        Thus, by {\color{red} theorem 2.4.5}, A is invertible.
+    \end{proof}
+
+    \newpage
+
+
+
+
+
+\subsection{ Characteristic Polynomial }
+
+    \begin{wtheorem}{Determining Eigenvalues}{16cm}
+        $\lambda$ $\in$ $\mathbb{R}$ is an eigenvalue of
+        A $\in$ $M_{n \times n}(\mathbb{R})$ if and only if
+        det($A - \lambda I_{n \times n}$) = 0
+    \end{wtheorem}
+
+    \begin{proof}
+        Suppose $\lambda$ $\in$ $\mathbb{R}$ is an eigenvalue of A.
+        Then there is a nonzero v $\in$ $\mathbb{R}^n$ such that Av = $\lambda$v
+        so 0 = $Av - \lambda v$ = $(A - \lambda I_{n \times n})v$.
+        Since nonzero v $\in$ ker($A - \lambda I_{n \times n}$),
+        then $A - \lambda I_{n \times n}$ is not invertible.
+        By {\color{red} theorem 4.2.3}, then det($A - \lambda I_{n \times n}$) = 0.
+
+        \vspace{0.3cm}
+
+        Suppose det($A - \lambda I_{n \times n}$) = 0.
+        By {\color{red} theorem 4.2.3}, then $A - \lambda I_{n \times n}$
+        is not invertible so there is a nonzero v $\in$ $\mathbb{R}^n$
+        such that $(A - \lambda I_{n \times n})v$ = 0.
+        Thus, Av = $\lambda$v so $\lambda$ is an eigenvalue.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{det($A - \lambda I_{n \times n}$)
+    = det($A_{\mathcal{B}} - \lambda I_{n \times n}$)}{16cm}
+        Let $\mathcal{B}$ = $v_1,...,v_n$ be a basis for $\mathbb{R}^n$. Then:
+
+        \hspace{0.5cm}
+        det(A) = det($A_{\mathcal{B}}$)
+        \hspace{1cm}
+        det($A - \lambda I_{n \times n}$)
+        = det($A_{\mathcal{B}} - \lambda I_{n \times n}$)
+    \end{wtheorem}
+
+    \begin{proof}
+        By {\color{red} theorem 2.5.4}, AB = B$A_{\mathcal{B}}$
+        where B =
+        $\begin{bmatrix}
+            v_1 & ... & v_n
+        \end{bmatrix}$
+        is invertible. Thus:
+
+        \hspace{0.5cm}
+        det(A) = det($BA_{\mathcal{B}}B^{-1}$)
+        = det(B)det($A_{\mathcal{B}}$)det($B^{-1}$)
+        = det(B)det($A_{\mathcal{B}}$)(det(B))$^{-1}$
+        = det($A_{\mathcal{B}}$)
+
+        \vspace{0.3cm}
+
+        For i = \{1,..,n\}:
+
+        \hspace{0.5cm}
+        $[(A - \lambda I_{n \times n})]_{\mathcal{B}}[v_i]_{\mathcal{B}}$
+        = $[(A - \lambda I_{n \times n})v_i]_{\mathcal{B}}$
+        = $[Av_i]_{\mathcal{B}} - [\lambda v_i]_{\mathcal{B}}$
+        = $A_{\mathcal{B}}[v_i]_{\mathcal{B}} - \lambda[v_i]_{\mathcal{B}}$
+        = $(A_{\mathcal{B}} - \lambda I_{n \times n})[v_i]_{\mathcal{B}}$
+
+        Thus,
+        det($A - \lambda I_{n \times n}$)
+        = det($[A - \lambda I_{n \times n}]_{\mathcal{B}}$)
+        = det($A_{\mathcal{B}} - \lambda I_{n \times n}$).
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{definition}{Characteristic Polynomial}{16cm}
+        Since the entries, $a_{ij}^*$, of $A - \lambda I_{n \times n}$
+        are the same as then entries of A except on its diagonal entries,
+        $a_{ii}^*$ = $a_{ii} - \lambda$, then
+        det($A - \lambda I_{n \times n}$)
+        = $\sum_{\{i_1,...,i_n\}=\{1,...,n\}}$ $a_{1i_1},...,a_{ni_n}(-1)^I$
+        contains an arrangement $a_{1i_1},...,a_{ni_n}(-1)^I$
+        = $(a_{11}-\lambda)(a_{22}-\lambda)...(a_{nn}-\lambda)$
+        which is a polynomial of degree n and the other arrangements
+        contain less than n $(a_{ii} - \lambda)$ so
+        det($A - \lambda I_{n \times n}$) is a polynomial of degree n
+        with variable $\lambda$.
+
+        \vspace{0.3cm}
+
+        For A $\in$ $M_{n \times n}(\mathbb{R})$ and $\lambda$ $\in$ $\mathbb{R}$,
+        then det($A - \lambda I_{n \times n}$) is the
+        {\color{lblue} characteristic polynomial} of A.
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{definition}{Algebraic Multiplicity}{16cm}
+        Let A $\in$ $M_{n \times n}(\mathbb{R})$ and $\lambda$ $\in$ $\mathbb{R}$.
+
+        Then, eigenvalue $\lambda^*$ $\in$ $\mathbb{R}$ of A
+        has an {\color{lblue} algebraic multiplicity} of k if:
+        
+        \hspace{0.5cm}
+        det($A - \lambda I_{n \times n}$)
+        = $(\lambda - \lambda^*)^k f(\lambda)$
+
+        where $f(\lambda)$ is a polynomial of degree n-k with
+        $f(\lambda^*)$ $\not =$ 0.
+        Then, almu($\lambda^*$) = k $\geq$ 1.
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Relationship between Algebraic Multiplicity
+    and Dimension}{16cm}
+        For A $\in$ $M_{n \times n}(\mathbb{R})$, let
+        $\lambda_1,...,\lambda_k$ $\in$ $\mathbb{R}$
+        be distinct eigenvalues of A. Then k $\leq$ n where:
+
+        \hspace{0.5cm}
+        almu($\lambda_1$) + ... + almu($\lambda_k$) $\leq$ n
+
+        If $\lambda_1,...,\lambda_k$ $\in$ $\mathbb{C}$,
+        then k = n and almu($\lambda_1$) + ... + almu($\lambda_k$) = n.
+    \end{wtheorem}
+
+    \begin{proof}
+        Since det($A - \lambda I_{n \times n}$) is a polynomial
+        of degree n, then there are at most n real roots so k $\leq$ n.
+        If $\lambda_1,...,\lambda_k$ $\in$ $\mathbb{R}$
+        are distinct eigenvalues of A, then:
+
+        \hspace{0.5cm}
+        det($A - \lambda I_{n \times n}$)
+        = $(\lambda - \lambda_1)^{m_1} ... (\lambda - \lambda_k)^{m_k} f(\lambda)$
+
+        \hspace{0.5cm}
+        almu($\lambda_1$) + ... + almu($\lambda_k$)
+        = $m_1 + ... + m_k$
+        $\leq$ n
+
+        For $\lambda_1,...,\lambda_k$ $\in$ $\mathbb{C}$, then:
+
+        \hspace{0.5cm}
+        det($A - \lambda I_{n \times n}$)
+        = $(\lambda - \lambda_1)^{m_1} ... (\lambda - \lambda_k)^{m_k}$
+
+        \hspace{0.5cm}
+        almu($\lambda_1$) + ... + almu($\lambda_k$)
+        = $m_1 + ... + m_k$
+        = n
+    \end{proof}
+
+    \newpage
+
+
+
+    \begin{corollary}{Relationship between Algebraic Multiplicity
+    and Determinant}{16cm}
+        Let $\lambda_1,...,\lambda_k$ $\in$ $\mathbb{C}$ be distinct eigenvalues
+        of A $\in$ $M_{n \times n}(\mathbb{R})$ with
+        almu($\lambda_i$) = $m_i$ $\in$ $\mathbb{R}$.
+        Then:
+
+        \hspace{0.5cm}
+        det(A) = $\lambda_1^{m_1}...\lambda_k^{m_k}$
+    \end{corollary}
+
+    \begin{proof}
+        By {\color{red} theorem 5.2.5},
+        almu($\lambda_1$) + ... + almu($\lambda_k$) = n. Thus:
+
+        \hspace{0.5cm}
+        det($A - \lambda I_{n \times n}$)
+        = $(\lambda - \lambda_1)^{m_1} ... (\lambda - \lambda_k)^{m_k}$
+
+        Then for $\lambda$ = 0:
+
+        \hspace{0.5cm}
+        det(A) = $\lambda_1^{m_1}...\lambda_k^{m_k}$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+
+
+\subsection{ Eigenspaces }
+
+    \begin{definition}{Eigenspaces}{16cm}
+        For A $\in$ $M_{n \times n}(\mathbb{R})$, let
+        $\lambda$ $\in$ $\mathbb{R}$ be an eigenvalue.
+        Then there is an eigenvector v $\not =$ 0 $\in$ $\mathbb{R}^n$
+        such that Av = $\lambda$v so
+        0 = $Av - \lambda v$ = $(A - \lambda I_{n \times n})v$.
+        Thus, v $\in$ ker($A - \lambda I_{n \times n}$).
+
+        Then, the {\color{lblue} eigenspace} of A for $\lambda$,
+        the set of all eigenvectors v with eigenvalue $\lambda$:
+
+        \hspace{0.5cm}
+        $E_{\lambda}$ = ker($A - \lambda I_{n \times n}$)
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{definition}{Geometric Multiplicity}{16cm}
+        Let A $\in$ $M_{n \times n}(\mathbb{R})$ and $\lambda$ $\in$ $\mathbb{R}$.
+
+        Then, the of {\color{lblue} geometric multiplicity}
+        of eigenvalue $\lambda^*$ $\in$ $\mathbb{R}$ of A:
+        
+        \hspace{0.5cm}
+        gemu($\lambda^*$)
+        = dim(ker($E_{\lambda^*}$))
+        = dim(ker($A - \lambda^* I_{n \times n}$))
+        = nullity($A - \lambda^* I_{n \times n}$)
+
+        Since $\lambda^*$ is an eigenvalue, then there is a eigenvector
+        v $\not =$ 0 $\in$ ker($A - \lambda^* I_{n \times n}$)
+        so dim(ker($A - \lambda^* I_{n \times n}$)) = gemu($\lambda$) $\geq$ 1.
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Relationship between Algebraic Multiplicity and
+    Geometric Multiplicity}{16cm}
+        Let $\lambda^*$ $\in$ $\mathbb{R}$ be an eigenvalue
+        of A $\in$ $M_{n \times n}(\mathbb{R})$. Then:
+
+        \hspace{0.5cm}
+        gemu($\lambda^*$) $\leq$ almu($\lambda^*$)
+
+        Thus, if $\lambda_1,...,\lambda_k$ $\in$ $\mathbb{R}$
+        are distinct eigenvalues of A, then:
+
+        \hspace{0.5cm}
+        gemu($\lambda_1$) + ... + gemu($\lambda_k$) $\leq$ n
+    \end{wtheorem}
+
+    \begin{proof}
+        Let gemu($\lambda^*$) = m so dim(ker($A - \lambda^* I_{n \times n}$)) = m.
+        Thus, let $v_1,...,v_m$ form a basis for $E_{\lambda^*}$.
+
+        Then choose $u_1,...,u_{n-m}$ $\in$ $\mathbb{R}^n$ such that
+        $\mathcal{B}$ = $v_1,...,v_m,u_1,...,u_{n-m}$
+        form a basis for $\mathbb{R}^n$.
+
+        Since A$v_i$ = $\lambda^*v_i$ for i = \{1,...,m\}, then
+        for $A_{\mathcal{B}}$ $\in$ $M_{n \times n}(\mathbb{R})$:
+
+        \hspace{0.5cm}
+        $A_{\mathcal{B}}$ =
+        \footnotesize
+        $\begin{bmatrix}
+            \lambda^* & 0 & \hdots & 0 & a_{11} & a_{12} & ... & a_{1(n-m)} \\
+            0 & \lambda^* & \hdots & 0 & a_{21} & a_{22} & ... & a_{2(n-m)} \\
+            \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \hdots & \lambda^* & a_{m1} & a_{m2} & ... & a_{m(n-m)} \\
+            0 & 0 & \hdots & 0 & a_{(m+1)1} & a_{(m+1)2} & ... & a_{(m+1)(n-m)} \\
+            \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \hdots & 0 & a_{n1} & a_{n2} & ... & a_{n(n-m)} 
+        \end{bmatrix}$
+        \normalsize
+        =
+        \footnotesize
+        $\begin{bmatrix}
+            \lambda^* I_{m \times n} & B_{m \times (n-m)} \\
+            0_{(n-m) \times (n-m)} & D_{(n-m) \times (n-m)}
+        \end{bmatrix}$
+        \normalsize
+
+        where $[Au_j]_{\mathcal{B}}$ = $(a_{1j},...,a_{nj})$
+        for j $\in$ \{1,...,n-m\}. Thus:
+
+        \hspace{0.5cm}
+        det($A_{\mathcal{B}} - \lambda I_{n \times n}$)
+        = $(\lambda^* - \lambda)^m$det($D - \lambda I_{(n-m) \times (n-m)}$)
+        
+        By {\color{red} theorem 5.2.2}, then det($A - \lambda I_{n \times n}$)
+        = det($A_{\mathcal{B}} - \lambda I_{n \times n}$).
+
+        Thus, det($A - \lambda I_{n \times n}$)
+        = $(\lambda^* - \lambda)^m$det($D - \lambda I_{(n-m) \times (n-m)}$)
+        so gemu($\lambda^*$) = m $\leq$ almu($\lambda^*$).
+
+        Then for eigenvalues $\lambda_1,...,\lambda_k$ $\in$ $\mathbb{R}$
+        for A, by {\color{red} theorem 5.2.5}:
+
+        \hspace{0.5cm}
+        gemu($\lambda_1$) + ... + gemu($\lambda_k$)
+        $\leq$ almu($\lambda_1$) + ... + almu($\lambda_k$)
+        $\leq$ n
+    \end{proof}
+    
+    \newpage
+
+
+
+    \begin{wtheorem}{Vandermonde Matrix}{16cm}
+        For $a_1,...,a_n$ $\in$ $\mathbb{R}$, the
+        {\color{lblue} Vandermonde Matrix}, V $\in$ $M_{n \times n}(\mathbb{R})$:
+
+        \hspace{0.5cm}
+        V = 
+        \footnotesize
+        $\begin{bmatrix}
+            1 & a_1 & a_1^2 & ... & a_1^{n-1} \\
+            1 & a_2 & a_2^2 & ... & a_2^{n-1} \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            1 & a_n & a_n^2 & ... & a_n^{n-1} \\
+        \end{bmatrix}$
+        \normalsize
+
+        Then, det(V) = $\prod_{1 \leq i < j \leq n}$ $(a_j - a_i)$
+    \end{wtheorem}
+
+    \begin{proof}
+        Let V = $V_0$. Let $V_i$ be V with the first i-1 rows and last i-1 columns
+        removed. Let $W_i$ be $V_i$, but each j-th column from the last
+        to the second is subtracted by $a_i$ times the (j-1)-th column.
+
+        \hspace{0.5cm}
+        \scriptsize
+        $W_1$ =
+        $\begin{bmatrix}
+            1 & a_1-a_1 & a_1^2-a_1a_1 & ... & a_1^{n-1}-a_1^{n-2}a_1 \\
+            1 & a_2-a_1 & a_2^2-a_2a_1 & ... & a_2^{n-1}-a_2^{n-2}a_1 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            1 & a_n-a_1 & a_n^2-a_na_1 & ... & a_n^{n-1}-a_n^{n-2}a_1 \\
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            1 & 0 & 0 & ... & 0 \\
+            1 & a_2-a_1 & a_2(a_2-a_1) & ... & a_2^{n-2}(a_2-a_1) \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            1 & a_n-a_1 & a_n(a_n-a_1) & ... & a_n^{n-2}(a_n-a_1) \\
+        \end{bmatrix}$
+        \normalsize
+
+        By {\color{red} theorem 4.2.1}, det($W_1$) = det($V_1$) = det(V).
+        Let $A_i$ be $W_i$ be the first row and column removed.
+        By {\color{red} theorem 4.1.7}, for det($W_1$) across the first row,
+        since only the first entry in the first row is nonzero, then
+        det($W_1$) = det($A_1$).
+        But for each k-th row in $A_i$, $(a_{k+i}-a_i)$ is a factor for
+        k = \{1,...,n-i\}.
+        After factoring out each $(a_{k+1}-a_i)$, then $A_i$ becomes $V_{i+2}$.
+        
+        Thus, by {\color{red} theorem 4.2.1}:
+
+        \hspace{0.4cm}
+        det($V_1$)
+        = det($W_1$)
+        = det($A_1$)
+        = $(a_2-a_1)(a_3-a_1)...(a_n-a_1)$det($V_2$)
+        = ($\prod_{i_1=2}^n (a_{i_1} - a_1)$)det($V_2$)
+
+        Repeating the process until $V_n$:
+
+        \hspace{0.5cm}
+        det($V_1$)
+        = ($\prod_{i_1=2}^n (a_{i_1} - a_1)$)det($V_2$)
+        = ($\prod_{i_1=2}^n (a_{i_1} - a_1)$)
+            ($\prod_{i_2=3}^n (a_{i_2} - a_2)$)det($V_3$)
+
+        \hspace{1.9cm}
+        = ...
+        = ($\prod_{i_1=2}^n (a_{i_1} - a_1)$)
+            ($\prod_{i_2=3}^n (a_{i_2} - a_2)$)
+            ...($\prod_{i_{n-1}=n}^n (a_{i_{n-1}} - a_{n-1})$)det($V_n$)
+
+        Since $V_n$ = $[1]$, then det($V_n$) = 1. Thus:
+
+        \hspace{0.5cm}
+        det(V) = det($V_1$)
+        = ($\prod_{i_1=2}^n (a_{i_1} - a_1)$)
+            ...($\prod_{i_{n-1}=n}^n (a_{i_{n-1}} - a_{n-1})$)
+        = $\prod_{1 \leq i < j \leq n}$ $(a_j - a_i)$
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Eigenvectors from different Eigenspaces are
+    Linearly independent}{16cm}
+        Let $\lambda_1,...,\lambda_k$ $\in$ $\mathbb{R}$ be distinct
+        eigenvalues of A $\in$ $M_{n \times n}(\mathbb{R})$
+        with eigenvector $v_i$ $\in$ $E_{\lambda_i}$.
+        Then, $v_1,...,v_k$ are linearly independent.
+    \end{wtheorem}
+
+    \begin{proof}
+        Let $c_1,...,c_k$ $\in$ $\mathbb{R}$ be such that
+        $c_1v_1 + ... + c_kv_k$ = 0.
+        Since A$v_i$ = $\lambda_i v_i$, then for m = \{1,...,k\}:
+
+        \hspace{0.5cm}
+        $A^m v_i$
+        = $A^{m-1}(\lambda_i v_i)$
+        = $\lambda_i A^{m-1}(v_i)$
+        = $\lambda_i A^{m-2}(\lambda_i v_i)$
+        = $\lambda_i^2 A^{m-2}(v_i)$
+        = ...
+        = $\lambda_i^m v_i$
+
+        Thus, the system of equations:
+
+        \hspace{0.5cm}
+        \footnotesize
+        $\begin{matrix*}[l]
+            0
+            = A0
+            = A(c_1v_1 + ... + c_kv_k)
+            = c_1\lambda_1 v_1 + ... + c_k\lambda_k v_k \\
+            0
+            = A^20
+            = A^2(c_1v_1 + ... + c_kv_k)
+            = c_1\lambda_1^2 v_1 + ... + c_k\lambda_k^2 v_k \\
+            \vdots \\
+            0
+            = A^k0
+            = A^k(c_1v_1 + ... + c_kv_k)
+            = c_1^k\lambda_1 v_1 + ... + c_k^k\lambda_k v_k
+        \end{matrix*}$
+        \normalsize
+
+        as a matrix:
+
+        \hspace{0.5cm}
+        \scriptsize
+        $0_{n \times k}$ =
+        $\begin{bmatrix}
+            v_1 & ... & v_k
+        \end{bmatrix}
+        \begin{bmatrix}
+            c_1 \lambda_1 & c_1 \lambda_1^2 & \hdots & c_1 \lambda_1^k \\
+            c_2 \lambda_2 & c_2 \lambda_2^2 & \hdots & c_2 \lambda_2^k \\
+            \vdots & \vdots & \ddots & \vdots \\
+            c_k \lambda_k & c_k \lambda_k & \hdots & c_k \lambda_k^k
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            v_1 & ... & v_k
+        \end{bmatrix}
+        \begin{bmatrix}
+            c_1 & 0 & \hdots & 0 \\
+            0 & c_2 & \hdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \hdots & c_k \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            \lambda_1 & \lambda_1^2 & \hdots & \lambda_1^k \\
+            \lambda_2 & \lambda_2^2 & \hdots & \lambda_2^k \\
+            \vdots & \vdots & \ddots & \vdots \\
+            \lambda_k & \lambda_k & \hdots & \lambda_k^k
+        \end{bmatrix}$
+        = VCM
+        \normalsize
+
+        Since each i-th row has a factor of $\lambda_i$, by
+        {\color{red} theorem 4.2.1} and {\color{red} 5.3.4}, then:
+
+        \hspace{0.5cm}
+        det(M) = $\lambda_1...\lambda_k
+                    \prod_{1 \leq i < j \leq k}$ $(\lambda_j - \lambda_i)$
+
+        Since each $\lambda_i$ $\not =$ 0 are distinct, then det(M) $\not =$ 0
+        so by {\color{red} theorem 4.2.2}, then M is invertible.
+
+        \hspace{0.5cm}
+        $0_{n \times k}$
+        = $0_{n \times k}M^{-1}$
+        = VCM$M^{-1}$
+        = VC
+        = $\begin{bmatrix}
+            c_1v_1 & ... & c_kv_k
+        \end{bmatrix}$
+
+        Since eigenvectors $v_i$ $\not =$ 0, then each $c_i$ = 0.
+        Thus, $v_1,...,v_k$ are linearly independent.
+    \end{proof}
+
+    \newpage
+
+
+
+    \begin{corollary}{Diagonalizable $M_{n \times n}(\mathbb{R})$
+    $\Leftrightarrow$ $\sum$ gemu($\lambda_i$) = n}{16cm}
+        Let $\lambda_1,...,\lambda_k$ $\in$ $\mathbb{R}$ be distinct
+        eigenvalues of A $\in$ $M_{n \times n}(\mathbb{R})$.
+
+        Then, A is diagonalizable if and only if
+        gemu($\lambda_1$) + ... + gemu($\lambda_k$) = n.
+    \end{corollary}
+
+    \begin{proof}
+        Suppose A is diagonalizable.
+        By {\color{red} theorem 5.1.5}, there exists an eigenbasis
+        $v_1,...,v_n$ for A.
+        Since each $v_i$ $\in$ $E_{\lambda_j}$ for some j = \{1,...,k\}, then
+        n $\leq$ gemu($\lambda_1$) + ... + gemu($\lambda_k$).
+        By {\color{red} theorem 5.3.3}, then
+        gemu($\lambda_1$) + ... + gemu($\lambda_k$) = n.
+
+        \vspace{0.3cm}
+
+        Suppose gemu($\lambda_1$) + ... + gemu($\lambda_k$) = n.
+        Let eigenvectors $v_{i1},...,v_{im_i}$ form a basis for $E_{\lambda_i}$
+        so $m_1 + ... + m_k$ = n.
+        By {\color{red} theorem 5.3.5}, eigenvectors from different
+        eigenspaces are linearly independent so
+        $v_{11},...,v_{1m_1},v_{21},...,v_{2m_2},...,v_{k1},...,v_{km_k}$
+        are linearly independent.
+        By {\color{red} theorem 2.3.5},
+        $v_{11},...,v_{1m_1},v_{21},...,v_{2m_2},...,v_{k1},...,v_{km_k}$
+        form a basis of eigenvectors.
+        By {\color{red} theorem 5.1.5}, then A is diagonalizable.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    
+
+\subsection{ Symmetry }
+
+    \begin{definition}{Orthogonally Diagonalizable}{16cm}
+        Matrix A $\in$ $M_{n \times n}(\mathbb{R})$ is
+        {\color{lblue} orthogonally diagonalizable} if there is
+        an orthogonal matrix B such that $B^{-1}AB$ is diagonal
+
+        Since B is orthogonal, then by {\color{red} theorem 3.3.2},
+        $B^{-1}$ = $B^T$ so $B^{-1}AB$ = $B^TAB$ is diagonal.
+
+        \vspace{0.3cm}
+
+        By {\color{red} theorem 5.1.5}, then B =
+        $\begin{bmatrix}
+            v_1 & ... & v_n
+        \end{bmatrix}$
+        where $v_1,...,v_n$ is an eigenbasis for A.
+        Since B is orthogonal, then by {\color{red} theorem 3.3.2},
+        $v_1,...,v_n$ is orthonormal.
+        Thus, if A is orthogonally diagonalizable,
+        there is an orthonormal eigenbasis for A.
+    \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Eigenvectors from different Eigenspaces are Orthogonal}{16cm}
+        Let $\lambda_1,\lambda_2$ be distinct eigenvalues of
+        symmetric A $\in$ $M_{n \times n}(\mathbb{R})$.
+
+        For $x_1$ $\in$ $E_{\lambda_1}$ and $x_2$ $\in$ $E_{\lambda_2}$,
+        then $x_1 \cdot x_2$ = 0
+    \end{wtheorem}
+
+    \begin{proof}
+        $\lambda_1(x_1 \cdot x_2)$
+        = $\lambda_1x_1 \cdot x_2$
+        = $Ax_1 \cdot x_2$
+        = $(Ax_1)^Tx_2$
+        = $x_1^TA^Tx_2$
+
+        \hspace{1.8cm}
+        = $x_1 \cdot A^Tx_2$
+        = $x_1 \cdot Ax_2$
+        = $x_1 \cdot (\lambda_2x_2)$
+        = $\lambda_2(x_1 \cdot x_2)$
+
+        Since $(\lambda_1-\lambda_2)(x_1 \cdot x_2)$ = 0,
+        but $\lambda_1$ $\not =$ $\lambda_2$, then $x_1 \cdot x_2$ = 0.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{wtheorem}{Symmetric $M_{n \times n}(\mathbb{R})$ has n
+    real Eigenvalues}{16cm}
+        Let $\lambda_1,...\lambda_k$ $\in$ $\mathbb{R}$ be distinct
+        eigenvalues of symmetric A $\in$ $M_{n \times n}(\mathbb{R})$
+        with almu($\lambda_i$) = $m_i$. Then, $m_1 + ... + m_k$ = n.
+    \end{wtheorem}
+
+    \begin{proof}
+        Let $p_1(\lambda)$: $\mathbb{R}$ $\rightarrow$ $\mathbb{R}$
+        be the characteristic polynomial of A and
+        let $p_2(\lambda)$: $\mathbb{C}$ $\rightarrow$ $\mathbb{C}$
+        be the characteristic polynomial of A.
+        Thus, $p_2(\lambda)$ = $p_1(\lambda)$ = det($A - \lambda I_{n \times n}$)
+        if $\lambda$ $\in$ $\mathbb{R}$.
+
+        Let $p_2(\lambda)$ = $(\lambda - \lambda_1)...(\lambda - \lambda_n)$.
+        Let v = $v_1 + v_2i$ be an eigenvector with eigenvalue
+        $\lambda_i$ = $a + bi$.
+
+        \hspace{0.5cm}
+        $Av_1 + iAv_2$
+        = $A(v_1+v_2i)$
+        = $Av$
+        = $\lambda_i v$
+        = $(a+bi)(v_1 + v_2i)$
+        = $(av_1 - bv_2) + (av_2 + bv_1)i$
+
+        Since:
+
+        \hspace{0.5cm}
+        $A\overline{v}$
+        = $A(v_1 - v_2i)$
+        = $Av_1 - iAv_2$
+        \hspace{1cm}
+        $\overline{\lambda_i} \overline{v}$
+        = $(a-bi)(v_1 - v_2i)$
+        = $(av_1 - bv_2) - (av_2 + bv_1)i$
+
+        then $A\overline{v}$ = $\overline{\lambda_i} \overline{v}$.
+        Thus, $\overline{\lambda_i}$ is an eigenvalue of A with eigenvector
+        $\overline{v}$. Then:
+
+        \hspace{0.5cm}
+        $\overline{v}^T Av$
+        = $\overline{v}^T (\lambda_i v)$
+        = $\lambda_i(\overline{v}^T v)$
+        = $\lambda_i |v|^2$
+        \hspace{0.5cm}
+        $\overline{v}^T Av$
+        = $\overline{v}^T \overline{A^T} v$
+        = $\overline{Av}^T v$
+        = $\overline{\lambda_i v}^T v$
+        = $\overline{\lambda_i} \overline{v}^T v$
+        = $\overline{\lambda_i} |v|^2$
+
+        Since $(\lambda_i - \overline{\lambda_i})|v|^2$ = 0,
+        but $|v|$ $>$ 0 since v $\not =$ 0, then
+        $a+bi$ = $\lambda_i$ = $\overline{\lambda_i}$ = $a-bi$.
+        Thus, b = 0 so all eigenvalues are real.
+        Thus, any $p_1(\lambda)$ = $p_2(\lambda)$
+        = $(\lambda - \lambda_1)...(\lambda - \lambda_n)$
+        so A has n real eigenvalues when including their algebraic multiplicity.
+    \end{proof}
+
+    \newpage
+
+
+
+    \begin{wtheorem}{Spectral Theorem: Symmetric matrices have an
+    orthonormal eigenbasis}{16cm}
+        Matrix A $\in$ $M_{n \times n}(\mathbb{R})$ is orthogonally
+        diagonalizable if and only if A is symmetric
+    \end{wtheorem}
+
+    \begin{proof}
+        Suppose A is orthogonally diagonalizable.
+        Thus, A has an $\mathcal{B}$ = $v_1,...,v_n$ $\in$ $\mathbb{R}^n$
+        is an orthonormal eigenbasis with eigenvalues $\lambda_1,...,\lambda_n$
+        $\in$ $\mathbb{R}$.
+        Since A is diagonalizable, then by {\color{red} theorem 5.1.5},
+        for B =
+        $\begin{bmatrix}
+            v_1 & ... & v_n
+        \end{bmatrix}$ and $A_{\mathcal{B}}$ =
+        $\begin{bmatrix}
+            \lambda_1e_1 & ... & \lambda_ne_n
+        \end{bmatrix}$:
+
+        \hspace{0.5cm}
+        AB = B$A_{\mathcal{B}}$
+
+        By {\color{red} theorem 3.3.2}, B is invertible where $B^{-1}$ = $B^T$.
+        Thus, A = $BA_{\mathcal{B}}B^{-1}$ = $BA_{\mathcal{B}}B^T$. Then:
+
+        \hspace{0.5cm}
+        $A^T$
+        = $(BA_{\mathcal{B}}B^T)^T$
+        = $(B^T)^T A_{\mathcal{B}}^T B^T$
+        = $B A_{\mathcal{B}} B^T$
+        = A
+
+        Thus, A is symmetric.
+
+        \vspace{0.3cm}
+
+        Suppose A is symmetric.
+        If n = 1, then let B = $[1]$ which is orthogonal since
+        $B^TB$ = $I_{1 \times 1}$ by {\color{red} theorem 3.3.2}.
+        Then, $B^{-1}AB$ = $[1][a][1]$ = $[a]$ is diagonal.
+
+        Suppose for k $\leq$ n, then any symmetric
+        $M_{(k-1) \times (k-1)}(\mathbb{R})$ is orthogonally diagonalizable.
+        Then for symmetric A $\in$ $M_{k \times k}(\mathbb{R})$,
+        by {\color{red} theorem 5.4.3}, there is an eigenvalue $\lambda$
+        with eigenvector $v_1$ such that $|v|$ = 1.
+        From $v_1$, let $v_1,u_2,...,u_k$ be a basis for $\mathbb{R}^k$.
+        Apply {\color{red} theorem 3.2.9} to get an orthonormal basis
+        $v_1,...,v_k$. Let B =
+        $\begin{bmatrix}
+            v_1 & ... & v_k
+        \end{bmatrix}$ so B is orthogonal by {\color{red} 3.3.2}
+        so $B^T$ = $B^{-1}$.
+        
+        Note $B^TABe_1$
+        = $B^TAv_1$
+        = $B^T (\lambda v_1)$
+        = $\lambda (B^Tv_1)$
+        = $\lambda e_1$.
+        Also, $(B^TAB)$ = $B^TA^T(B^T)^T$ = $B^TAB$ so $B^TAB$ is symmetric.
+        Thus:
+
+        \hspace{0.5cm}
+        $B^TAB$ =
+        $\begin{bmatrix}
+            \lambda & 0_{1 \times (k-1)} \\
+            0_{(k-1) \times 1} & B^*_{(k-1) \times (k-1)}
+        \end{bmatrix}$
+
+        Since $B^*$ $\in$ $M_{(k-1) \times (k-1)}(\mathbb{R})$,
+        then $B^*$ is orthogonally diagonalizable so there is an orthogonal
+        C $\in$ $M_{(k-1) \times (k-1)}(\mathbb{R})$ such that
+        D = $C^{-1}B^*C$ is diagonal.
+        Let X = $\begin{bmatrix}
+            1 & 0_{1 \times (k-1)} \\
+            0_{(k-1) \times 1} & C
+        \end{bmatrix}$. Then:
+
+        \hspace{0.5cm}
+        $X^T B^T A B X$ =
+        $\begin{bmatrix}
+            1 & 0_{1 \times (k-1)} \\
+            0_{(k-1) \times 1} & C^T
+        \end{bmatrix}
+        \begin{bmatrix}
+            \lambda & 0_{1 \times (k-1)} \\
+            0_{(k-1) \times 1} & B^*
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & 0_{1 \times (k-1)} \\
+            0_{(k-1) \times 1} & C
+        \end{bmatrix}$
+
+        \hspace{2.7cm}
+        =
+        $\begin{bmatrix}
+            \lambda & 0_{1 \times (k-1)} \\
+            0_{(k-1) \times 1} & C^TB^*C
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            \lambda & 0_{1 \times (k-1)} \\
+            0_{(k-1) \times 1} & D
+        \end{bmatrix}$
+
+        Since $X^T B^T A B X$ = $(BX)^T A (BX)$ is diagonal
+        where BX is orthogonal since B,X are orthogonal
+        by {\color{orange} corollary 3.3.4}, then
+        A $\in$ $M_{k \times k}(\mathbb{R})$ is orthogonally diagonalizable.
+        Thus, by proof by induction, A $\in$ $M_{n \times n}(\mathbb{R})$
+        is orthogonally diagonalizable.
+    \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+
+
+\subsection{ Quadratic Forms }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
