@@ -822,9 +822,8 @@
             v_k = u_k - \text{proj}_{v_1}(u_k) - ... - \text{proj}_{v_{k-1}}(u_k)
         \end{matrix*}$
 
-        Then, $v_1,...,v_k$ is an orthogonal basis for V.
-
-        Also, $\frac{v_1}{|v_1|},...,\frac{v_k}{|v_k|}$ is an orthonormal
+        Then, $v_1,...,v_k$ is an orthogonal basis for V
+        and $\frac{v_1}{|v_1|},...,\frac{v_k}{|v_k|}$ is an orthonormal
         basis for V.
     \end{wtheorem}
 
@@ -842,7 +841,7 @@
         by {\color{red} theorem 3.2.1}, each
         $\text{proj}_{v_i}(u_m)$ = $c_iv_i$
         where $c_i$ = $\frac{u_m \cdot v_i}{|v_i|^2}$
-        for i = \{1,...,m-1\}
+        for i = \{1,...,m-1\}:
 
         \hspace{0.5cm}
         $v_m$ = $u_m - c_1v_1 - ... - c_{m-1}v_{m-1}$
@@ -856,12 +855,9 @@
 
         Thus, $v_m$ is orthgonal to any $v_i$ for i = \{1,...,m-1\}
         so $v_1,...,v_m$ is orthogonal.
-
         Thus, by proof by induction, $v_1,...,v_k$ is orthogonal.
-        
-        Similarily, $v_1$ = $u_1$ $\in$ V.
+        Also, $v_1$ = $u_1$ $\in$ V.
         Suppose for m $\leq$ k, then $v_1,...,v_{m-1}$ $\in$ V.
-
         Then, $v_m$ = $u_m - c_1v_1 - ... - c_{m-1}v_{m-1}$ $\in$ V.
         Thus, by proof by induction, $v_1,...,v_k$ $\in$ V.
 
@@ -1074,6 +1070,372 @@
         = $2AA^Tx - x$
         = $(2AA^T - I_{n \times n})$x
     \end{proof}
+
+    \newpage
+
+
+
+    \begin{example}
+        Let T: $\mathbb{R}^4$ $\rightarrow$ $\mathbb{R}^4$ be T(x) = Ax
+        where A =
+        \scriptsize
+        $\begin{bmatrix}
+            1 & 1 & 2 & 0 \\
+            1 & 0 & 4 & 2 \\
+            1 & 0 & 3 & 1 \\
+            1 & 1 & 1 & -1
+        \end{bmatrix}$.
+        \normalsize
+
+        Find an orthonormal basis for V = im(A), QR factorization of A,
+        and $\text{proj}_V$.
+    \end{example}
+
+    \begin{tbox}
+        First, find a basis for im(A).
+
+        \hspace{0.5cm}
+        \scriptsize
+        $\begin{bmatrix}
+            1 & 1 & 2 & 0 \\
+            1 & 0 & 4 & 2 \\
+            1 & 0 & 3 & 1 \\
+            1 & 1 & 1 & -1
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 1 & 2 & 0 \\
+            0 & -1 & 2 & 2 \\
+            0 & -1 & 1 & 1 \\
+            0 & 0 & -1 & -1
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 0 & 4 & 2 \\
+            0 & -1 & 2 & 2 \\
+            0 & 0 & -1 & -1 \\
+            0 & 0 & -1 & -1
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 0 & 0 & -2 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 1 \\
+            0 & 0 & 0 & 0
+        \end{bmatrix}$
+        \normalsize
+
+        \hspace{0.5cm}
+        im(A) = span(
+        \scriptsize
+        $\begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{bmatrix},
+        \begin{bmatrix}
+            1 \\
+            0 \\
+            0 \\
+            1
+        \end{bmatrix},
+        \begin{bmatrix}
+            2 \\
+            4 \\
+            3 \\
+            1
+        \end{bmatrix}$
+        \normalsize)
+
+        To find an orthonormal basis for the im(A),
+        apply the Gram-Schmidt Process.
+
+        \hspace{0.5cm}
+        \scriptsize
+        $\begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{bmatrix}$
+
+        \hspace{0.5cm}
+        $\begin{bmatrix}
+            1 \\
+            0 \\
+            0 \\
+            1
+        \end{bmatrix} -
+        \frac{1}{1^2 + 1^2 + 1^2 + 1^2}
+        (\begin{bmatrix}
+            1 \\
+            0 \\
+            0 \\
+            1
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{bmatrix})
+        \begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            1 \\
+            0 \\
+            0 \\
+            1
+        \end{bmatrix} -
+        \frac{2}{4}
+        \begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            \frac{1}{2} \\
+            -\frac{1}{2} \\
+            -\frac{1}{2} \\
+            \frac{1}{2}
+        \end{bmatrix}$
+
+        \hspace{0.5cm}
+        $\begin{bmatrix}
+            2 \\
+            4 \\
+            3 \\
+            1
+        \end{bmatrix} -
+        \frac{1}{1^2 + 1^2 + 1^2 + 1^2}
+        (\begin{bmatrix}
+            2 \\
+            4 \\
+            3 \\
+            1
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{bmatrix})
+        \begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{bmatrix} -
+        \frac{1}{(\frac{1}{2})^2 + (-\frac{1}{2})^2
+                    + (-\frac{1}{2})^2 + (\frac{1}{2})^2}
+        (\begin{bmatrix}
+            2 \\
+            4 \\
+            3 \\
+            1
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+            \frac{1}{2} \\
+            -\frac{1}{2} \\
+            -\frac{1}{2} \\
+            \frac{1}{2}
+        \end{bmatrix})
+        \begin{bmatrix}
+            \frac{1}{2} \\
+            -\frac{1}{2} \\
+            -\frac{1}{2} \\
+            \frac{1}{2}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            2 \\
+            4 \\
+            3 \\
+            1
+        \end{bmatrix} -
+        \frac{10}{4}
+        \begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1 
+        \end{bmatrix} -
+        \frac{-2}{1}
+        \begin{bmatrix}
+            \frac{1}{2} \\
+            -\frac{1}{2} \\
+            -\frac{1}{2} \\
+            \frac{1}{2}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            \frac{1}{2} \\
+            \frac{1}{2} \\
+            -\frac{1}{2} \\
+            -\frac{1}{2}
+        \end{bmatrix}$
+        \normalsize
+
+        \hspace{0.5cm}
+        im(A) = span(
+        \scriptsize
+        $\begin{bmatrix}
+            \frac{1}{2} \\
+            \frac{1}{2} \\
+            \frac{1}{2} \\
+            \frac{1}{2}
+        \end{bmatrix},
+        \begin{bmatrix}
+            \frac{1}{2} \\
+            -\frac{1}{2} \\
+            -\frac{1}{2} \\
+            \frac{1}{2}
+        \end{bmatrix},
+        \begin{bmatrix}
+            \frac{1}{2} \\
+            \frac{1}{2} \\
+            -\frac{1}{2} \\
+            -\frac{1}{2}
+        \end{bmatrix}$
+        \normalsize)
+
+        Then, the QR factorization of A:
+
+        \hspace{0.5cm}
+        \scriptsize
+        $\begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1 
+        \end{bmatrix}$
+        \hspace{2cm}
+        $\begin{bmatrix}
+            1 \\
+            0 \\
+            0 \\
+            1
+        \end{bmatrix}$ =
+        $\frac{2}{4}
+        \begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{bmatrix} +
+        \begin{bmatrix}
+            \frac{1}{2} \\
+            -\frac{1}{2} \\
+            -\frac{1}{2} \\
+            \frac{1}{2}
+        \end{bmatrix}$
+        \hspace{2cm}
+        $\begin{bmatrix}
+            2 \\
+            4 \\
+            3 \\
+            1
+        \end{bmatrix}$ =
+        $\frac{10}{4}
+        \begin{bmatrix}
+            1 \\
+            1 \\
+            1 \\
+            1
+        \end{bmatrix} +
+        \frac{2}{1}
+        \begin{bmatrix}
+            \frac{1}{2} \\
+            -\frac{1}{2} \\
+            -\frac{1}{2} \\
+            \frac{1}{2}
+        \end{bmatrix} +
+        \begin{bmatrix}
+            \frac{1}{2} \\
+            \frac{1}{2} \\
+            -\frac{1}{2} \\
+            -\frac{1}{2}
+        \end{bmatrix}$
+
+        \hspace{0.5cm}
+        $\begin{bmatrix}
+            1 & 1 & 2 \\
+            1 & 0 & 4 \\
+            1 & 0 & 3 \\
+            1 & 1 & 1 
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            \frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} \\
+            \frac{1}{2} & \frac{1}{2} & -\frac{1}{2}
+        \end{bmatrix}
+        \begin{bmatrix}
+            \sqrt{4} & \frac{2}{\sqrt{4}} & \frac{10}{\sqrt{4}} \\
+            0 & \sqrt{1} & \frac{-2}{\sqrt{1}} \\
+            0 & 0 & \sqrt{1}
+        \end{bmatrix}$
+        \hspace{0.5cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        $\begin{bmatrix}
+            1 & 1 & 2 \\
+            1 & 0 & 4 \\
+            1 & 0 & 3 \\
+            1 & 1 & 1 
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            \frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} \\
+            \frac{1}{2} & \frac{1}{2} & -\frac{1}{2}
+        \end{bmatrix}
+        \begin{bmatrix}
+            2 & 1 & 5 \\
+            0 & 1 & -2 \\
+            0 & 0 & 1
+        \end{bmatrix}$
+        \normalsize
+
+        And the $\text{proj}_V$:
+
+        \hspace{0.5cm}
+        $\text{proj}_V$ =
+        \scriptsize
+        $\begin{bmatrix}
+            \frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} \\
+            \frac{1}{2} & \frac{1}{2} & -\frac{1}{2}
+        \end{bmatrix}
+        (\begin{bmatrix}
+            \frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} \\
+            \frac{1}{2} & \frac{1}{2} & -\frac{1}{2}
+        \end{bmatrix})^T$ =
+        $\begin{bmatrix}
+            \frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} \\
+            \frac{1}{2} & \frac{1}{2} & -\frac{1}{2}
+        \end{bmatrix}
+        \begin{bmatrix}
+            \frac{1}{2} & \frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+            \frac{1}{2} & \frac{1}{2} & -\frac{1}{2} & -\frac{1}{2}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            \frac{3}{4} & \frac{1}{4} & -\frac{1}{4} & \frac{1}{4} \\
+            \frac{1}{4} & \frac{3}{4} & \frac{1}{4} & -\frac{1}{4} \\
+            -\frac{1}{4} & \frac{1}{4} & \frac{3}{4} & \frac{1}{4} \\
+            \frac{1}{4} & -\frac{1}{4} & \frac{1}{4} & \frac{3}{4}
+        \end{bmatrix}$
+    \end{tbox}
 
     \newpage
 

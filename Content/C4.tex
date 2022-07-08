@@ -152,11 +152,7 @@
         Let S be the number of swaps to turn $e_{i_1},e_{i_2},...,e_{i_n}$
         into $e_1,...,e_n$ and I be the number of inversions
         in $(1,i_1),...,(n,i_n)$.
-
-        \hspace{0.5cm}
-        S = I
-
-        Thus:
+        Then, S = I so:
 
         \hspace{0.5cm}
         D($e_{i_1},e_{i_2},...,e_{i_n}$)
@@ -367,9 +363,7 @@
 
 
     \begin{wtheorem}{det($A^T$) = det(A)}{16cm}
-        For A $\in$ $M_{n \times n}(\mathbb{R})$:
-
-        \hspace{0.5cm}
+        For A $\in$ $M_{n \times n}(\mathbb{R})$, then
         det($A^T$) = det(A)
     \end{wtheorem}
 
@@ -399,18 +393,16 @@
 
         Since each $a_{1i_1}...a_{ni_n}$ in $A^T$
         can be arrange in order by $i_1,...,i_n$
-        into $a_{1^*i_1^*}...a_{n^*i_n^*}$
-        which when transposed is $a_{i_1^*1^*}...a_{i_n^*n^*}$
+        into $b_{1i_1}...b_{ni_n}$
+        which when transposed is $b_{i_11}...b_{i_nn}$
         which is in A. Thus:
 
-        \hspace{0.5cm}
+        \hspace{0.05cm}
         det($A^T$) =
         $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
             $a_{1i_1}...a_{ni_n}(-1)^{I_{A^T}}$
-
-        \hspace{2.1cm}
         = $\sum_{\{i_1,...,i_n\} = \{1,...,n\}}$
-            $a_{i_1^*1^*}...a_{i_n^*n^*}(-1)^{I_A}$
+            $b_{i_11}...b_{i_nn}(-1)^{I_A}$
         = det(A)
     \end{proof}
 
@@ -533,6 +525,54 @@
 
 
 
+    \begin{example}
+        Find det(A) where A =
+        \scriptsize
+        $\begin{bmatrix}
+            1 & 0 & 1 & 2 \\
+            9 & 1 & 3 & 0 \\
+            9 & 2 & 2 & 0 \\
+            5 & 0 & 0 & 3
+        \end{bmatrix}$
+        \normalsize
+        using cofactor expansion
+    \end{example}
+
+    \begin{tbox}
+        Using cofactor expansion along the 4th row:
+
+        \hspace{0.5cm}
+        det(A)
+        = -5det($\begin{bmatrix}
+                    0 & 1 & 2 \\
+                    1 & 3 & 0 \\
+                    2 & 2 & 0    
+                \end{bmatrix}$)
+        + 0det($\begin{bmatrix}
+                    1 & 1 & 2 \\
+                    9 & 3 & 0 \\
+                    9 & 2 & 0    
+                \end{bmatrix}$)
+        - 0det($\begin{bmatrix}
+                    1 & 0 & 2 \\
+                    9 & 1 & 0 \\
+                    9 & 2 & 0    
+                \end{bmatrix}$)
+        + 3det($\begin{bmatrix}
+                    1 & 0 & 1 \\
+                    9 & 1 & 3 \\
+                    9 & 2 & 2    
+                \end{bmatrix}$)
+
+        \hspace{1.9cm}
+        = -5(4-12) + 3(2+18-9-6)
+        = 40 + 15 = 55
+    \end{tbox}
+
+    \vspace{0.5cm}
+
+
+
 
 
 \subsection{ Properties of the Determinant }
@@ -638,6 +678,59 @@
             \end{proof}
     \end{enumerate}
 
+    \newpage
+
+
+
+    \begin{example}
+        Find det(A) where A =
+        \scriptsize
+        $\begin{bmatrix}
+            1 & 0 & 1 & 2 \\
+            9 & 1 & 3 & 0 \\
+            9 & 2 & 2 & 0 \\
+            5 & 0 & 0 & 3
+        \end{bmatrix}$
+        \normalsize
+        using elementary row operations
+    \end{example}
+
+    \begin{tbox}
+        \scriptsize
+        $\begin{bmatrix}
+            1 & 0 & 1 & 2 \\
+            9 & 1 & 3 & 0 \\
+            9 & 2 & 2 & 0 \\
+            5 & 0 & 0 & 3
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 0 & 1 & 2 \\
+            0 & 1 & -6 & -18 \\
+            0 & 2 & -7 & -18 \\
+            0 & 0 & -5 & -7
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 0 & 1 & 2 \\
+            0 & 1 & -6 & -18 \\
+            0 & 0 & 5 & 18 \\
+            0 & 0 & -5 & -7
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 0 & 1 & 2 \\
+            0 & 1 & -6 & -18 \\
+            0 & 0 & 5 & 18 \\
+            0 & 0 & 0 & 11
+        \end{bmatrix}$
+        \normalsize
+        = B
+
+        Since only row additions were performed,
+        then det(A) = det(B) = 1(1)(5)(11) = 55.
+    \end{tbox}
+
     \vspace{0.5cm}
 
 
@@ -662,7 +755,7 @@
         Thus, A is invertible if and only if det(A) $\not =$ 0.
     \end{proof}
 
-    \newpage
+    \vspace{0.5cm}
 
 
 
@@ -698,9 +791,10 @@
         and $S_B$ are the number of row swaps in $S_2$.
 
         \hspace{0.5cm}
-        det(AB) = $(-1)^{S_A}$det(B) = $(-1)^{S_A} (-1)^{S_B}$
-
-        Thus, det(AB) = det(A)det(B).
+        det(AB)
+        = $(-1)^{S_A}$det(B)
+        = $(-1)^{S_A} (-1)^{S_B}$
+        = det(A)det(B)
     \end{proof}
 
     \vspace{0.5cm}
@@ -736,11 +830,13 @@
         1 = det($I_{n \times n}$)
         = det($A^{-1}A$)
         = det($A^{-1}$)det(A)
-
-        Thus, det($A^{-1}$) = (det(A))$^{-1}$.
+        \hspace{0.5cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        det($A^{-1}$) = (det(A))$^{-1}$.
     \end{proof}
 
-    \vspace{0.5cm}
+    \newpage
 
 
 
@@ -780,11 +876,13 @@
         = det($A^TA$)
         = det($A^T$)det(A)
         = (det(A))$^2$
-
-        Thus, det(A) = $\pm 1$.
+        \hspace{0.5cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        det(A) = $\pm 1$
     \end{proof}
 
-    \newpage
+    \vspace{0.5cm}
 
 
 
@@ -1014,6 +1112,67 @@
         = $|v_1| |v_2^{\perp}| ... |v_k^{\perp}|$
         = $\text{Vol}_k(P(v_1,...,v_k))$
     \end{proof}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{example}
+        Find the volume of the parallelotope with
+        sides (1,0,0,0), (1,1,1,1), and (1,2,3,4)
+    \end{example}
+
+    \begin{tbox}
+        Let A =
+        $\begin{bmatrix}
+            1 & 1 & 1 \\
+            0 & 1 & 2 \\
+            0 & 1 & 3 \\
+            0 & 1 & 4
+        \end{bmatrix}$.
+        Then,
+        $A^TA$ =
+        $\begin{bmatrix}
+            1 & 0 & 0 & 0 \\ 
+            1 & 1 & 1 & 1 \\
+            1 & 2 & 3 & 4
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & 1 & 1 \\
+            0 & 1 & 2 \\
+            0 & 1 & 3 \\
+            0 & 1 & 4
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            1 & 1 & 1 \\
+            1 & 4 & 10 \\
+            1 & 10 & 30
+        \end{bmatrix}$.
+
+        \hspace{0.5cm}
+        $\begin{bmatrix}
+            1 & 1 & 1 \\
+            1 & 4 & 10 \\
+            1 & 10 & 30
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 1 & 1 \\
+            0 & 3 & 9 \\
+            0 & 9 & 29
+        \end{bmatrix}$
+        $\Rightarrow$
+        $\begin{bmatrix}
+            1 & 1 & 1 \\
+            0 & 3 & 9 \\
+            0 & 0 & 2
+        \end{bmatrix}$
+
+        The volume is
+        $\sqrt{\text{det}(A^TA)}$
+        = $\sqrt{1(3)(2)}$
+        = $\sqrt{6}$.
+    \end{tbox}
 
 
 
