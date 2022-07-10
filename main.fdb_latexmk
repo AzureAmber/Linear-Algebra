@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1657433242 "c:/Users/Tokyo/Desktop/Clones/Linear-Algebra/main.tex" "main.pdf" "main" 1657433246
+["pdflatex"] 1657475558 "c:/Users/Tokyo/Desktop/Clones/Linear-Algebra/main.tex" "main.pdf" "main" 1657475565
   "Bibliography/Bibliography.tex" 1655066624 272 d1bb62b9cedd7db064272989b836d95c ""
   "Content/C1.tex" 1656390329 69892 8561208de7e334196566547a02c6705b ""
   "Content/C2.tex" 1657243008 52299 d1cb0769ad92108a233e1d833a039e9e ""
-  "Content/C3.tex" 1657249254 47144 60d25ab816b68a92c75ba2c1eb192822 ""
+  "Content/C3.tex" 1657475554 47145 064ed80f0588859f071925b2a60401de ""
   "Content/C4.tex" 1657253978 37656 8d79094878be078115d08a8ab39e2f20 ""
   "Content/C5.tex" 1657433239 54879 53b8316b1d5b5373b8f220b3e1ae774b ""
   "Packages/Packages.tex" 1655431136 8088 d5f215cb829edb5ac57eccecadc0919a ""
@@ -160,13 +160,13 @@
   "c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1632988275 4399729 ba2bdf7099c8a2ba97051a2b802eaeb0 ""
   "c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1632988393 2797768 d953ad199b2fe5d3a46b62f882209a11 ""
   "c:/texlive/2021/texmf.cnf" 1632988246 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1657433246 4172 65315cc97f1f91b7ec3995f978d75eaf "pdflatex"
-  "main.out" 1657433246 4144 190f96f0ab48d04643868f1f96938171 "pdflatex"
+  "main.aux" 1657475564 4172 65315cc97f1f91b7ec3995f978d75eaf "pdflatex"
+  "main.out" 1657475564 4144 190f96f0ab48d04643868f1f96938171 "pdflatex"
   "main.tex" 1656615919 534 64450718ecd6e0e90a4b3490c748acb9 ""
-  "main.toc" 1657433246 2218 f24ee40f83c8da67eaa51f8eac2317cc "pdflatex"
+  "main.toc" 1657475564 2218 f24ee40f83c8da67eaa51f8eac2317cc "pdflatex"
   (generated)
-  "main.pdf"
+  "main.toc"
   "main.aux"
   "main.out"
+  "main.pdf"
   "main.log"
-  "main.toc"
