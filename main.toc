@@ -23,5 +23,5 @@
 \contentsline {subsection}{\numberline {5.1} Diagonalization }{46}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2} Characteristic Polynomial }{48}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3} Eigenspaces }{49}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4} Symmetry }{51}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5} Quadratic Forms }{53}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.4} Symmetry }{52}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5} Quadratic Forms }{55}{subsection.5.5}%

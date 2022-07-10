@@ -428,10 +428,8 @@
         det($A - \lambda I_{n \times n}$)
         = $(\lambda - \lambda_1)^{m_1} ... (\lambda - \lambda_k)^{m_k}$
 
-        Then for $\lambda$ = 0:
-
-        \hspace{0.5cm}
-        det(A) = $\lambda_1^{m_1}...\lambda_k^{m_k}$
+        So for $\lambda$ = 0, then
+        det(A) = $\lambda_1^{m_1}...\lambda_k^{m_k}$.
     \end{proof}
 
     \vspace{0.5cm}
@@ -462,9 +460,8 @@
 
 
     \begin{definition}{Geometric Multiplicity}{16cm}
-        Let A $\in$ $M_{n \times n}(\mathbb{R})$ and $\lambda$ $\in$ $\mathbb{R}$.
-
-        Then, the of {\color{lblue} geometric multiplicity}
+        Let A $\in$ $M_{n \times n}(\mathbb{R})$.
+        Then, the {\color{lblue} geometric multiplicity}
         of eigenvalue $\lambda^*$ $\in$ $\mathbb{R}$ of A:
         
         \hspace{0.5cm}
@@ -475,7 +472,7 @@
 
         Since $\lambda^*$ is an eigenvalue, then there is a eigenvector
         v $\not =$ 0 $\in$ ker($A - \lambda^* I_{n \times n}$)
-        so dim(ker($A - \lambda^* I_{n \times n}$)) = gemu($\lambda$) $\geq$ 1.
+        so dim(ker($A - \lambda^* I_{n \times n}$)) = gemu($\lambda^*$) $\geq$ 1.
     \end{definition}
 
     \vspace{0.5cm}
@@ -825,6 +822,145 @@
 
 
 
+    \begin{example}
+        Find the eigenvectors and their eigenvectors for
+        A =
+        \scriptsize
+        $\begin{bmatrix}
+            1 & 9 & 3 \\
+            0 & 4 & 1 \\
+            -1 & 1 & 1
+        \end{bmatrix}$
+        \normalsize.
+        Also, find the algebraic and geometric multiplicities and det(A).
+        Then, determine if A is diagonalizable.
+    \end{example}
+
+    \begin{tbox}
+        0 = det($A - \lambda I_{3 \times 3}$) =
+        det(
+        \scriptsize
+        $\begin{bmatrix}
+            1-\lambda & 9 & 3 \\
+            0 & 4-\lambda & 1 \\
+            -1 & 1 & 1-\lambda
+        \end{bmatrix}$
+        \normalsize)
+        = $-\lambda^3 + 6\lambda^2 - 11\lambda + 6$
+        = $-(\lambda-1)(\lambda-2)(\lambda-3)$
+
+        Thus, the eigenvalues of A are $1,2,3$ where
+        almu(1) = 1, almu(2) = 1, and almu(3) = 1.
+
+        Then, det(A) = $1^12^13^1$ = 6.
+        Then, the eigenvalues for each eigenvalue:
+
+        \hspace{0.5cm}
+        For $\lambda$ = 1:
+        \hspace{0.5cm}
+        ker($A - I_{3 \times 3}$) =
+        ker(
+        \scriptsize
+        $\begin{bmatrix}
+            0 & 9 & 3 \\
+            0 & 3 & 1 \\
+            -1 & 1 & 0
+        \end{bmatrix}$
+        \normalsize) =
+        \scriptsize
+        $x_3\begin{bmatrix}
+            -1 \\
+            -1 \\
+            3
+        \end{bmatrix}$
+        \normalsize
+        \hspace{0.5cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        gemu(1) = 1
+
+        \hspace{0.5cm}
+        For $\lambda$ = 2:
+        \hspace{0.5cm}
+        ker($A - 2I_{3 \times 3}$) =
+        ker(
+        \scriptsize
+        $\begin{bmatrix}
+            -1 & 9 & 3 \\
+            0 & 2 & 1 \\
+            -1 & 1 & -1
+        \end{bmatrix}$
+        \normalsize) =
+        \scriptsize
+        $x_3\begin{bmatrix}
+            -3 \\
+            -1 \\
+            2
+        \end{bmatrix}$
+        \normalsize
+        \hspace{0.1cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        gemu(2) = 1
+
+        \hspace{0.5cm}
+        For $\lambda$ = 3:
+        \hspace{0.5cm}
+        ker($A - 3I_{3 \times 3}$) =
+        ker(
+        \scriptsize
+        $\begin{bmatrix}
+            -2 & 9 & 3 \\
+            0 & 1 & 1 \\
+            -1 & 1 & -2
+        \end{bmatrix}$
+        \normalsize) =
+        \scriptsize
+        $x_3\begin{bmatrix}
+            -3 \\
+            -1 \\
+            1
+        \end{bmatrix}$
+        \normalsize
+        \hspace{0.1cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        gemu(3) = 1
+
+        Since gemu(1) + gemu(2) + gemu(3) = 3, then A is diagonalizable.
+        
+        Then, $E_1 = (-1,-1,3) +  E_2 = (-3,-1,2) + E_3 = (-3,-1,1)$
+        form an eigenbasis for A where:
+
+        \hspace{0.5cm}
+        \scriptsize
+        $\begin{bmatrix}
+            1 & 9 & 3 \\
+            0 & 4 & 1 \\
+            -1 & 1 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            -1 & -3 & -3 \\
+            -1 & -1 & -1 \\
+            3 & 2 & 1
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            -1 & -3 & -3 \\
+            -1 & -1 & -1 \\
+            3 & 2 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 2 & 0 \\
+            0 & 0 & 3
+        \end{bmatrix}$
+        \normalsize
+    \end{tbox}
+
+    \newpage
+
+
+
     
 
 \subsection{ Symmetry }
@@ -834,10 +970,10 @@
         {\color{lblue} orthogonally diagonalizable} if there is
         an orthogonal matrix B such that $B^{-1}AB$ is diagonal
 
+        \vspace{0.3cm}
+
         Since B is orthogonal, then by {\color{red} theorem 3.3.2},
         $B^{-1}$ = $B^T$ so $B^{-1}AB$ = $B^TAB$ is diagonal.
-
-        \vspace{0.3cm}
 
         By {\color{red} theorem 5.1.5}, then B =
         $\begin{bmatrix}
@@ -879,7 +1015,7 @@
         but $\lambda_1$ $\not =$ $\lambda_2$, then $x_1 \cdot x_2$ = 0.
     \end{proof}
 
-    \newpage
+    \vspace{0.5cm}
 
 
 
@@ -950,7 +1086,7 @@
         so A has n real eigenvalues when including their algebraic multiplicity.
     \end{proof}
 
-    \vspace{0.5cm}
+    \newpage
 
 
 
@@ -1069,6 +1205,186 @@
 
 
 
+    \begin{example}
+        Find an orthonormal eigenbasis for A =
+        $\begin{bmatrix}
+            1 & 1 & 1 \\
+            1 & 1 & 1 \\
+            1 & 1 & 1
+        \end{bmatrix}$
+    \end{example}
+
+    \begin{tbox}
+        0 = det($A - \lambda I_{3 \times 3}$) =
+        det(
+        \scriptsize
+        $\begin{bmatrix}
+            1-\lambda & 1 & 1 \\
+            1 & 1-\lambda & 1 \\
+            1 & 1 & 1-\lambda
+        \end{bmatrix}$
+        \normalsize)
+        = $-\lambda^3 + 3\lambda^2$
+        = $-\lambda^2(\lambda-3)$
+
+        Thus, the eigenvalues of A are $0,3$ where
+        almu(0) = 2 and almu(3) = 1.
+
+        Then, det(A) = $(-2)^12^13^1$ = -6.
+        Then, the eigenvalues for each eigenvalue:
+
+        \hspace{0.5cm}
+        For $\lambda$ = 0:
+        \hspace{0.5cm}
+        ker($A - 0I_{3 \times 3}$) =
+        ker(
+        \scriptsize
+        $\begin{bmatrix}
+            1 & 1 & 1 \\
+            1 & 1 & 1 \\
+            1 & 1 & 1
+        \end{bmatrix}$
+        \normalsize) =
+        \scriptsize
+        $x_2\begin{bmatrix}
+            -1 \\
+            1 \\
+            0
+        \end{bmatrix} +
+        x_3\begin{bmatrix}
+            -1 \\
+            0 \\
+            1
+        \end{bmatrix}$
+        \normalsize
+        \hspace{0.1cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        gemu(0) = 2
+
+        \hspace{0.5cm}
+        For $\lambda$ = 3:
+        \hspace{0.45cm}
+        ker($A - 3I_{3 \times 3}$) =
+        ker(
+        \scriptsize
+        $\begin{bmatrix}
+            -2 & 1 & 1 \\
+            1 & -2 & 1 \\
+            1 & 1 & -2
+        \end{bmatrix}$
+        \normalsize) =
+        \scriptsize
+        $x_3\begin{bmatrix}
+            1 \\
+            1 \\
+            1
+        \end{bmatrix}$
+        \normalsize
+        \hspace{1.2cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        gemu(3) = 1
+        
+        Then, $E_0$ = $(-1,1,0), (-1,0,1)$ + $e_3$ = $(1,1,1)$
+        form an eigenbasis for A.
+
+        To find an orthonormal eigenbasis, apply the Gram-Schmidt Process
+        to each eigenspace.
+
+        \hspace{0.5cm}
+        \scriptsize
+        $\begin{bmatrix}
+            -1 \\
+            1 \\
+            0
+        \end{bmatrix}$
+
+        \hspace{0.5cm}
+        $\begin{bmatrix}
+            -1 \\
+            0 \\
+            1
+        \end{bmatrix}
+        - \frac{1}{(-1)^2 + 1^2 + 0^2}
+        (\begin{bmatrix}
+            -1 \\
+            0 \\
+            1
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+            -1 \\
+            1 \\
+            0
+        \end{bmatrix})
+        \begin{bmatrix}
+            -1 \\
+            1 \\
+            0
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            -1 \\
+            0 \\
+            1
+        \end{bmatrix}
+        - \frac{1}{2}
+        \begin{bmatrix}
+            -1 \\
+            1 \\
+            0
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            -\frac{1}{2} \\
+            -\frac{1}{2} \\
+            1
+        \end{bmatrix}$
+        \normalsize
+
+        Thus,
+        $(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0),
+        (-\frac{1}{\sqrt{6}},-\frac{1}{\sqrt{6}},\frac{2}{\sqrt{6}}),
+        (\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})$
+        form an orthonormal eigenbasis for A where
+
+        B =
+        \scriptsize
+        $\begin{bmatrix}
+            -\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} \\
+            \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} \\
+            0 & \frac{2}{\sqrt{6}} & \frac{1}{\sqrt{3}}
+        \end{bmatrix}$
+        \normalsize
+        is orthogonal so $B^{-1}$ = $B^T$ such that:
+
+        \hspace{0.5cm}
+        \scriptsize
+        $\begin{bmatrix}
+            1 & 1 & 1 \\
+            1 & 1 & 1 \\
+            1 & 1 & 1 \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            -\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} \\
+            \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} \\
+            0 & \frac{2}{\sqrt{6}} & \frac{1}{\sqrt{3}}
+        \end{bmatrix}$ =
+        $\begin{bmatrix}
+            -\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} \\
+            \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} \\
+            0 & \frac{2}{\sqrt{6}} & \frac{1}{\sqrt{3}}
+        \end{bmatrix}
+        \begin{bmatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 3
+        \end{bmatrix}$
+        \normalsize
+    \end{tbox}
+
+    \newpage
+
+
+
 
 
 \subsection{ Quadratic Forms }
@@ -1165,10 +1481,17 @@
     \begin{wtheorem}{Eigenvalue Form of the Quadratic Form}{16cm}
         For f: $\mathbb{R}^n$ $\rightarrow$ $\mathbb{R}$,
         let f(x) = x $\cdot$ Ax. Then, there is an orthonormal eigenbasis
-        $v_1,...,v_n$ of A with eigenvalues $\lambda_1,...,\lambda_n$ such that:
+        $v_1,...,v_n$ for A with eigenvalues $\lambda_1,...,\lambda_n$ such that:
 
         \hspace{0.5cm}
         f(x) = $\lambda_1(x \cdot v_1)^2 + ... + \lambda_n(x \cdot v_n)^2$
+
+        For any x $\in$ $\mathbb{R}^n$
+        such that x = $c_1v_1 + ... + c_nv_n$ where each
+        $c_i$ = $(x \cdot v_i)$ $\in$ $\mathbb{R}$, then:
+
+        \hspace{0.5cm}
+        f(x) = $\lambda_1c_1^2 + ... + \lambda_nc_n^2$
     \end{wtheorem}
 
     \begin{proof}
@@ -1191,9 +1514,27 @@
 
         \hspace{1.3cm}
         = $\lambda_1(x \cdot v_1)^2 + ... + \lambda_n(x \cdot v_n)^2$
+
+        For x $\in$ $\mathbb{R}^n$,
+        since $v_1,...,v_n$ is an orthonormal basis,
+        by {\color{red} theorem 3.2.6}, then
+        
+        x = $c_1v_1 + ... + c_nv_n$ where each
+        $c_i$ = $(x \cdot v_i)$ $\in$ $\mathbb{R}$. Thus:
+
+        \hspace{0.5cm}
+        f(x)
+        = $\lambda_1(x \cdot v_1)^2 + ... + \lambda_n(x \cdot v_n)^2$
+
+        \hspace{1.3cm}
+        = $\lambda_1((c_1v_1 + ... + c_nv_n) \cdot v_1)^2
+            + ... + \lambda_n((c_1v_1 + ... + c_nv_n) \cdot v_n)^2$
+
+        \hspace{1.3cm}
+        = $\lambda_1c_1^2 + ... + \lambda_nc_n^2$
     \end{proof}
 
-    \vspace{0.5cm}
+    \newpage
 
 
 
@@ -1202,16 +1543,201 @@
         let f(x) = x $\cdot$ Ax. Then:
 
         \begin{enumerate}[label=(\alph*), leftmargin=1cm, itemsep=0.1cm]
-            \item f is {\color{lgreen} positive definiteness} if all
+            \item f is {\color{lgreen} positive definite} if all
                 eigenvalues of A are positive
 
-            \item f is {\color{lgreen} negative definiteness} if all
+            \item f is {\color{lgreen} negative definite} if all
                 eigenvalues of A are negative
 
             \item f is {\color{lgreen} indefinite} if there is at least one
                 positive and negative eigenvalue
         \end{enumerate}
     \end{definition}
+
+    \vspace{0.5cm}
+
+
+
+    \begin{example}
+        Find the shape of $-3x^2 - 4xy - 6y^2$ = -1.
+    \end{example}
+
+    \begin{tbox}
+        Since
+        $-3x^2 - 4xy - 6y^2$ = -1
+        \hspace{0.5cm}
+        $\Leftrightarrow$
+        \hspace{0.5cm}
+        \scriptsize
+        $\begin{bmatrix}
+            x \\
+            y
+        \end{bmatrix}
+        \cdot
+        \begin{bmatrix}
+            -3 & -4 \\
+            0 & -6
+        \end{bmatrix}
+        \begin{bmatrix}
+            x \\
+            y
+        \end{bmatrix}$
+        \normalsize
+        = -1,
+        then:
+
+        \hspace{0.5cm}
+        A =
+        \scriptsize
+        $\frac{1}{2}(\begin{bmatrix}
+            -3 & -4 \\
+            0 & -6
+        \end{bmatrix}^T +
+        \begin{bmatrix}
+            -3 & -4 \\
+            0 & -6
+        \end{bmatrix})$ =
+        $\begin{bmatrix}
+            -3 & -2 \\
+            -2 & -6
+        \end{bmatrix}$
+        \normalsize
+
+        Thus,
+        $-3x^2 - 4xy - 6y^2$ = -1
+        \hspace{0.5cm}
+        $\Leftrightarrow$
+        \hspace{0.5cm}
+        \scriptsize
+        $\begin{bmatrix}
+            x \\
+            y
+        \end{bmatrix}
+        \cdot
+        \begin{bmatrix}
+            -3 & -2 \\
+            -2 & -6
+        \end{bmatrix}
+        \begin{bmatrix}
+            x \\
+            y
+        \end{bmatrix}$
+        \normalsize
+        = -1.
+        To find an orthonormal eigenbasis:
+
+        \hspace{0.5cm}
+        0 =
+        det(
+        \scriptsize
+        $\begin{bmatrix}
+            -3-\lambda & -2 \\
+            -2 & -6-\lambda
+        \end{bmatrix}$
+        \normalsize)
+        = $\lambda^2 + 9\lambda + 14$
+        = $(\lambda+2)(\lambda+7)$
+
+        Thus, the eigenvalues for A are -2 and -7.
+
+        \hspace{0.5cm}
+        For $\lambda$ = -2:
+        \hspace{0.5cm}
+        ker($A + 2I_{2 \times 2}$) =
+        ker(
+        \scriptsize
+        $\begin{bmatrix}
+            -1 & -2 \\
+            -2 & -4
+        \end{bmatrix}$
+        \normalsize) =
+        \scriptsize
+        $y\begin{bmatrix}
+            -2 \\
+            1
+        \end{bmatrix}$
+        \normalsize
+
+        \hspace{0.5cm}
+        For $\lambda$ = -7:
+        \hspace{0.5cm}
+        ker($A + 7I_{2 \times 2}$) =
+        ker(
+        \scriptsize
+        $\begin{bmatrix}
+            4 & -2 \\
+            -2 & 1
+        \end{bmatrix}$
+        \normalsize) =
+        \scriptsize
+        $y\begin{bmatrix}
+            1 \\
+            2
+        \end{bmatrix}$
+        \normalsize
+
+        Thus,
+        $E_{-2} = (-\frac{2}{\sqrt{5}},\frac{1}{\sqrt{5}})
+        + E_{-7} = (\frac{1}{\sqrt{5}},\frac{2}{\sqrt{5}})$
+        form an orthonormal eigenbasis for A. Thus:
+
+        \hspace{0.5cm}
+        $-3x^2 - 4xy - 6y^2$ = -1
+        \hspace{0.5cm}
+        $\Leftrightarrow$
+        \hspace{0.5cm}
+        $-2c_1^2 + -7c_2^2$ = -1
+        \hspace{0.5cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        $2c_1^2 + 7c_2^2$ = 1
+        
+        Thus, $-3x^2 - 4xy - 6y^2$ = -1 is an ellipse
+        with vertices $(-\frac{1}{\sqrt{2}},0)$ and $(\frac{1}{\sqrt{2}},0)$
+        along the $(-\frac{2}{\sqrt{5}},\frac{1}{\sqrt{5}})$ axis and
+        $(0,-\frac{1}{\sqrt{7}})$ and $(0,\frac{1}{\sqrt{7}})$ along
+        the $(\frac{1}{\sqrt{5}},\frac{2}{\sqrt{5}})$ axis.
+        So, on the regular xy-plane, each vertice:
+
+        \hspace{0.5cm}
+        $(-\frac{1}{\sqrt{2}},0)$
+        \hspace{0.5cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        $(-\frac{1}{\sqrt{2}})(-\frac{2}{\sqrt{5}},\frac{1}{\sqrt{5}})
+            + (0)(\frac{1}{\sqrt{5}},\frac{2}{\sqrt{5}})$
+        = $(\frac{2}{\sqrt{10}},-\frac{1}{\sqrt{10}})$
+
+        \hspace{0.5cm}
+        $(\frac{1}{\sqrt{2}},0)$
+        \hspace{0.8cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        $(\frac{1}{\sqrt{2}})(-\frac{2}{\sqrt{5}},\frac{1}{\sqrt{5}})
+            + (0)(\frac{1}{\sqrt{5}},\frac{2}{\sqrt{5}})$
+        = $(-\frac{2}{\sqrt{10}},\frac{1}{\sqrt{10}})$
+
+        \hspace{0.5cm}
+        $(0,-\frac{1}{\sqrt{7}})$
+        \hspace{0.5cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        $(0)(-\frac{2}{\sqrt{5}},\frac{1}{\sqrt{5}})
+            + (-\frac{1}{\sqrt{7}})(\frac{1}{\sqrt{5}},\frac{2}{\sqrt{5}})$
+        = $(-\frac{1}{\sqrt{35}},-\frac{2}{\sqrt{35}})$
+
+        \hspace{0.5cm}
+        $(0,\frac{1}{\sqrt{7}})$
+        \hspace{0.8cm}
+        $\Rightarrow$
+        \hspace{0.5cm}
+        $(0)(-\frac{2}{\sqrt{5}},\frac{1}{\sqrt{5}})
+            + (\frac{1}{\sqrt{7}})(\frac{1}{\sqrt{5}},\frac{2}{\sqrt{5}})$
+        = $(\frac{1}{\sqrt{35}},\frac{2}{\sqrt{35}})$
+
+        Since the eigenvalues of A are all negative,
+        then $-3x^2 - 4xy - 6y^2$ = -1 is negative definite.
+    \end{tbox}
 
 
 
